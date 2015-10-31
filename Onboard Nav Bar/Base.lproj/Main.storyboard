@@ -111,6 +111,25 @@
             </objects>
             <point key="canvasLocation" x="522" y="49"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="4jF-Zk-FQ9">
+            <objects>
+                <viewController id="f7u-tS-bgg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rmg-2i-RLH"/>
+                        <viewControllerLayoutGuide type="bottom" id="ynb-Kj-mT3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XXf-VK-vuw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Q9w-WX-gdy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Yi-Dg-fRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="538" y="1148"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="Yty-q5-HcA">
             <objects>
@@ -170,6 +189,7 @@
                         <segue destination="Az7-Sv-iPA" kind="relationship" relationship="viewControllers" id="KGW-Ag-hZy"/>
                         <segue destination="Pg7-Tt-VhZ" kind="relationship" relationship="viewControllers" id="7YP-4e-Qbt"/>
                         <segue destination="A95-ZD-XFh" kind="relationship" relationship="viewControllers" id="yaY-F4-0rb"/>
+                        <segue destination="f7u-tS-bgg" kind="relationship" relationship="viewControllers" id="95e-No-Zyj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kdw-y0-M51" userLabel="First Responder" sceneMemberID="firstResponder"/>
