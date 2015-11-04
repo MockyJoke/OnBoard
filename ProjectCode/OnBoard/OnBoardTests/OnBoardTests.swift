@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import OnBoard
+/*@testable*/ import OnBoard
 
 class OnBoardTests: XCTestCase {
     
