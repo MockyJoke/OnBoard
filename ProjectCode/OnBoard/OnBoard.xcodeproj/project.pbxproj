@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */; };
-		C45C3C2A1BE9F7BA00174AC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C291BE9F7BA00174AC1 /* ViewController.swift */; };
 		C45C3C2D1BE9F7BA00174AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2B1BE9F7BA00174AC1 /* Main.storyboard */; };
 		C45C3C2F1BE9F7BA00174AC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2E1BE9F7BA00174AC1 /* Assets.xcassets */; };
 		C45C3C321BE9F7BA00174AC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C301BE9F7BA00174AC1 /* LaunchScreen.storyboard */; };
 		C45C3C3D1BE9F7BA00174AC1 /* OnBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C3C1BE9F7BA00174AC1 /* OnBoardTests.swift */; };
+		C45C3C491BE9FDA200174AC1 /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C481BE9FDA200174AC1 /* ProfileSetupViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C45C3C4D1BEA027E00174AC1 /* LocationSpecificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C4C1BEA027E00174AC1 /* LocationSpecificationViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C45C3C4F1BEA038500174AC1 /* SessionConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C4E1BEA038500174AC1 /* SessionConfirmationViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C45C3C511BEA05D100174AC1 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C501BEA05D100174AC1 /* StartupViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +31,6 @@
 /* Begin PBXFileReference section */
 		C45C3C241BE9F7BA00174AC1 /* OnBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C45C3C291BE9F7BA00174AC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C45C3C2C1BE9F7BA00174AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C45C3C2E1BE9F7BA00174AC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C45C3C311BE9F7BA00174AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +38,10 @@
 		C45C3C381BE9F7BA00174AC1 /* OnBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45C3C3C1BE9F7BA00174AC1 /* OnBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardTests.swift; sourceTree = "<group>"; };
 		C45C3C3E1BE9F7BA00174AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C45C3C481BE9FDA200174AC1 /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupViewController.swift; sourceTree = "<group>"; };
+		C45C3C4C1BEA027E00174AC1 /* LocationSpecificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSpecificationViewController.swift; sourceTree = "<group>"; };
+		C45C3C4E1BEA038500174AC1 /* SessionConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionConfirmationViewController.swift; sourceTree = "<group>"; };
+		C45C3C501BEA05D100174AC1 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +83,8 @@
 		C45C3C261BE9F7BA00174AC1 /* OnBoard */ = {
 			isa = PBXGroup;
 			children = (
+				C45C3C471BE9FC7100174AC1 /* ViewControllers */,
 				C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */,
-				C45C3C291BE9F7BA00174AC1 /* ViewController.swift */,
 				C45C3C2B1BE9F7BA00174AC1 /* Main.storyboard */,
 				C45C3C2E1BE9F7BA00174AC1 /* Assets.xcassets */,
 				C45C3C301BE9F7BA00174AC1 /* LaunchScreen.storyboard */,
@@ -94,6 +100,17 @@
 				C45C3C3E1BE9F7BA00174AC1 /* Info.plist */,
 			);
 			path = OnBoardTests;
+			sourceTree = "<group>";
+		};
+		C45C3C471BE9FC7100174AC1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C45C3C481BE9FDA200174AC1 /* ProfileSetupViewController.swift */,
+				C45C3C4C1BEA027E00174AC1 /* LocationSpecificationViewController.swift */,
+				C45C3C4E1BEA038500174AC1 /* SessionConfirmationViewController.swift */,
+				C45C3C501BEA05D100174AC1 /* StartupViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,8 +213,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C45C3C2A1BE9F7BA00174AC1 /* ViewController.swift in Sources */,
+				C45C3C4F1BEA038500174AC1 /* SessionConfirmationViewController.swift in Sources */,
+				C45C3C4D1BEA027E00174AC1 /* LocationSpecificationViewController.swift in Sources */,
+				C45C3C491BE9FDA200174AC1 /* ProfileSetupViewController.swift in Sources */,
 				C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */,
+				C45C3C511BEA05D100174AC1 /* StartupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
