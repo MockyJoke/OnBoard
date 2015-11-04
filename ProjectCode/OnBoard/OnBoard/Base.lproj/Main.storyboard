@@ -78,13 +78,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Confirmation Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu4-VO-BgI">
-                                <rect key="frame" x="20" y="72" width="206" height="21"/>
+                                <rect key="frame" x="20" y="72" width="209" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqN-w7-8Cc">
-                                <rect key="frame" x="229" y="550" width="143" height="30"/>
+                                <rect key="frame" x="229" y="550" width="145" height="30"/>
                                 <state key="normal" title="Begin Active Session"/>
                                 <connections>
                                     <segue destination="iLh-ql-2ll" kind="presentation" id="coy-Zy-Kv5"/>
@@ -254,7 +254,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ThA-ux-PiX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533" y="386"/>
+            <point key="canvasLocation" x="1602" y="386"/>
         </scene>
     </scenes>
 </document>
