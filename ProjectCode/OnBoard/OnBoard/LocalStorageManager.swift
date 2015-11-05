@@ -8,6 +8,9 @@
 
 import Foundation
 
+
+// A manager class provides basic fucntionality to read/write device's
+// local storage.
 class LocalStorageManager : NSObject {
     // Singleton object for the manager
     internal private(set) static var sharedInstance = LocalStorageManager()
@@ -18,13 +21,18 @@ class LocalStorageManager : NSObject {
     }
     
     // Saves a object into local storage
-    func SaveObject (key : String, dataObject : NSObject){
+    func SaveObject (key : String, dataObject : AnyObject){
         defaults.setValue(dataObject, forKey: key)
         defaults.synchronize()
     }
     
     // Loads a object from local storage
-    func LoadObject (key : String) -> NSObject? {
-        return defaults.stringForKey(key)
+    func LoadObject (key : String) -> AnyObject? {
+        return defaults.objectForKey(key)
+    }
+    
+    // Checks if a key exist
+    func IsKeyExist(key: String)-> Bool{
+        return defaults.objectForKey(key) == nil
     }
 }

@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 
+// A manager class helps reading data from the device's GPS sensor
 class CoreLocationManager: NSObject , CLLocationManagerDelegate{
     // Singleton object for the manager
     internal private(set) static var sharedInstance = CoreLocationManager()
