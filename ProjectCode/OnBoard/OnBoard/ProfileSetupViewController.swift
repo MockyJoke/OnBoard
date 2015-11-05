@@ -13,7 +13,7 @@ class ProfileSetupViewController: UIViewController , UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
     // TODO: Remove test code
     @IBAction func addUser(sender: UIBarButtonItem) {
-        UserManager.sharedInstance.CreateNewUser("John")
+        UserManager.sharedInstance.CreateNewUser("John",emergeName: "",emergPhone: "")
         tableView.reloadData()
     }
     override func viewDidLoad() {

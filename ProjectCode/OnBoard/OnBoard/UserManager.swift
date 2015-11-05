@@ -29,9 +29,9 @@ class UserManager : NSObject{
     }
     
     //Create a new User in the storage and returns the new User object
-    internal func CreateNewUser(name : String)-> User{
-        var newUser = User(name: name)
-        localUserDict[name] = newUser
+    internal func CreateNewUser(newName : String, emergeName : String , emergPhone : String)-> User{
+        var newUser = User(name: newName,emergencyName: emergeName ,emergencyPhone: emergPhone)
+        localUserDict[newName] = newUser
         Save()
         return newUser
     }
