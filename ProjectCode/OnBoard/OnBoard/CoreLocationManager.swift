@@ -13,11 +13,10 @@ class CoreLocationManager: NSObject , CLLocationManagerDelegate{
     // Singleton object for the manager
     internal private(set) static var sharedInstance = CoreLocationManager()
 
-    var locationManager : CLLocationManager = CLLocationManager()
+    private var locationManager : CLLocationManager = CLLocationManager()
 
     // Stores the most up to date location
     internal private(set) var latestLocation : CLLocation?
-
     var authStatus : CLAuthorizationStatus?
     
     override init() {
@@ -37,8 +36,4 @@ class CoreLocationManager: NSObject , CLLocationManagerDelegate{
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         latestLocation = locations.last as! CLLocation?
     }
-    
-    
-    
-    
 }
