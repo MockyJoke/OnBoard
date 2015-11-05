@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		541CFF471BEAC32200DEB2D3 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */; };
+		541CFF4C1BEAC8DD00DEB2D3 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */; };
 		C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */; };
 		C45C3C2D1BE9F7BA00174AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2B1BE9F7BA00174AC1 /* Main.storyboard */; };
 		C45C3C2F1BE9F7BA00174AC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2E1BE9F7BA00174AC1 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
 		C45C3C241BE9F7BA00174AC1 /* OnBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C45C3C2C1BE9F7BA00174AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,8 +67,17 @@
 		541CFF451BEAC18A00DEB2D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				541CFF4A1BEAC8C300DEB2D3 /* Utility */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		541CFF4A1BEAC8C300DEB2D3 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		C45C3C1B1BE9F7BA00174AC1 = {
@@ -170,6 +181,11 @@
 				TargetAttributes = {
 					C45C3C231BE9F7BA00174AC1 = {
 						CreatedOnToolsVersion = 7.0.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					C45C3C371BE9F7BA00174AC1 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -226,6 +242,7 @@
 				C45C3C491BE9FDA200174AC1 /* ProfileSetupViewController.swift in Sources */,
 				C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */,
 				C45C3C511BEA05D100174AC1 /* StartupViewController.swift in Sources */,
+				541CFF4C1BEAC8DD00DEB2D3 /* CoreLocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

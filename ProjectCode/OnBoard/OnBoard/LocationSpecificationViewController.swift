@@ -12,7 +12,9 @@ class LocationSpecificationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let location = CoreLocationManager.sharedInstance.latestLocation {
+            println("Lat: \(location.coordinate.latitude), Long: \(location.coordinate.longitude)")
+        }
         // Do any additional setup after loading the view.
     }
 
