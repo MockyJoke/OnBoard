@@ -23,5 +23,13 @@ class User : NSObject{
         Id = NSUUID().UUIDString
     }
     
+    init(coder aDecoder:NSCoder!){
+        self.Name=aDecoder.decodeObjectForKey("Name") as! String
+        self.Id=aDecoder.decodeObjectForKey("Id") as! String
+    }
     
+    func encodeWithCoder(aCoder:NSCoder!){
+        aCoder.encodeObject(Name,forKey:"Name")
+        aCoder.encodeObject(Id,forKey:"Id")
+    }
 }

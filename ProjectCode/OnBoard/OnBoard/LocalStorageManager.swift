@@ -22,13 +22,19 @@ class LocalStorageManager : NSObject {
     
     // Saves a object into local storage
     func SaveObject (key : String, dataObject : AnyObject){
-        defaults.setValue(dataObject, forKey: key)
+        var objectData = NSKeyedArchiver.archivedDataWithRootObject(dataObject)
+        defaults.setValue(objectData, forKey: key)
         defaults.synchronize()
     }
     
     // Loads a object from local storage
     func LoadObject (key : String) -> AnyObject? {
-        return defaults.objectForKey(key)
+        var objectData =  defaults.objectForKey(key) as? NSData
+        if let data=objectData{
+            return NSKeyedUnarchiver.unarchiveObjectWithData(data)
+        }else{
+            return objectData
+        }
     }
     
     // Checks if a key exist

@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        /*var defaults = NSUserDefaults.standardUserDefaults()
+        var objectData = NSKeyedArchiver.archivedDataWithRootObject(Ball())
+        defaults.setObject(objectData, forKey: "TEST_BALL")
+        defaults.synchronize()
+        var modelData = defaults.objectForKey("TEST_BALL") as! NSData
+        var b = NSKeyedUnarchiver.unarchiveObjectWithData(modelData) as! Ball
+        print(b.Name)*/
         return true
     }
 

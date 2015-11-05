@@ -40,6 +40,14 @@ class UserManager : NSObject{
         return localUserDict[name] as User?
     }
     
+    internal func GetUserCount() -> Int {
+        return localUserDict.count
+    }
+    
+    internal func GetUserArray()->Array<User>{
+        return Array(localUserDict.values)
+    }
+    
     private func Save(){
         LocalStorageManager.sharedInstance.SaveObject(USERLIST_KEY, dataObject: localUserDict)
     }

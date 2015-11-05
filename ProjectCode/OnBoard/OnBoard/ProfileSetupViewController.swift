@@ -8,8 +8,14 @@
 
 import UIKit
 
-class ProfileSetupViewController: UIViewController {
+class ProfileSetupViewController: UIViewController , UITableViewDataSource{
 
+    @IBOutlet weak var tableView: UITableView!
+    // TODO: Remove test code
+    @IBAction func addUser(sender: UIBarButtonItem) {
+        UserManager.sharedInstance.CreateNewUser("John")
+        tableView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +27,21 @@ class ProfileSetupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return UserManager.sharedInstance.GetUserCount()
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = UITableViewCell()
+        var userArray = UserManager.sharedInstance.GetUserArray()
+        cell.textLabel?.text =  userArray[indexPath.row].Name
+        return cell
+    }
+    
     /*
     // MARK: - Navigation
 
