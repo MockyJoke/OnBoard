@@ -35,8 +35,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2K-3j-30c">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="606"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="f2K-3j-30c">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
                             </imageView>
                             <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTz-j4-PDs">
                                 <rect key="frame" x="160" y="302" width="280" height="64"/>
@@ -105,7 +105,7 @@
                             <constraint firstItem="d9t-IU-ChB" firstAttribute="top" secondItem="UTz-j4-PDs" secondAttribute="bottom" constant="25" id="MVE-As-bn2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1JH-RC-HhU"/>
+                    <navigationItem key="navigationItem" title="OnBoard" id="1JH-RC-HhU"/>
                     <connections>
                         <outlet property="changeProfileButton" destination="d9t-IU-ChB" id="tEk-Xv-bRq"/>
                         <outlet property="prevSessionButton" destination="UTz-j4-PDs" id="DDj-or-FPZ"/>
@@ -308,4 +308,7 @@
             <point key="canvasLocation" x="873" y="404"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="2144" height="1424"/>
+    </resources>
 </document>
