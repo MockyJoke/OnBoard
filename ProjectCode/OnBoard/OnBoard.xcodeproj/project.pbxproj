@@ -12,6 +12,9 @@
 		541CFF501BEADF6900DEB2D3 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */; };
 		541CFF521BEAE38500DEB2D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF511BEAE38500DEB2D3 /* User.swift */; };
 		541CFF541BEAEADE00DEB2D3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF531BEAEADE00DEB2D3 /* UserManager.swift */; };
+		5476CDD91BEC1B06002A3D45 /* SkiResortDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476CDD81BEC1B06002A3D45 /* SkiResortDataManager.swift */; };
+		5476CDDC1BEC1B86002A3D45 /* SkiResort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476CDDB1BEC1B86002A3D45 /* SkiResort.swift */; };
+		5476CDDE1BEC2102002A3D45 /* SkiResortData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */; };
 		C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */; };
 		C45C3C2D1BE9F7BA00174AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2B1BE9F7BA00174AC1 /* Main.storyboard */; };
 		C45C3C2F1BE9F7BA00174AC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2E1BE9F7BA00174AC1 /* Assets.xcassets */; };
@@ -38,6 +41,9 @@
 		541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		541CFF511BEAE38500DEB2D3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		541CFF531BEAEADE00DEB2D3 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		5476CDD81BEC1B06002A3D45 /* SkiResortDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkiResortDataManager.swift; sourceTree = "<group>"; };
+		5476CDDB1BEC1B86002A3D45 /* SkiResort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkiResort.swift; sourceTree = "<group>"; };
+		5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkiResortData.plist; sourceTree = "<group>"; };
 		C45C3C241BE9F7BA00174AC1 /* OnBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C45C3C2C1BE9F7BA00174AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +79,7 @@
 		541CFF451BEAC18A00DEB2D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5476CDDA1BEC1B68002A3D45 /* SkiResortData */,
 				541CFF4E1BEADE9200DEB2D3 /* Storage */,
 				541CFF4D1BEADE8000DEB2D3 /* User */,
 				541CFF4A1BEAC8C300DEB2D3 /* Utility */,
@@ -105,6 +112,23 @@
 			name = Storage;
 			sourceTree = "<group>";
 		};
+		5476CDD31BEC0EB5002A3D45 /* AppResources */ = {
+			isa = PBXGroup;
+			children = (
+				5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */,
+			);
+			name = AppResources;
+			sourceTree = "<group>";
+		};
+		5476CDDA1BEC1B68002A3D45 /* SkiResortData */ = {
+			isa = PBXGroup;
+			children = (
+				5476CDD81BEC1B06002A3D45 /* SkiResortDataManager.swift */,
+				5476CDDB1BEC1B86002A3D45 /* SkiResort.swift */,
+			);
+			name = SkiResortData;
+			sourceTree = "<group>";
+		};
 		C45C3C1B1BE9F7BA00174AC1 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +150,7 @@
 		C45C3C261BE9F7BA00174AC1 /* OnBoard */ = {
 			isa = PBXGroup;
 			children = (
+				5476CDD31BEC0EB5002A3D45 /* AppResources */,
 				541CFF451BEAC18A00DEB2D3 /* Model */,
 				C45C3C471BE9FC7100174AC1 /* ViewControllers */,
 				C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */,
@@ -245,6 +270,7 @@
 				C45C3C2F1BE9F7BA00174AC1 /* Assets.xcassets in Resources */,
 				C45C3C2D1BE9F7BA00174AC1 /* Main.storyboard in Resources */,
 				541CFF471BEAC32200DEB2D3 /* Launch Screen.xib in Resources */,
+				5476CDDE1BEC2102002A3D45 /* SkiResortData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +290,8 @@
 			files = (
 				541CFF541BEAEADE00DEB2D3 /* UserManager.swift in Sources */,
 				C45C3C4F1BEA038500174AC1 /* SessionConfirmationViewController.swift in Sources */,
+				5476CDD91BEC1B06002A3D45 /* SkiResortDataManager.swift in Sources */,
+				5476CDDC1BEC1B86002A3D45 /* SkiResort.swift in Sources */,
 				C45C3C4D1BEA027E00174AC1 /* LocationSpecificationViewController.swift in Sources */,
 				C45C3C491BE9FDA200174AC1 /* ProfileSetupViewController.swift in Sources */,
 				C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */,
