@@ -7,9 +7,19 @@
 //
 
 import UIKit
+import CoreLocation
+import Darwin
 
 class LocationSpecificationViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBAction func pickClosestResort(sender: AnyObject) {
+        if let userLocation = CoreLocationManager.sharedInstance.latestLocation {
+            var index = SkiResortDataManager.sharedInstance.GetClosestResortIndex(userLocation)
+            var path = NSIndexPath (forRow : index, inSection : 0)
+            tableView.selectRowAtIndexPath(path, animated: true, scrollPosition: UITableViewScrollPosition.None)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         if let location = CoreLocationManager.sharedInstance.latestLocation {
@@ -23,7 +33,20 @@ class LocationSpecificationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return SkiResortDataManager.sharedInstance.SkiResortArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = UITableViewCell()
+        var userArray = UserManager.sharedInstance.GetUserArray()
+        cell.textLabel?.text =  SkiResortDataManager.sharedInstance.SkiResortArray[indexPath.row].Name
+        return cell
+    }
     /*
     // MARK: - Navigation
 

@@ -30,10 +30,20 @@ class User : NSObject{
     }
     
     init(coder aDecoder:NSCoder!){
-        self.Name=aDecoder.decodeObjectForKey("Name") as! String
-        self.Id=aDecoder.decodeObjectForKey("Id") as! String
-        self.EmergencyName=aDecoder.decodeObjectForKey("EmergencyName") as! String
-        self.EmergencyPhone=aDecoder.decodeObjectForKey("EmergencyPhone") as! String
+        self.Name = User.decodeHelper(coder: aDecoder,propertyName: "Name",defaultVal: "")
+        self.Id=User.decodeHelper(coder: aDecoder,propertyName: "Id",defaultVal: "")
+        self.EmergencyName=User.decodeHelper(coder: aDecoder,propertyName: "EmergencyName",defaultVal: "")
+        self.EmergencyPhone=User.decodeHelper(coder: aDecoder,propertyName: "EmergencyPhone",defaultVal: "")
+    }
+    
+    static func decodeHelper<T>(coder aDecoder:NSCoder!, propertyName : String, defaultVal: T) -> T{
+        var result : T
+        if let obj = aDecoder.decodeObjectForKey(propertyName) as? T {
+            result = obj
+        }else{
+            result = defaultVal
+        }
+        return result
     }
     
     func encodeWithCoder(aCoder:NSCoder!){

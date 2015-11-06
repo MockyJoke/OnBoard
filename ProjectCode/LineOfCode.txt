@@ -1,0 +1,1 @@
+find . \( -iname \*.m -o -iname \*.mm -o -iname \*.c -o -iname \*.cc -o -iname \*.h -o -iname \*.swift \) -exec wc -l '{}' \+

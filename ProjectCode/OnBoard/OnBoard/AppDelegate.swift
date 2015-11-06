@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var modelData = defaults.objectForKey("TEST_BALL") as! NSData
         var b = NSKeyedUnarchiver.unarchiveObjectWithData(modelData) as! Ball
         print(b.Name)*/
+        CoreLocationManager.sharedInstance.StartUpdate()
         for resort in SkiResortDataManager.sharedInstance.SkiResortArray{
             println(resort.Name)
         }

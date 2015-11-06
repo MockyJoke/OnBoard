@@ -28,6 +28,13 @@ class CoreLocationManager: NSObject , CLLocationManagerDelegate{
         self.authStatus = CLAuthorizationStatus.NotDetermined
     }
     
+    func StartUpdate(){
+        locationManager.startUpdatingLocation()
+    }
+    func StopUpdate(){
+        locationManager.stopUpdatingLocation()
+    }
+    
     // Update location authorization status
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         authStatus = status

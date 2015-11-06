@@ -29,4 +29,21 @@ class SkiResortDataManager : NSObject {
     static func GetDistanceBetweenLocations(location : CLLocation , otherLocation : CLLocation) -> Double{
         return location.distanceFromLocation(otherLocation)
     }
+    
+    func GetClosestResortIndex(location : CLLocation) -> Int{
+        var minIndex = 0
+        var minDistance = DBL_MAX
+        for var index = 0 ; index < SkiResortDataManager.sharedInstance.SkiResortArray.count ; ++index {
+            var distance = SkiResortDataManager.sharedInstance.SkiResortArray[index].GetDistanceFrom(location)
+            if distance < minDistance {
+                minDistance = distance
+                minIndex = index
+            }
+        }
+        return minIndex
+    }
+    func GetClosestResort(location : CLLocation)->SkiResort{
+        return SkiResortArray[GetClosestResortIndex(location)]
+    }
+    
 }
