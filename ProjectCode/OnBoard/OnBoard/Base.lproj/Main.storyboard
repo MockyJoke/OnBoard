@@ -34,7 +34,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="Ase-PL-tbt">
+                    <navigationItem key="navigationItem" title="Profile" id="Ase-PL-tbt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ytj-oe-PMc">
                             <connections>
                                 <segue destination="gho-lv-q4z" kind="show" id="VFS-76-bpc"/>
@@ -62,24 +62,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PB9-q1-Zdx">
-                                <rect key="frame" x="117" y="109" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PB9-q1-Zdx">
+                                <rect key="frame" x="150" y="84" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="A5m-39-mFD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gho-lv-q4z" id="y36-Wa-CrA"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0wa-4d-vDN">
-                                <rect key="frame" x="73" y="168" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0wa-4d-vDN">
+                                <rect key="frame" x="150" y="134" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="afU-Um-mbE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gho-lv-q4z" id="lv2-eb-6w8"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3U-82-cvf">
-                                <rect key="frame" x="82" y="235" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3U-82-cvf">
+                                <rect key="frame" x="150" y="184" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="NVF-lX-cqp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gho-lv-q4z" id="57f-9r-10g"/>
+                                </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHz-Wj-AyR">
+                                <rect key="frame" x="150" y="244" width="300" height="60"/>
+                                <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Mh0-2L-2LM"/>
+                                    <constraint firstAttribute="height" constant="60" id="fRT-9y-I0S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Add Profile">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addProfile:" destination="gho-lv-q4z" eventType="touchUpInside" id="eBs-jT-DJu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="0wa-4d-vDN" secondAttribute="centerX" id="21h-IU-zND"/>
+                            <constraint firstItem="PB9-q1-Zdx" firstAttribute="top" secondItem="v8x-4X-4Mv" secondAttribute="bottom" constant="20" id="5o4-wP-bWg"/>
+                            <constraint firstItem="w3U-82-cvf" firstAttribute="top" secondItem="0wa-4d-vDN" secondAttribute="bottom" constant="20" id="BMg-v4-CcJ"/>
+                            <constraint firstItem="0wa-4d-vDN" firstAttribute="top" secondItem="PB9-q1-Zdx" secondAttribute="bottom" constant="20" id="BQE-vp-f4F"/>
+                            <constraint firstAttribute="centerX" secondItem="qHz-Wj-AyR" secondAttribute="centerX" id="S27-mU-3Ow"/>
+                            <constraint firstAttribute="centerX" secondItem="PB9-q1-Zdx" secondAttribute="centerX" id="UpA-rw-2xp"/>
+                            <constraint firstItem="qHz-Wj-AyR" firstAttribute="top" secondItem="w3U-82-cvf" secondAttribute="bottom" constant="30" id="oyF-rV-a8I"/>
+                            <constraint firstAttribute="centerX" secondItem="w3U-82-cvf" secondAttribute="centerX" id="tag-F3-wXg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="qHz-Wj-AyR" id="8Pi-sG-5oJ"/>
+                        <outlet property="emergencyName" destination="0wa-4d-vDN" id="R0B-Ws-r2y"/>
+                        <outlet property="emergencyTel" destination="w3U-82-cvf" id="v98-p0-uGn"/>
+                        <outlet property="userName" destination="PB9-q1-Zdx" id="FpM-gh-cTl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zsa-I5-jKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -278,7 +327,7 @@
         <!--Trip-->
         <scene sceneID="43M-fJ-5eJ">
             <objects>
-                <viewController id="wZb-gh-TDW" sceneMemberID="viewController">
+                <viewController id="wZb-gh-TDW" customClass="TripViewController" customModule="OnBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EWI-0H-c8A"/>
                         <viewControllerLayoutGuide type="bottom" id="byK-ws-4u3"/>

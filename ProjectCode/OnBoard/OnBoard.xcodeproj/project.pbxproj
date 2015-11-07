@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		121078301BED788300D96B40 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1210782F1BED788300D96B40 /* CoreMotionManager.swift */; };
+		121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121078311BED7BDB00D96B40 /* Acceleration.swift */; };
+		12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */; };
+		12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */; };
 		3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */; };
 		541CFF471BEAC32200DEB2D3 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */; };
 		541CFF4C1BEAC8DD00DEB2D3 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */; };
@@ -42,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1210782F1BED788300D96B40 /* CoreMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMotionManager.swift; sourceTree = "<group>"; };
+		121078311BED7BDB00D96B40 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
+		12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
@@ -75,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,9 +98,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12ED59661BEE87C5007EBAC6 /* CoreMotion */ = {
+			isa = PBXGroup;
+			children = (
+				121078311BED7BDB00D96B40 /* Acceleration.swift */,
+			);
+			name = CoreMotion;
+			sourceTree = "<group>";
+		};
 		541CFF451BEAC18A00DEB2D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				12ED59661BEE87C5007EBAC6 /* CoreMotion */,
 				54765AE01BEE9BAA00EC49AF /* Session */,
 				5476CDDA1BEC1B68002A3D45 /* SkiResortData */,
 				541CFF4E1BEADE9200DEB2D3 /* Storage */,
@@ -104,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */,
+				1210782F1BED788300D96B40 /* CoreMotionManager.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -157,6 +177,7 @@
 		C45C3C1B1BE9F7BA00174AC1 = {
 			isa = PBXGroup;
 			children = (
+				12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */,
 				C45C3C261BE9F7BA00174AC1 /* OnBoard */,
 				C45C3C3B1BE9F7BA00174AC1 /* OnBoardTests */,
 				C45C3C251BE9F7BA00174AC1 /* Products */,
@@ -203,6 +224,7 @@
 				C45C3C4C1BEA027E00174AC1 /* LocationSpecificationViewController.swift */,
 				C45C3C4E1BEA038500174AC1 /* SessionConfirmationViewController.swift */,
 				C45C3C501BEA05D100174AC1 /* StartupViewController.swift */,
+				12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */,
 				3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */,
 			);
 			name = ViewControllers;
@@ -325,12 +347,15 @@
 				54765AE31BEE9BD000EC49AF /* Session.swift in Sources */,
 				C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */,
 				54765AEE1BEEA04E00EC49AF /* LocationSnapshot.swift in Sources */,
+				121078301BED788300D96B40 /* CoreMotionManager.swift in Sources */,
 				541CFF521BEAE38500DEB2D3 /* User.swift in Sources */,
+				12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */,
 				C45C3C511BEA05D100174AC1 /* StartupViewController.swift in Sources */,
 				541CFF4C1BEAC8DD00DEB2D3 /* CoreLocationManager.swift in Sources */,
 				54765AF01BEEA05E00EC49AF /* MotionSnapshot.swift in Sources */,
 				541CFF501BEADF6900DEB2D3 /* LocalStorageManager.swift in Sources */,
 				54765AEC1BEEA01200EC49AF /* SessionSnapshot.swift in Sources */,
+				121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

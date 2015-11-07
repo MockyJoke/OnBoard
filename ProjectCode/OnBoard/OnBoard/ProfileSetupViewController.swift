@@ -11,20 +11,20 @@ import UIKit
 class ProfileSetupViewController: UIViewController , UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
-    // TODO: Remove test code
-//    @IBAction func addUser(sender: UIBarButtonItem) {
-//        UserManager.sharedInstance.CreateNewUser("John",emergeName: "",emergPhone: "")
-//        tableView.reloadData()
-//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshTableData:", name: "refresh", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func refreshTableData(notification: NSNotification) {
+        tableView.reloadData()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
