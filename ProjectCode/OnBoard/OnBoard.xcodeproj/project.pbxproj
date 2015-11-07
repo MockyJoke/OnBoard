@@ -13,6 +13,8 @@
 		541CFF501BEADF6900DEB2D3 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */; };
 		541CFF521BEAE38500DEB2D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF511BEAE38500DEB2D3 /* User.swift */; };
 		541CFF541BEAEADE00DEB2D3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF531BEAEADE00DEB2D3 /* UserManager.swift */; };
+		54765AE31BEE9BD000EC49AF /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54765AE11BEE9BD000EC49AF /* Session.swift */; };
+		54765AE41BEE9BD000EC49AF /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54765AE21BEE9BD000EC49AF /* SessionManager.swift */; };
 		5476CDD91BEC1B06002A3D45 /* SkiResortDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476CDD81BEC1B06002A3D45 /* SkiResortDataManager.swift */; };
 		5476CDDC1BEC1B86002A3D45 /* SkiResort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476CDDB1BEC1B86002A3D45 /* SkiResort.swift */; };
 		5476CDDE1BEC2102002A3D45 /* SkiResortData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */; };
@@ -43,6 +45,8 @@
 		541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		541CFF511BEAE38500DEB2D3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		541CFF531BEAEADE00DEB2D3 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		54765AE11BEE9BD000EC49AF /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		54765AE21BEE9BD000EC49AF /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		5476CDD81BEC1B06002A3D45 /* SkiResortDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkiResortDataManager.swift; sourceTree = "<group>"; };
 		5476CDDB1BEC1B86002A3D45 /* SkiResort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkiResort.swift; sourceTree = "<group>"; };
 		5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkiResortData.plist; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 		541CFF451BEAC18A00DEB2D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54765AE01BEE9BAA00EC49AF /* Session */,
 				5476CDDA1BEC1B68002A3D45 /* SkiResortData */,
 				541CFF4E1BEADE9200DEB2D3 /* Storage */,
 				541CFF4D1BEADE8000DEB2D3 /* User */,
@@ -112,6 +117,15 @@
 				541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */,
 			);
 			name = Storage;
+			sourceTree = "<group>";
+		};
+		54765AE01BEE9BAA00EC49AF /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				54765AE11BEE9BD000EC49AF /* Session.swift */,
+				54765AE21BEE9BD000EC49AF /* SessionManager.swift */,
+			);
+			name = Session;
 			sourceTree = "<group>";
 		};
 		5476CDD31BEC0EB5002A3D45 /* AppResources */ = {
@@ -297,7 +311,9 @@
 				5476CDDC1BEC1B86002A3D45 /* SkiResort.swift in Sources */,
 				3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */,
 				C45C3C4D1BEA027E00174AC1 /* LocationSpecificationViewController.swift in Sources */,
+				54765AE41BEE9BD000EC49AF /* SessionManager.swift in Sources */,
 				C45C3C491BE9FDA200174AC1 /* ProfileSetupViewController.swift in Sources */,
+				54765AE31BEE9BD000EC49AF /* Session.swift in Sources */,
 				C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */,
 				541CFF521BEAE38500DEB2D3 /* User.swift in Sources */,
 				C45C3C511BEA05D100174AC1 /* StartupViewController.swift in Sources */,
