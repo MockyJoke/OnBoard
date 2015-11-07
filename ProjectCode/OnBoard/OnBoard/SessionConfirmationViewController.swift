@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import MapKit
 
 class SessionConfirmationViewController: UIViewController {
 
+    var selectedResort : SkiResort?
+    
+    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 

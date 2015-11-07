@@ -47,14 +47,19 @@ class LocationSpecificationViewController: UIViewController {
         cell.textLabel?.text =  SkiResortDataManager.sharedInstance.SkiResortArray[indexPath.row].Name
         return cell
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        var sessionConfirmationVC = segue.destinationViewController as! SessionConfirmationViewController
+        sessionConfirmationVC.selectedResort = nil
+        if let pathIndex = tableView.indexPathForSelectedRow() {
+            sessionConfirmationVC.selectedResort = SkiResortDataManager.sharedInstance.SkiResortArray[pathIndex.row]
+        }
     }
-    */
+    
 
 }
