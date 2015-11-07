@@ -54,6 +54,11 @@ class LocationSpecificationViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let backLabel = UIBarButtonItem()
+        backLabel.title = "Back"
+        navigationItem.backBarButtonItem = backLabel
+        
         var sessionConfirmationVC = segue.destinationViewController as! SessionConfirmationViewController
         sessionConfirmationVC.selectedResort = nil
         if let pathIndex = tableView.indexPathForSelectedRow() {

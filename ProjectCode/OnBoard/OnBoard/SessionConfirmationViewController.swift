@@ -14,8 +14,16 @@ class SessionConfirmationViewController: UIViewController {
     var selectedResort : SkiResort?
     
     @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Session Confirmation"
+        
+        var regionRadius : CLLocationDistance = 1000
+        if let resort = selectedResort {
+            mapView.setRegion(MKCoordinateRegionMakeWithDistance(resort.GetCoordinate2D(), regionRadius, regionRadius), animated: true)
+        }
         
         // Do any additional setup after loading the view.
     }
