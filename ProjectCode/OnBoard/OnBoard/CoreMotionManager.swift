@@ -19,7 +19,7 @@ class MotionManager : NSObject {
 
     
     private override init(){
-        motionManager.accelerometerUpdateInterval = 1
+        motionManager.accelerometerUpdateInterval = 0.01
     }
     
     func StartUpdate(){

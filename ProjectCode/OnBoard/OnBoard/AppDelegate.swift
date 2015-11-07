@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for resort in SkiResortDataManager.sharedInstance.SkiResortArray{
             println(resort.Name)
         }
+        MotionManager.sharedInstance.StartUpdate()
         return true
     }
 

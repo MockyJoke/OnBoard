@@ -18,6 +18,7 @@ class CoreLocationManager: NSObject , CLLocationManagerDelegate{
 
     // Stores the most up to date location
     internal private(set) var latestLocation : CLLocation?
+    internal private(set) var IsLocationAvail : Bool = false
     var authStatus : CLAuthorizationStatus?
     
     override init() {
@@ -42,6 +43,7 @@ class CoreLocationManager: NSObject , CLLocationManagerDelegate{
     
     // A new location is updated
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        IsLocationAvail = true
         latestLocation = locations.last as! CLLocation?
     }
 }
