@@ -21,5 +21,17 @@ class MotionManager : NSObject {
     private override init(){
         motionManager.accelerometerUpdateInterval = 1
     }
+    
+    func StartUpdate(){
+        motionManager.startAccelerometerUpdates()
+    }
+    
+    func StopUpdate(){
+        motionManager.stopAccelerometerUpdates()
+    }
+    
+    func GetCurrentAcceleration() -> CMAcceleration{
+        return motionManager.accelerometerData.acceleration
+    }
 }
 

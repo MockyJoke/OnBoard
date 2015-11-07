@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		121078301BED788300D96B40 /* CMMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1210782F1BED788300D96B40 /* CMMotionManager.swift */; };
+		121078301BED788300D96B40 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1210782F1BED788300D96B40 /* CoreMotionManager.swift */; };
 		121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121078311BED7BDB00D96B40 /* Acceleration.swift */; };
 		12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */; };
 		12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */; };
@@ -40,7 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1210782F1BED788300D96B40 /* CMMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMMotionManager.swift; sourceTree = "<group>"; };
+		1210782F1BED788300D96B40 /* CoreMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMotionManager.swift; sourceTree = "<group>"; };
 		121078311BED7BDB00D96B40 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
 		12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */,
-				1210782F1BED788300D96B40 /* CMMotionManager.swift */,
+				1210782F1BED788300D96B40 /* CoreMotionManager.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 				C45C3C4D1BEA027E00174AC1 /* LocationSpecificationViewController.swift in Sources */,
 				C45C3C491BE9FDA200174AC1 /* ProfileSetupViewController.swift in Sources */,
 				C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */,
-				121078301BED788300D96B40 /* CMMotionManager.swift in Sources */,
+				121078301BED788300D96B40 /* CoreMotionManager.swift in Sources */,
 				541CFF521BEAE38500DEB2D3 /* User.swift in Sources */,
 				12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */,
 				C45C3C511BEA05D100174AC1 /* StartupViewController.swift in Sources */,
