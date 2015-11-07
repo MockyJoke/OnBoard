@@ -20,7 +20,7 @@ class SessionConfirmationViewController: UIViewController {
         
         self.title = "Session Confirmation"
         
-        var regionRadius : CLLocationDistance = 1000
+        var regionRadius : CLLocationDistance = 10000
         if let resort = selectedResort {
             mapView.setRegion(MKCoordinateRegionMakeWithDistance(resort.GetCoordinate2D(), regionRadius, regionRadius), animated: true)
         }

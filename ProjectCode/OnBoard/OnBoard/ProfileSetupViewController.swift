@@ -12,10 +12,10 @@ class ProfileSetupViewController: UIViewController , UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
     // TODO: Remove test code
-    @IBAction func addUser(sender: UIBarButtonItem) {
-        UserManager.sharedInstance.CreateNewUser("John",emergeName: "",emergPhone: "")
-        tableView.reloadData()
-    }
+//    @IBAction func addUser(sender: UIBarButtonItem) {
+//        UserManager.sharedInstance.CreateNewUser("John",emergeName: "",emergPhone: "")
+//        tableView.reloadData()
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,5 +51,11 @@ class ProfileSetupViewController: UIViewController , UITableViewDataSource{
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        navigationItem.backBarButtonItem = backButton
+    }
 
 }

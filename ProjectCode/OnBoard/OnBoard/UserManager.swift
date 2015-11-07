@@ -11,6 +11,7 @@ import Foundation
 class UserManager : NSObject{
     let USERLIST_KEY = "USERLIST"
     internal private(set) static var sharedInstance = UserManager()
+    internal private(set) var currentUser : User?
     private var localUserDict : [String:User]
 
     private override init(){
