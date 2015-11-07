@@ -327,7 +327,7 @@
         <!--Trip-->
         <scene sceneID="43M-fJ-5eJ">
             <objects>
-                <viewController id="wZb-gh-TDW" sceneMemberID="viewController">
+                <viewController id="wZb-gh-TDW" customClass="TripViewController" customModule="OnBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EWI-0H-c8A"/>
                         <viewControllerLayoutGuide type="bottom" id="byK-ws-4u3"/>
