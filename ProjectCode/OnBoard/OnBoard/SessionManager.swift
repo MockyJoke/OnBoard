@@ -14,4 +14,26 @@ class SessionManager : NSObject{
     internal private(set) static var sharedInstance = SessionManager()
     var CurrentSession : Session?
     
+    private override init(){
+        
+    }
+    
+    func CreateNewCurrentSession() -> Session{
+        var newSession = Session()
+        CurrentSession = newSession
+        return newSession
+    }
+    
+    func StartCurrentSession(){
+        if let session = CurrentSession{
+            session.StartSession()
+        }
+    }
+    
+    func EndCurrentSession(){
+        if let session = CurrentSession{
+            session.EndSession()
+        }
+    }
+    
 }

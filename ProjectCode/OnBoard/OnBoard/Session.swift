@@ -33,7 +33,7 @@ class Session : NSObject{
         EndTime = NSDate();
     }
     
-    //
+    // Get how many seconds since the session started
     func GetDuration() -> NSTimeInterval{
         if ( IsStarted && IsEnded){
             return EndTime!.timeIntervalSinceDate(StartTime!)
@@ -42,5 +42,9 @@ class Session : NSObject{
         }else{
             return 0;
         }
+    }
+    
+    func RecordSnapShot(){
+        
     }
 }
