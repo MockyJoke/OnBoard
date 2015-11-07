@@ -34,4 +34,8 @@ struct SkiResort{
         var resortLocation = CLLocation(latitude: Lat,longitude: Lon)
         return resortLocation.distanceFromLocation(otherLocation)
     }
+    
+    func GetCoordinate2D() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: Lat, longitude: Lon)
+    }
 }
