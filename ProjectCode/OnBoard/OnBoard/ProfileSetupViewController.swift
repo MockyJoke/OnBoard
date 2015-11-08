@@ -15,6 +15,7 @@ class ProfileSetupViewController: UIViewController , UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Receives signal to refresh page
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshTableData:", name: "refresh", object: nil)
     }
 
@@ -23,6 +24,7 @@ class ProfileSetupViewController: UIViewController , UITableViewDataSource{
         // Dispose of any resources that can be recreated.
     }
     
+    // Refreshes table to display newly added users when signal is received
     func refreshTableData(notification: NSNotification) {
         tableView.reloadData()
     }

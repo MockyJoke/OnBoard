@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import Darwin
 
-class LocationSpecificationViewController: UIViewController {
+class LocationSpecificationViewController: UIViewController,UITableViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     @IBAction func pickClosestResort(sender: AnyObject) {

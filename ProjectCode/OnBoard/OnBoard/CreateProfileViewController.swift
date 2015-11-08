@@ -18,6 +18,7 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addProfile(sender: AnyObject) {
         UserManager.sharedInstance.CreateNewUser(userName.text, emergeName: emergencyName.text, emergPhone: emergencyTel.text)
         
+        // Send signal for ProfileSetup view controller to refresh table
         NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
         navigationController?.popViewControllerAnimated(true)
     }
