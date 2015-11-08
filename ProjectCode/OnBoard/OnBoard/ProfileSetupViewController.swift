@@ -44,6 +44,18 @@ class ProfileSetupViewController: UIViewController , UITableViewDataSource{
         return cell
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            var userArray = UserManager.sharedInstance.GetUserArray()
+            
+            UserManager.sharedInstance.DeleteUserByName(userArray[indexPath.row].Name)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    
+
+    
     /*
     // MARK: - Navigation
 
