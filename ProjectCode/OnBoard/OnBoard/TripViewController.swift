@@ -30,6 +30,7 @@ class TripViewController: UIViewController {
     }
     
     func update(){
+        outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         
     }
     
@@ -158,22 +159,7 @@ class TripViewController: UIViewController {
     
     
     
-    //Implementing a timer (to call outputAccelerationData, but also can double as a stopwatch display)
-    
-    var timer = NSTimer()
-    var counter = 0
-    
-    @IBOutlet weak var timerlabel: UILabel!
-    
-    @IBAction func startTimer(sender: AnyObject)
-    {
-        
-    }
-    
-    @IBAction func stopTimer(sender: AnyObject)
-    {
-        
-    }
+  
     
     
     //start recording
