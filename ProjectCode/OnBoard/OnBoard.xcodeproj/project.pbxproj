@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
 		121078301BED788300D96B40 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1210782F1BED788300D96B40 /* CoreMotionManager.swift */; };
 		121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121078311BED7BDB00D96B40 /* Acceleration.swift */; };
 		12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */; };

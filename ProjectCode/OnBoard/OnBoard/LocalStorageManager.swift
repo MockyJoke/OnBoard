@@ -42,3 +42,24 @@ class LocalStorageManager : NSObject {
         return defaults.objectForKey(key) == nil
     }
 }
+
+class StorableObject : NSObject, NSCoding{
+    static func decodeHelper<T>(coder aDecoder:NSCoder!, propertyName : String, defaultVal: T) -> T{
+        var result : T
+        if let obj = aDecoder.decodeObjectForKey(propertyName) as? T {
+            result = obj
+        }else{
+            result = defaultVal
+        }
+        return result
+    }
+    override init(){
+        
+    }
+    required init(coder aDecoder:NSCoder){
+        
+    }
+    func encodeWithCoder(aCoder:NSCoder){
+        preconditionFailure("Method not overrided")
+    }
+}

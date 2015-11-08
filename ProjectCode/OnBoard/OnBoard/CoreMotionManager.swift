@@ -13,10 +13,6 @@ class MotionManager : NSObject {
     internal private(set) static var sharedInstance = MotionManager()
     
     private var motionManager = CMMotionManager()
-    //internal private(set) var motionArray : [velocityPerSecond]
-
-    //internal private(set) var speedArray: [distancePerSecond]
-
     
     private override init(){
         motionManager.accelerometerUpdateInterval = 0.01
@@ -31,7 +27,9 @@ class MotionManager : NSObject {
     }
     
     func GetCurrentAcceleration() -> CMAcceleration{
-        return motionManager.accelerometerData.acceleration
+        let rand = Double(arc4random_uniform(6) - 3)
+        return CMAcceleration(x: rand,y: 1,z: 1)
+        //return motionManager.accelerometerData.acceleration
     }
 }
 
