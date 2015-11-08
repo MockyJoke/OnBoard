@@ -28,6 +28,7 @@
 		5476CDDC1BEC1B86002A3D45 /* SkiResort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476CDDB1BEC1B86002A3D45 /* SkiResort.swift */; };
 		5476CDDE1BEC2102002A3D45 /* SkiResortData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */; };
 		54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247AD1BF00530000116D2 /* StatusGraphView.swift */; };
+		54B247B41BF018E7000116D2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247B31BF018E7000116D2 /* Queue.swift */; };
 		C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */; };
 		C45C3C2D1BE9F7BA00174AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2B1BE9F7BA00174AC1 /* Main.storyboard */; };
 		C45C3C2F1BE9F7BA00174AC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2E1BE9F7BA00174AC1 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		5476CDDB1BEC1B86002A3D45 /* SkiResort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkiResort.swift; sourceTree = "<group>"; };
 		5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkiResortData.plist; sourceTree = "<group>"; };
 		54B247AD1BF00530000116D2 /* StatusGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusGraphView.swift; sourceTree = "<group>"; };
+		54B247B31BF018E7000116D2 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		C45C3C241BE9F7BA00174AC1 /* OnBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C45C3C2C1BE9F7BA00174AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		541CFF451BEAC18A00DEB2D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54B247B21BF018DA000116D2 /* Container */,
 				12ED59661BEE87C5007EBAC6 /* CoreMotion */,
 				54765AE01BEE9BAA00EC49AF /* Session */,
 				5476CDDA1BEC1B68002A3D45 /* SkiResortData */,
@@ -194,6 +197,14 @@
 				54B247AD1BF00530000116D2 /* StatusGraphView.swift */,
 			);
 			name = Graph;
+			sourceTree = "<group>";
+		};
+		54B247B21BF018DA000116D2 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				54B247B31BF018E7000116D2 /* Queue.swift */,
+			);
+			name = Container;
 			sourceTree = "<group>";
 		};
 		C45C3C1B1BE9F7BA00174AC1 = {
@@ -383,6 +394,7 @@
 				54765AEC1BEEA01200EC49AF /* SessionSnapshot.swift in Sources */,
 				121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */,
 				54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */,
+				54B247B41BF018E7000116D2 /* Queue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
