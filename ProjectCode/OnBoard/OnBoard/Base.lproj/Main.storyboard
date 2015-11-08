@@ -434,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8g-Xp-Eex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3043" y="1806"/>
+            <point key="canvasLocation" x="3831" y="1151"/>
         </scene>
         <!--Trip-->
         <scene sceneID="43M-fJ-5eJ">
@@ -467,7 +467,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="wZb-gh-TDW" kind="relationship" relationship="viewControllers" id="HkS-oN-VRv"/>
-                        <segue destination="rz3-GM-MAF" kind="relationship" relationship="viewControllers" id="6g1-0Q-wPj"/>
                         <segue destination="Jh0-VC-lEI" kind="relationship" relationship="viewControllers" id="gbt-41-2tQ"/>
                         <segue destination="o86-if-mQy" kind="relationship" relationship="viewControllers" id="UPj-pF-8fG"/>
                     </connections>
