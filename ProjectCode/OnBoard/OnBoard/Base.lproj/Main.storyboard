@@ -27,11 +27,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3RS-fc-Yk8" secondAttribute="bottom" id="IgJ-jm-uSQ"/>
-                            <constraint firstAttribute="trailing" secondItem="3RS-fc-Yk8" secondAttribute="trailing" id="NEJ-vn-UfI"/>
-                            <constraint firstItem="3RS-fc-Yk8" firstAttribute="leading" secondItem="xI9-yr-525" secondAttribute="leading" id="bp3-ri-gw1"/>
-                            <constraint firstItem="3RS-fc-Yk8" firstAttribute="top" secondItem="xI9-yr-525" secondAttribute="top" constant="20" symbolic="YES" id="bpz-5g-p15"/>
+                            <constraint firstItem="3RS-fc-Yk8" firstAttribute="top" secondItem="Xry-Rj-8tY" secondAttribute="bottom" constant="-44" id="k3p-RU-REN"/>
+                            <constraint firstAttribute="bottom" secondItem="3RS-fc-Yk8" secondAttribute="bottom" id="nFs-hC-kLC"/>
+                            <constraint firstItem="3RS-fc-Yk8" firstAttribute="top" secondItem="xI9-yr-525" secondAttribute="top" constant="20" symbolic="YES" id="rZ5-BO-9Da"/>
+                            <constraint firstAttribute="trailing" secondItem="3RS-fc-Yk8" secondAttribute="trailing" id="vMd-Oz-SIh"/>
+                            <constraint firstItem="3RS-fc-Yk8" firstAttribute="leading" secondItem="xI9-yr-525" secondAttribute="leading" id="zMD-8k-1Zb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="rZ5-BO-9Da"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Profile" id="Ase-PL-tbt">
@@ -447,15 +453,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-kT-lFh">
-                                <rect key="frame" x="229" y="550" width="143" height="30"/>
-                                <state key="normal" title="Choose Location"/>
-                                <connections>
-                                    <segue destination="T5B-0o-z1r" kind="show" id="Zda-pd-DU4"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8p-Y5-h4d">
-                                <rect key="frame" x="448" y="409" width="101" height="30"/>
+                                <rect key="frame" x="483" y="411" width="101" height="30"/>
                                 <state key="normal" title="Select Nearest">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -464,31 +463,43 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ski Resorts:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbl-kc-IfY">
-                                <rect key="frame" x="51" y="72" width="93" height="21"/>
+                                <rect key="frame" x="16" y="72" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-qw-zaB">
-                                <rect key="frame" x="51" y="101" width="498" height="300"/>
+                                <rect key="frame" x="0.0" y="101" width="600" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="JNy-78-KwM"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="qHf-86-uT7" id="JvJ-9f-ulF"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-kT-lFh">
+                                <rect key="frame" x="212" y="541" width="176" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TeZ-hm-vgf"/>
+                                    <constraint firstAttribute="width" constant="176" id="Wwv-W5-PVq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Choose Location"/>
+                                <connections>
+                                    <segue destination="T5B-0o-z1r" kind="show" id="Zda-pd-DU4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="E8p-Y5-h4d" firstAttribute="trailing" secondItem="M7w-qw-zaB" secondAttribute="trailing" id="5LR-03-Zej"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="M7w-qw-zaB" secondAttribute="trailing" constant="35" id="7KV-w6-bAX"/>
-                            <constraint firstItem="M7w-qw-zaB" firstAttribute="top" secondItem="zbl-kc-IfY" secondAttribute="bottom" constant="8" symbolic="YES" id="AoW-9T-Ulr"/>
-                            <constraint firstItem="M7w-qw-zaB" firstAttribute="leading" secondItem="jdo-hU-YGU" secondAttribute="leadingMargin" constant="35" id="bOQ-fb-cRd"/>
-                            <constraint firstItem="E8p-Y5-h4d" firstAttribute="top" secondItem="M7w-qw-zaB" secondAttribute="bottom" constant="8" symbolic="YES" id="cxj-Gp-OFH"/>
+                            <constraint firstItem="C5L-kT-lFh" firstAttribute="top" secondItem="M7w-qw-zaB" secondAttribute="bottom" constant="140" id="O6s-N8-Aa1"/>
+                            <constraint firstItem="E8p-Y5-h4d" firstAttribute="top" secondItem="M7w-qw-zaB" secondAttribute="bottom" constant="10" id="SWu-z8-2MW"/>
+                            <constraint firstItem="zbl-kc-IfY" firstAttribute="leading" secondItem="jdo-hU-YGU" secondAttribute="leadingMargin" id="Up6-cM-2J5"/>
+                            <constraint firstItem="E8p-Y5-h4d" firstAttribute="trailing" secondItem="jdo-hU-YGU" secondAttribute="trailingMargin" id="Zny-8f-1qH"/>
                             <constraint firstItem="zbl-kc-IfY" firstAttribute="top" secondItem="s8U-YA-qlY" secondAttribute="bottom" constant="8" symbolic="YES" id="dgW-YK-9jo"/>
-                            <constraint firstItem="zbl-kc-IfY" firstAttribute="leading" secondItem="M7w-qw-zaB" secondAttribute="leading" id="f6D-bn-jLL"/>
+                            <constraint firstItem="zzw-VX-5D9" firstAttribute="top" secondItem="M7w-qw-zaB" secondAttribute="bottom" constant="199" id="h8Z-b4-nbQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M7w-qw-zaB" secondAttribute="trailing" constant="-16" id="hwv-2x-iSb"/>
+                            <constraint firstAttribute="centerX" secondItem="C5L-kT-lFh" secondAttribute="centerX" constant="-0.5" id="mWG-8t-NJ2"/>
+                            <constraint firstItem="M7w-qw-zaB" firstAttribute="leading" secondItem="jdo-hU-YGU" secondAttribute="leadingMargin" constant="-16" id="svS-jT-815"/>
+                            <constraint firstItem="M7w-qw-zaB" firstAttribute="top" secondItem="s8U-YA-qlY" secondAttribute="bottom" constant="37" id="yaC-Qg-I26"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Location" id="dOV-P5-ztT"/>
