@@ -23,20 +23,6 @@ class TripViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
-    
-    
     //Instance Variables
     
     var currentMaxAccelerationX : Double = 0.00
@@ -51,21 +37,26 @@ class TripViewController: UIViewController {
     
     //Outlets
     
-    @IBOutlet var AccelerationX : UILabel?
-    @IBOutlet var AccelerationY : UILabel?
-    @IBOutlet var AccelerationZ : UILabel?
+    @IBOutlet weak var AccelerationX: UILabel!
+    @IBOutlet weak var AccelerationY: UILabel!
+    @IBOutlet weak var AccelerationZ: UILabel!
+    
+    /* Max values, should move to Statistics page (after active session)
+    @IBOutlet var MaxAccelerationX : UILabel?
+    @IBOutlet var MaxAccelerationY : UILabel?
+    @IBOutlet var MaxAccelerationZ : UILabel?
+    */
+    
+    /* gyroscope data display
     
     @IBOutlet var RotationX : UILabel?
     @IBOutlet var RotationY : UILabel?
     @IBOutlet var RotationZ : UILabel?
     
-    @IBOutlet var MaxAccelerationX : UILabel?
-    @IBOutlet var MaxAccelerationY : UILabel?
-    @IBOutlet var MaxAccelerationZ : UILabel?
-    
     @IBOutlet var MaxRotationX : UILabel?
     @IBOutlet var MaxRotationY : UILabel?
     @IBOutlet var MaxRotationZ : UILabel?
+    */
     
     //Functions
     
@@ -94,31 +85,56 @@ class TripViewController: UIViewController {
          println(MotionManager.sharedInstance.GetCurrentAcceleration().z)
     }
     
-        func outputAccelerationData(acceleration: CMAcceleration) {
-            AccelerationX?.text = "\(acceleration.x)1fg"
+    
+    func outputAccelerationData(acceleration :CMAcceleration)
+    {
+        AccelerationX.text = "\(acceleration.x)"
             
-            if fabs(acceleration.x) > fabs(currentMaxAccelerationX){
+        if fabs(acceleration.x) > fabs(currentMaxAccelerationX)
+        {
                 
-                currentMaxAccelerationX = acceleration.x
-            }
+            currentMaxAccelerationX = acceleration.x
+        }
             
             
-            AccelerationY?.text = "\(acceleration.x)1fg"
+            AccelerationY.text = "\(acceleration.x)"
             
-            if fabs(acceleration.y) > fabs(currentMaxAccelerationY){
+        if fabs(acceleration.y) > fabs(currentMaxAccelerationY)
+        {
                 
-                currentMaxAccelerationX = acceleration.x
-            }
+            currentMaxAccelerationX = acceleration.x
+        }
             
-            AccelerationZ?.text = "\(acceleration.z)1fg"
+        AccelerationZ.text = "\(acceleration.z)"
             
-            if fabs(acceleration.x) > fabs(currentMaxAccelerationZ){
+        if fabs(acceleration.x) > fabs(currentMaxAccelerationZ)
+        {
                 
-                currentMaxAccelerationZ = acceleration.z
-            }
+            currentMaxAccelerationZ = acceleration.z
+        }
     }
     
-        //start recording
+    
+    
+    //Implementing a timer (to call outputAccelerationData, but also can double as a stopwatch display)
+    
+    var timer = NSTimer()
+    var counter = 0
+    
+    @IBOutlet weak var timerlabel: UILabel!
+    
+    @IBAction func startTimer(sender: AnyObject)
+    {
+        
+    }
+    
+    @IBAction func stopTimer(sender: AnyObject)
+    {
+        
+    }
+   
+    
+    //start recording
         //motionBegan(motion: UIEventSubtype, withEvent: UIEvent)
         
       /*
