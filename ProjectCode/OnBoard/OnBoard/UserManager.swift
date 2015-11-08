@@ -37,6 +37,17 @@ class UserManager : NSObject{
         return newUser
     }
     
+    // Removes a user from the storage, retunrs if the deletion is successful
+    internal func DeleteUserByName(name : String)->Bool{
+        if let user = GetUserByName(name){
+            localUserDict.removeValueForKey(user.Name)
+            Save()
+            return true
+        }else{
+            return false
+        }
+    }
+    
     internal func GetUserByName(name: String) -> User?{
         return localUserDict[name] as User?
     }
