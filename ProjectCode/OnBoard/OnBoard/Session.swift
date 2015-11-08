@@ -14,7 +14,6 @@ class Session : StorableObject{
     internal private(set) var IsStarted : Bool
     internal private(set) var IsEnded : Bool
     internal private(set) var SnapshotArray : [SessionSnapshot]?
-    var s:NSCoding
     override init(){
         IsStarted = false
         IsEnded = false
@@ -62,6 +61,6 @@ class Session : StorableObject{
         if(SnapshotArray == nil){
             SnapshotArray = Array<SessionSnapshot>();
         }
-        SnapshotArray!.append(SessionSnapshot.GetCurrentSnapshot())
+        //SnapshotArray!.append(SessionSnapshot.GetCurrentSnapshot())
     }
 }

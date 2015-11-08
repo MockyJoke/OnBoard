@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YBz-RE-KyU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YBz-RE-KyU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -357,7 +357,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Group" id="uuv-VA-zhQ"/>
+                    <tabBarItem key="tabBarItem" title="Group" image="group" id="uuv-VA-zhQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y25-V5-WmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -376,7 +376,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="KPo-4G-j15"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Map" id="KPo-4G-j15"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMY-Ve-kQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -395,7 +395,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Status" id="N1N-pg-m4a"/>
+                    <tabBarItem key="tabBarItem" title="Status" image="Status" id="N1N-pg-m4a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8g-Xp-Eex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -414,7 +414,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Trip" id="p2g-me-TLV"/>
+                    <tabBarItem key="tabBarItem" title="Trip" image="Trip" id="p2g-me-TLV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmN-pq-UR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -468,13 +468,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-qw-zaB">
-                                <rect key="frame" x="0.0" y="101" width="600" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="qHf-86-uT7" id="JvJ-9f-ulF"/>
-                                </connections>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-kT-lFh">
                                 <rect key="frame" x="212" y="541" width="176" height="30"/>
                                 <constraints>
@@ -487,6 +480,13 @@
                                     <segue destination="T5B-0o-z1r" kind="show" id="Zda-pd-DU4"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-qw-zaB">
+                                <rect key="frame" x="0.0" y="101" width="600" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qHf-86-uT7" id="JvJ-9f-ulF"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -531,6 +531,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Map" width="24" height="24"/>
         <image name="Mountain" width="300" height="333"/>
+        <image name="Status" width="24" height="24"/>
+        <image name="Trip" width="24" height="24"/>
+        <image name="group" width="24" height="24"/>
     </resources>
 </document>
