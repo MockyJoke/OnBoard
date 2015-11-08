@@ -398,19 +398,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 12 : 32" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mU2-wN-ikk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00 : 12 : 32" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mU2-wN-ikk">
                                 <rect key="frame" x="16" y="281" width="568" height="148"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="99"/>
                                 <color key="textColor" red="0.1098039299249649" green="0.60784316062927246" blue="0.89019614458084106" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-h5-xWF">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-h5-xWF">
                                 <rect key="frame" x="118" y="424" width="64" height="64"/>
                                 <state key="normal" image="Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYa-xW-PiC">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYa-xW-PiC">
                                 <rect key="frame" x="418" y="424" width="64" height="64"/>
                                 <inset key="imageEdgeInsets" minX="4" minY="4" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="Stop">
@@ -447,9 +447,24 @@
                     <view key="view" contentMode="scaleToFill" id="wRA-Q7-4gM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-UL-ZaM">
+                                <rect key="frame" x="16" y="20" width="568" height="208"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U2e-UL-ZaM" firstAttribute="top" secondItem="wRA-Q7-4gM" secondAttribute="topMargin" constant="20" id="QDe-Q5-6Rs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U2e-UL-ZaM" secondAttribute="trailing" id="WqH-w3-ngB"/>
+                            <constraint firstItem="U2e-UL-ZaM" firstAttribute="leading" secondItem="wRA-Q7-4gM" secondAttribute="leadingMargin" id="eEP-yO-lTY"/>
+                            <constraint firstItem="U2e-UL-ZaM" firstAttribute="bottom" secondItem="byK-ws-4u3" secondAttribute="top" multiplier="0.4" constant="8" symbolic="YES" id="vnN-ID-3ab"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trip" image="Trip" id="p2g-me-TLV"/>
+                    <connections>
+                        <outlet property="graphZoneView" destination="U2e-UL-ZaM" id="U8A-A5-RA5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmN-pq-UR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
