@@ -12,45 +12,17 @@ import CoreMotion
 
 class TripViewController: UIViewController {
 
-    @IBOutlet weak var graphZoneView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-            }
+        print()
+        // Do any additional setup after loading the view.
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidLayoutSubviews() {
-        PlotGraph()
-    }
-    
-    func PlotGraph(){
-        let myData = [
-            ["label" : "Mon",   "value" : NSNumber(int:15)],
-            ["label" : "Tues",  "value" : NSNumber(int:30)],
-            ["label" : "Weds",  "value" : NSNumber(int:7)],
-            ["label" : "Thurs", "value" : NSNumber(int:60)],
-            ["label" : "Fri",   "value" : NSNumber(int:30)],
-            ["label" : "Sat",   "value" : NSNumber(int:15)],
-            ["label" : "Sun",   "value" : NSNumber(int:45)],
-            ] as NSArray
-        // Do any additional setup after loading the view.
-        
-        var x = graphZoneView.frame.width * 0.05;
-        var y = graphZoneView.frame.height * 0.05;
-        var width = graphZoneView.frame.width * 0.9
-        var height = graphZoneView.frame.height * 0.9
-        
-        let graph = StatusGraphView(frame: CGRectMake(x,y,width,height), data: myData)
-        for view in graphZoneView.subviews {
-            view.removeFromSuperview()
-        }
-        graphZoneView.addSubview(graph)
-
-    }
 
     /*
     // MARK: - Navigation
