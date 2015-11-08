@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--ProfileSetup-->
@@ -212,27 +213,6 @@
                                     </mask>
                                 </variation>
                             </button>
-                            <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9t-IU-ChB">
-                                <rect key="frame" x="161" y="391" width="280" height="64"/>
-                                <color key="backgroundColor" white="0.94867907072368429" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="1St-IL-ZYV"/>
-                                    <constraint firstAttribute="width" constant="280" id="KTQ-tD-anG"/>
-                                    <constraint firstAttribute="width" constant="255" id="Ye9-q4-LCT"/>
-                                    <constraint firstAttribute="height" constant="50" id="anx-r1-MYZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Change User Profile"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Ye9-q4-LCT"/>
-                                        <exclude reference="anx-r1-MYZ"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="cAC-Gc-uj4" kind="show" id="dsw-vP-j4r"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZE-UP-zlu">
                                 <rect key="frame" x="160" y="213" width="280" height="64"/>
                                 <color key="backgroundColor" white="0.94994146416061798" alpha="1" colorSpace="calibratedWhite"/>
@@ -252,6 +232,27 @@
                                 </variation>
                                 <connections>
                                     <segue destination="qHf-86-uT7" kind="show" id="3r9-7k-aoh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9t-IU-ChB">
+                                <rect key="frame" x="160" y="391" width="280" height="64"/>
+                                <color key="backgroundColor" white="0.94867907072368429" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="1St-IL-ZYV"/>
+                                    <constraint firstAttribute="width" constant="280" id="KTQ-tD-anG"/>
+                                    <constraint firstAttribute="width" constant="255" id="Ye9-q4-LCT"/>
+                                    <constraint firstAttribute="height" constant="50" id="anx-r1-MYZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Change User Profile"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ye9-q4-LCT"/>
+                                        <exclude reference="anx-r1-MYZ"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="cAC-Gc-uj4" kind="show" id="dsw-vP-j4r"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -393,7 +394,38 @@
                     <view key="view" contentMode="scaleToFill" id="xjo-aI-6lC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 12 : 32" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mU2-wN-ikk">
+                                <rect key="frame" x="16" y="281" width="568" height="148"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="99"/>
+                                <color key="textColor" red="0.1098039299249649" green="0.60784316062927246" blue="0.89019614458084106" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-h5-xWF">
+                                <rect key="frame" x="118" y="424" width="64" height="64"/>
+                                <state key="normal" image="Pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYa-xW-PiC">
+                                <rect key="frame" x="418" y="424" width="64" height="64"/>
+                                <inset key="imageEdgeInsets" minX="4" minY="4" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="Stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hYa-xW-PiC" firstAttribute="top" secondItem="mU2-wN-ikk" secondAttribute="bottom" constant="-5" id="9Lt-mG-3SM"/>
+                            <constraint firstItem="mU2-wN-ikk" firstAttribute="trailing" secondItem="xjo-aI-6lC" secondAttribute="trailingMargin" id="Ro8-VU-qeq"/>
+                            <constraint firstItem="mU2-wN-ikk" firstAttribute="top" secondItem="HMb-WW-ifh" secondAttribute="bottom" constant="261" id="UTw-gI-7cZ"/>
+                            <constraint firstItem="hAP-h5-xWF" firstAttribute="centerX" secondItem="xjo-aI-6lC" secondAttribute="centerXWithinMargins" multiplier="0.5" id="Uu8-hd-Gp4"/>
+                            <constraint firstItem="hAP-h5-xWF" firstAttribute="top" secondItem="mU2-wN-ikk" secondAttribute="bottom" constant="-5" id="l2h-7i-V4E"/>
+                            <constraint firstItem="mU2-wN-ikk" firstAttribute="leading" secondItem="xjo-aI-6lC" secondAttribute="leadingMargin" id="rou-Da-hNM"/>
+                            <constraint firstItem="eg8-Am-FTG" firstAttribute="top" secondItem="mU2-wN-ikk" secondAttribute="bottom" constant="122" id="vym-xb-rh4"/>
+                            <constraint firstItem="hYa-xW-PiC" firstAttribute="centerX" secondItem="xjo-aI-6lC" secondAttribute="centerXWithinMargins" multiplier="1.5" id="zxI-Ke-afh"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Status" image="Status" id="N1N-pg-m4a"/>
                 </viewController>
@@ -462,12 +494,13 @@
                                     <action selector="pickClosestResort:" destination="qHf-86-uT7" eventType="touchUpInside" id="5bX-JX-hmg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ski Resorts:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbl-kc-IfY">
-                                <rect key="frame" x="16" y="72" width="93" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-qw-zaB">
+                                <rect key="frame" x="0.0" y="100" width="600" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qHf-86-uT7" id="JvJ-9f-ulF"/>
+                                </connections>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-kT-lFh">
                                 <rect key="frame" x="212" y="541" width="176" height="30"/>
                                 <constraints>
@@ -480,13 +513,12 @@
                                     <segue destination="T5B-0o-z1r" kind="show" id="Zda-pd-DU4"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-qw-zaB">
-                                <rect key="frame" x="0.0" y="101" width="600" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="qHf-86-uT7" id="JvJ-9f-ulF"/>
-                                </connections>
-                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available ski resorts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbl-kc-IfY">
+                                <rect key="frame" x="16" y="72" width="151" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -529,11 +561,31 @@
             </objects>
             <point key="canvasLocation" x="873" y="404"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Nwu-lN-cLq">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vKk-p0-0dv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A4B-Ff-5L4"/>
+                        <viewControllerLayoutGuide type="bottom" id="w3o-hq-TQ8"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lzM-4w-w1L">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UDZ-sy-gyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="Map" width="24" height="24"/>
         <image name="Mountain" width="300" height="333"/>
+        <image name="Pause" width="64" height="64"/>
         <image name="Status" width="24" height="24"/>
+        <image name="Stop" width="64" height="64"/>
         <image name="Trip" width="24" height="24"/>
         <image name="group" width="24" height="24"/>
     </resources>
