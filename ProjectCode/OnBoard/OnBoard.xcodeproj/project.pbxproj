@@ -12,6 +12,7 @@
 		12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */; };
 		12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */; };
 		3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */; };
+		3C9F4DA71BEFDB4800301029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9F4DA61BEFDB4800301029 /* LaunchScreen.storyboard */; };
 		541CFF471BEAC32200DEB2D3 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */; };
 		541CFF4C1BEAC8DD00DEB2D3 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */; };
 		541CFF501BEADF6900DEB2D3 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */; };
@@ -51,6 +52,7 @@
 		12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
+		3C9F4DA61BEFDB4800301029 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
 		541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				C45C3C471BE9FC7100174AC1 /* ViewControllers */,
 				C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */,
 				C45C3C2B1BE9F7BA00174AC1 /* Main.storyboard */,
+				3C9F4DA61BEFDB4800301029 /* LaunchScreen.storyboard */,
 				C45C3C2E1BE9F7BA00174AC1 /* Assets.xcassets */,
 				C45C3C331BE9F7BA00174AC1 /* Info.plist */,
 				541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */,
@@ -317,6 +320,7 @@
 				C45C3C2F1BE9F7BA00174AC1 /* Assets.xcassets in Resources */,
 				C45C3C2D1BE9F7BA00174AC1 /* Main.storyboard in Resources */,
 				541CFF471BEAC32200DEB2D3 /* Launch Screen.xib in Resources */,
+				3C9F4DA71BEFDB4800301029 /* LaunchScreen.storyboard in Resources */,
 				5476CDDE1BEC2102002A3D45 /* SkiResortData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
