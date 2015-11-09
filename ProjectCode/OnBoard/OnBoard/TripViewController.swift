@@ -14,48 +14,41 @@ class TripViewController: UIViewController {
     
     @IBOutlet weak var graphZoneView: UIView!
     
-    var recentData = [CMAcceleration]()
+    var recentAccelerationData = [CMAcceleration]()
     override func viewDidLoad(){
         super.viewDidLoad()
-        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: "update", userInfo: nil, repeats: true)
         self.resetMaxValues()
         
-        for i in 0...4{
-            recentData.append(MotionManager.sharedInstance.GetCurrentAcceleration())
+        for i in 0...9{
+            recentAccelerationData.append(MotionManager.sharedInstance.GetCurrentAcceleration())
         }
-        
-        motionManager.accelerometerUpdateInterval = 1.0
-        motionManager.gyroUpdateInterval = 1.0
         
         MotionManager.sharedInstance.StartUpdate()
         println(MotionManager.sharedInstance.GetCurrentAcceleration().x)
         println(MotionManager.sharedInstance.GetCurrentAcceleration().y)
         println(MotionManager.sharedInstance.GetCurrentAcceleration().z)
-        
+    }
+    
+    func UpdateRecentAccelerationData( acceleration : CMAcceleration){
+        if(recentAccelerationData.count>10){
+            recentAccelerationData.removeAtIndex(0)
+        }
+        recentAccelerationData.append(acceleration)
     }
     
     func update(){
-        MotionManager.sharedInstance.GetCurrentAcceleration()
+        UpdateRecentAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
+        PlotGraph()
         //outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         
     }
     func GetPlotData()-> NSArray{
-        let myData = [
-            ["label" : "Mon",   "value" : NSNumber(int:15)],
-            ["label" : "Mon",  "value" : NSNumber(int:30)],
-            ["label" : "Mon",  "value" : NSNumber(int:7)],
-            ["label" : "Mon", "value" : NSNumber(int:60)],
-            ["label" : "Fri",   "value" : NSNumber(int:30)],
-            ["label" : "Sat",   "value" : NSNumber(int:15)],
-            ["label" : "Sun",   "value" : NSNumber(int:45)],] as NSArray
-
-        /*var myData = [[NSString : NSObject]]()
-        for item in recentData{
-            var test = ["label":"point","value":NSNumber(int: Int32(item.x))]
+        var myData = [[NSString : NSObject]]()
+        for (var i = 0; i < recentAccelerationData.count ;i++){
+            var test = ["label":i,"value":NSNumber(int: Int32(recentAccelerationData[i].x))]
             myData.append(test)
-        }*/
-        
-        
+        }
         return myData as NSArray
     }
     
@@ -114,7 +107,6 @@ class TripViewController: UIViewController {
     var currentMaxRotationY : Double = 0.00
     var currentMaxRotationZ : Double = 0.00
     
-    var motionManager = CMMotionManager()
     
     //Outlets
     

@@ -27,7 +27,7 @@ class MotionManager : NSObject {
     }
     
     func GetCurrentAcceleration() -> CMAcceleration{
-        let rand = Double(randomInt(1,max: 10))
+        let rand = Double(randomInt(1, max: 15))
         return CMAcceleration(x: rand,y: 1,z: 1)
         //return motionManager.accelerometerData.acceleration
     }
