@@ -14,14 +14,15 @@ class TripViewController: UIViewController {
     // Outlet declarations
     @IBOutlet weak var graphZoneView: UIView!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var endSessionButton: UIButton!
     
     // class-wise members
     var recentAccelerationData = [CMAcceleration]()
-    
+    var updateTimer : NSTimer?
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.10, target: self, selector: "update", userInfo: nil, repeats: true)
+        updateTimer = NSTimer.scheduledTimerWithTimeInterval(0.10, target: self, selector: "update", userInfo: nil, repeats: true)
         self.resetMaxValues()
         
         for i in 0...9{
@@ -39,6 +40,11 @@ class TripViewController: UIViewController {
         PlotGraph()
     }
     
+    @IBAction func stopSession(sender: AnyObject) {
+        SessionManager.sharedInstance.EndCurrentSession()
+        updateTimer?.invalidate()
+        endSessionButton.hidden = true
+    }
     func UpdateRecentAccelerationData( acceleration : CMAcceleration){
         if(recentAccelerationData.count>10){
             recentAccelerationData.removeAtIndex(0)
@@ -51,8 +57,8 @@ class TripViewController: UIViewController {
         PlotGraph()
         UpdateDurationLabel()
         //outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
-        
     }
+    
     
     // Dudation Label management
     func UpdateDurationLabel(){

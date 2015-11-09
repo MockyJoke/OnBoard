@@ -15,12 +15,33 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emergencyTel: UITextField!
     @IBOutlet weak var addButton: UIButton!
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBAction func addProfile(sender: AnyObject) {
         UserManager.sharedInstance.CreateNewUser(userName.text, emergeName: emergencyName.text, emergPhone: emergencyTel.text)
         
         // Send signal for ProfileSetup view controller to refresh table
-        NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
         navigationController?.popViewControllerAnimated(true)
+        /*NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);*/
+        NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.bottomConstraint.constant = keyboardFrame.size.height + 20
+        })
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.bottomConstraint.constant = keyboardFrame.size.height + 20
+        })
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
