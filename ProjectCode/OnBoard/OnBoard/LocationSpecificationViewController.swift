@@ -12,6 +12,7 @@ import Darwin
 
 class LocationSpecificationViewController: UIViewController,UITableViewDelegate{
 
+    @IBOutlet weak var nearestButton: UIView!
     @IBOutlet weak var chooseLocation: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func pickClosestResort(sender: AnyObject) {
@@ -23,6 +24,8 @@ class LocationSpecificationViewController: UIViewController,UITableViewDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addBlurEffectToView2(chooseLocation)
         if let location = CoreLocationManager.sharedInstance.latestLocation {
             println("Lat: \(location.coordinate.latitude), Long: \(location.coordinate.longitude)")
         }
@@ -45,6 +48,13 @@ class LocationSpecificationViewController: UIViewController,UITableViewDelegate{
         effectView.clipsToBounds = true
         effectView.frame = CGRectMake (0,0,targetView.frame.width*0.9,targetView.frame.height * 0.9)
         targetView.addSubview(effectView)
+    }
+    
+    func addBlurEffectToView2(targetView : UIView){
+        var effect = UIBlurEffect (style: UIBlurEffectStyle.Light)
+        var effectView = UIVisualEffectView(effect: effect)
+        effectView.frame = CGRectMake (0,0,targetView.frame.width,targetView.frame.height)
+        targetView.insertSubview(effectView, atIndex: 0)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

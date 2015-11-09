@@ -20,7 +20,6 @@ class StatDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Speed)
         totalTime.text = "\(Time)" + " mins"
         totalDistance.text = "\(Distance)" + " m"
         averageSpeed.text = "\(Speed)" + " km/h"

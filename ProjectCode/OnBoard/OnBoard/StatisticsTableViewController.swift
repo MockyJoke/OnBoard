@@ -10,17 +10,23 @@ import UIKit
 
 class StatisticsTableViewController: UITableViewController {
     
+    var chosenDate : String = ""
+    
     // TODO: Remove Placeholder values
     let tempDates = [
-        "Bob":["11/4/15","11/1/15","10/27/15","10/13/15"], "Dan":["11/3/15","1/3/15","10/12/14"]]
+        "Anonymous":["11/4/15","11/1/15","10/27/15","10/13/15"], "Dan":["11/3/15","1/3/15","10/12/14"]]
     
     var tempDateValues = ["11/4/15":[10232, 74, 32], "11/3/15":[13234,89,43], "10/27/15":[1232,20,10]]
     
-    let currentUser = UserManager.sharedInstance.currentUser
+    var currentUser = UserManager.sharedInstance.currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //UserManager.sharedInstance.CreateNewUser("Bob", emergeName: "", emergPhone: "")
+        //if (UserManager.sharedInstance)
+        //UserManager.sharedInstance.SpecifyCurrentUser("Bob")
+        currentUser = UserManager.sharedInstance.currentUser
         self.title = "Statistics"
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -42,14 +48,21 @@ class StatisticsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return tempDates["\(currentUser.Name)"]!.count
+        return tempDates[tempDates.keys.array[0]]!.count
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath)
+        let text = cell?.textLabel?.text
+        if let date = text {
+            chosenDate = date
+        }
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! UITableViewCell
 
-        cell.textLabel?.text = tempDates["\(currentUser.Name)"]![indexPath.row]
+        cell.textLabel?.text = tempDates[tempDates.keys.array[0]]![indexPath.row]
         
         return cell
     }
@@ -100,6 +113,8 @@ class StatisticsTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var statDetailVC = segue.destinationViewController as! StatDetailsViewController
+        statDetailVC.title = chosenDate
+        
         if currentUser.Name == "Bob" {
             statDetailVC.Time = 43
             statDetailVC.Distance = 3054

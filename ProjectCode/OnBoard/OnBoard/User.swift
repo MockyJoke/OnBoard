@@ -17,7 +17,7 @@ class User : StorableObject{
     internal private(set) var SessionArray : [Session]?
     internal private(set) var IsAnonymous : Bool
     override init(){
-        Name  = "NewUser"
+        Name  = "Anonymous"
         Id = NSUUID().UUIDString
         EmergencyName = ""
         EmergencyPhone = ""
