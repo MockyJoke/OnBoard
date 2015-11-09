@@ -324,7 +324,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVC-9a-TGk">
                                 <rect key="frame" x="420" y="254" width="180" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hybrid View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zg-H6-xcU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hybrid Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zg-H6-xcU">
                                         <rect key="frame" x="10" y="10" width="92" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -394,8 +394,34 @@
                     <view key="view" contentMode="scaleToFill" id="jEv-HR-Nny">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="e7J-uF-7WN">
+                                <rect key="frame" x="138" y="41" width="325" height="325"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="roJ-7T-E1O"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupJoin" translatesAutoresizingMaskIntoConstraints="NO" id="5WT-tv-d1h">
+                                <rect key="frame" x="74" y="382" width="128" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join a online group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yq1-C1-to7">
+                                <rect key="frame" x="233" y="425" width="291" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="yq1-C1-to7" secondAttribute="trailing" constant="60" id="0uC-76-WNb"/>
+                            <constraint firstItem="XLp-mp-sYW" firstAttribute="top" secondItem="e7J-uF-7WN" secondAttribute="bottom" constant="185" id="AYa-CQ-Thg"/>
+                            <constraint firstItem="yq1-C1-to7" firstAttribute="leading" secondItem="5WT-tv-d1h" secondAttribute="trailing" constant="31" id="Ghe-DB-WIY"/>
+                            <constraint firstItem="5WT-tv-d1h" firstAttribute="centerY" secondItem="yq1-C1-to7" secondAttribute="centerY" id="U8j-PZ-qWC"/>
+                            <constraint firstItem="e7J-uF-7WN" firstAttribute="top" secondItem="h1v-3t-ybr" secondAttribute="bottom" constant="21" id="V67-Pf-ZIN"/>
+                            <constraint firstItem="yq1-C1-to7" firstAttribute="top" secondItem="e7J-uF-7WN" secondAttribute="bottom" constant="59" id="fy8-RM-KVh"/>
+                            <constraint firstItem="e7J-uF-7WN" firstAttribute="centerX" secondItem="jEv-HR-Nny" secondAttribute="centerX" id="tEM-Jl-2j8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Group" image="group" id="uuv-VA-zhQ"/>
                 </viewController>
@@ -414,8 +440,19 @@
                     <view key="view" contentMode="scaleToFill" id="ghh-x8-xwG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HOP-dr-Nnj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="HOP-dr-Nnj" secondAttribute="bottom" id="055-wo-vHV"/>
+                            <constraint firstAttribute="trailing" secondItem="HOP-dr-Nnj" secondAttribute="trailing" id="124-8y-yg4"/>
+                            <constraint firstItem="HOP-dr-Nnj" firstAttribute="top" secondItem="ghh-x8-xwG" secondAttribute="top" id="2wU-Vx-HUP"/>
+                            <constraint firstItem="HOP-dr-Nnj" firstAttribute="leading" secondItem="ghh-x8-xwG" secondAttribute="leading" id="6nf-Pr-CYF"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="KPo-4G-j15"/>
                 </viewController>
@@ -727,6 +764,8 @@
     </scenes>
     <resources>
         <image name="AddUser" width="256" height="256"/>
+        <image name="Group" width="256" height="256"/>
+        <image name="GroupJoin" width="128" height="128"/>
         <image name="Map" width="24" height="24"/>
         <image name="Mountain" width="300" height="333"/>
         <image name="Pause" width="128" height="128"/>
