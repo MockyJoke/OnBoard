@@ -9,17 +9,20 @@
 import UIKit
 
 class StatisticsTableViewController: UITableViewController {
-
+    
+    // TODO: Remove Placeholder values
+    let tempDates = [
+        "Elle":["11/4/15","11/1/15","10/27/15","10/13/15"], "Erik":["11/3/15","1/3/15","10/12/14"]]
+    
+    var tempDateValues = ["11/4/15":[10232, 74, 32], "11/3/15":[13234,89,43], "10/27/15":[1232,20,10]]
+    
+    let currentUser = UserManager.sharedInstance.currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let currentUser = UserManager.sharedInstance.currentUser
-        
         self.title = "Statistics"
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
@@ -39,15 +42,14 @@ class StatisticsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return UserManager.sharedInstance.GetUserCount()
+        return tempDates["\(currentUser.Name)"]!.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! UITableViewCell
 
-        var userArray = UserManager.sharedInstance.GetUserArray()
-        cell.textLabel?.text =  userArray[indexPath.row].Name
+        cell.textLabel?.text = tempDates["\(currentUser.Name)"]![indexPath.row]
         
         return cell
     }
@@ -65,9 +67,7 @@ class StatisticsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            var userArray = UserManager.sharedInstance.GetUserArray()
-    
-            UserManager.sharedInstance.DeleteUserByName(userArray[indexPath.row].Name)
+            var editArray = tempDates["\(currentUser.Name)"]!
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }  
     }
@@ -97,5 +97,19 @@ class StatisticsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var statDetailVC = segue.destinationViewController as! StatDetailsViewController
+        if currentUser.Name == "Elle" {
+            statDetailVC.Time = 43
+            statDetailVC.Distance = 3054
+            statDetailVC.Speed = 28
+        }
+        else {
+            statDetailVC.Time = 54
+            statDetailVC.Distance = 5003
+            statDetailVC.Speed = 42
+        }
+    }
 
 }

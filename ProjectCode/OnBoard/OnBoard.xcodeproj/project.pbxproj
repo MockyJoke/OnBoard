@@ -13,7 +13,6 @@
 		12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */; };
 		3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */; };
 		3C9F4DA71BEFDB4800301029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9F4DA61BEFDB4800301029 /* LaunchScreen.storyboard */; };
-		3C9F4DAC1BEFE67400301029 /* StatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9F4DAB1BEFE67400301029 /* StatisticsTableViewController.swift */; };
 		541CFF471BEAC32200DEB2D3 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */; };
 		541CFF4C1BEAC8DD00DEB2D3 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */; };
 		541CFF501BEADF6900DEB2D3 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */; };
@@ -30,6 +29,8 @@
 		54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247AD1BF00530000116D2 /* StatusGraphView.swift */; };
 		54B247B41BF018E7000116D2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247B31BF018E7000116D2 /* Queue.swift */; };
 		BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */; };
+		BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */; };
+		BFAD5EF11BF09CF40022D079 /* StatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5EEF1BF09CF40022D079 /* StatisticsTableViewController.swift */; };
 		C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */; };
 		C45C3C2D1BE9F7BA00174AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2B1BE9F7BA00174AC1 /* Main.storyboard */; };
 		C45C3C2F1BE9F7BA00174AC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2E1BE9F7BA00174AC1 /* Assets.xcassets */; };
@@ -57,7 +58,6 @@
 		12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		3C9F4DA61BEFDB4800301029 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3C9F4DAB1BEFE67400301029 /* StatisticsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewController.swift; sourceTree = "<group>"; };
 		541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
 		541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		54B247AD1BF00530000116D2 /* StatusGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusGraphView.swift; sourceTree = "<group>"; };
 		54B247B31BF018E7000116D2 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeProfileTableViewController.swift; sourceTree = "<group>"; };
+		BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatDetailsViewController.swift; path = ../StatDetailsViewController.swift; sourceTree = "<group>"; };
+		BFAD5EEF1BF09CF40022D079 /* StatisticsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatisticsTableViewController.swift; path = ../StatisticsTableViewController.swift; sourceTree = "<group>"; };
 		C45C3C241BE9F7BA00174AC1 /* OnBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C45C3C2C1BE9F7BA00174AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -210,6 +212,15 @@
 			name = Container;
 			sourceTree = "<group>";
 		};
+		BFAD5EF31BF09D120022D079 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */,
+				BFAD5EEF1BF09CF40022D079 /* StatisticsTableViewController.swift */,
+			);
+			name = Statistics;
+			sourceTree = "<group>";
+		};
 		C45C3C1B1BE9F7BA00174AC1 = {
 			isa = PBXGroup;
 			children = (
@@ -258,12 +269,12 @@
 		C45C3C471BE9FC7100174AC1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BFAD5EF31BF09D120022D079 /* Statistics */,
 				3C9F4DA81BEFE5E600301029 /* Profile */,
 				C45C3C4C1BEA027E00174AC1 /* LocationSpecificationViewController.swift */,
 				C45C3C4E1BEA038500174AC1 /* SessionConfirmationViewController.swift */,
 				C45C3C501BEA05D100174AC1 /* StartupViewController.swift */,
 				12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */,
-				3C9F4DAB1BEFE67400301029 /* StatisticsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -383,7 +394,6 @@
 				C45C3C4D1BEA027E00174AC1 /* LocationSpecificationViewController.swift in Sources */,
 				54765AE41BEE9BD000EC49AF /* SessionManager.swift in Sources */,
 				C45C3C491BE9FDA200174AC1 /* ProfileSetupViewController.swift in Sources */,
-				3C9F4DAC1BEFE67400301029 /* StatisticsTableViewController.swift in Sources */,
 				54765AE31BEE9BD000EC49AF /* Session.swift in Sources */,
 				C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */,
 				54765AEE1BEEA04E00EC49AF /* LocationSnapshot.swift in Sources */,
@@ -395,6 +405,8 @@
 				54765AF01BEEA05E00EC49AF /* MotionSnapshot.swift in Sources */,
 				541CFF501BEADF6900DEB2D3 /* LocalStorageManager.swift in Sources */,
 				54765AEC1BEEA01200EC49AF /* SessionSnapshot.swift in Sources */,
+				BFAD5EF11BF09CF40022D079 /* StatisticsTableViewController.swift in Sources */,
+				BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */,
 				121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */,
 				54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */,
 				54B247B41BF018E7000116D2 /* Queue.swift in Sources */,
