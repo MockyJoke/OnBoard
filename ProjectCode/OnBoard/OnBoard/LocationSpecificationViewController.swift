@@ -25,12 +25,20 @@ class LocationSpecificationViewController: UIViewController,UITableViewDelegate{
         if let location = CoreLocationManager.sharedInstance.latestLocation {
             println("Lat: \(location.coordinate.latitude), Long: \(location.coordinate.longitude)")
         }
+        //addBlurEffectToView(self.view)
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addBlurEffectToView(targetView : UIView){
+        var effect = UIBlurEffect (style: UIBlurEffectStyle.Light)
+        var effectView = UIVisualEffectView(effect: effect)
+        effectView.frame = CGRectMake (0,0,400,400)
+        view.addSubview(effectView)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

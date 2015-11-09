@@ -191,8 +191,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
                                 <animations/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Snowboard" translatesAutoresizingMaskIntoConstraints="NO" id="U0z-CB-LD8">
+                                <rect key="frame" x="170" y="114" width="256" height="256"/>
+                            </imageView>
                             <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTz-j4-PDs">
-                                <rect key="frame" x="160" y="302" width="280" height="64"/>
+                                <rect key="frame" x="160" y="469" width="280" height="64"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -214,7 +217,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZE-UP-zlu">
-                                <rect key="frame" x="160" y="213" width="280" height="64"/>
+                                <rect key="frame" x="160" y="380" width="280" height="64"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.94994146416061798" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -236,7 +239,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9t-IU-ChB">
-                                <rect key="frame" x="160" y="391" width="280" height="64"/>
+                                <rect key="frame" x="160" y="558" width="280" height="64"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.94867907072368429" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -262,10 +265,12 @@
                         <constraints>
                             <constraint firstItem="UTz-j4-PDs" firstAttribute="top" secondItem="yZE-UP-zlu" secondAttribute="bottom" constant="25" id="1fy-mB-y0y"/>
                             <constraint firstAttribute="centerX" secondItem="yZE-UP-zlu" secondAttribute="centerX" constant="-0.5" id="3FE-lj-ol2"/>
+                            <constraint firstAttribute="centerX" secondItem="U0z-CB-LD8" secondAttribute="centerX" constant="2" id="A3T-2h-iST"/>
                             <constraint firstAttribute="centerX" secondItem="UTz-j4-PDs" secondAttribute="centerX" constant="-0.5" id="DnB-Kh-6rh"/>
+                            <constraint firstItem="yZE-UP-zlu" firstAttribute="top" secondItem="U0z-CB-LD8" secondAttribute="bottom" constant="10" id="FMa-R5-kgq"/>
                             <constraint firstAttribute="centerX" secondItem="d9t-IU-ChB" secondAttribute="centerX" constant="-0.5" id="IVv-mF-4wn"/>
-                            <constraint firstAttribute="centerY" secondItem="UTz-j4-PDs" secondAttribute="centerY" constant="-34" id="Ldi-DY-Lpj"/>
                             <constraint firstItem="d9t-IU-ChB" firstAttribute="top" secondItem="UTz-j4-PDs" secondAttribute="bottom" constant="25" id="MVE-As-bn2"/>
+                            <constraint firstItem="U0z-CB-LD8" firstAttribute="top" secondItem="C3t-fW-PSH" secondAttribute="bottom" constant="50" id="ajf-BD-Fku"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="OnBoard" id="1JH-RC-HhU"/>
@@ -403,42 +408,8 @@
                     <view key="view" contentMode="scaleToFill" id="xjo-aI-6lC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00 : 12 : 32" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mU2-wN-ikk">
-                                <rect key="frame" x="16" y="281" width="568" height="148"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="99"/>
-                                <color key="textColor" red="0.1098039299249649" green="0.60784316062927246" blue="0.89019614458084106" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-h5-xWF">
-                                <rect key="frame" x="118" y="424" width="64" height="64"/>
-                                <animations/>
-                                <state key="normal" image="Pause">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYa-xW-PiC">
-                                <rect key="frame" x="418" y="424" width="64" height="64"/>
-                                <animations/>
-                                <inset key="imageEdgeInsets" minX="4" minY="4" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" image="Stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="hYa-xW-PiC" firstAttribute="top" secondItem="mU2-wN-ikk" secondAttribute="bottom" constant="-5" id="9Lt-mG-3SM"/>
-                            <constraint firstItem="mU2-wN-ikk" firstAttribute="trailing" secondItem="xjo-aI-6lC" secondAttribute="trailingMargin" id="Ro8-VU-qeq"/>
-                            <constraint firstItem="mU2-wN-ikk" firstAttribute="top" secondItem="HMb-WW-ifh" secondAttribute="bottom" constant="261" id="UTw-gI-7cZ"/>
-                            <constraint firstItem="hAP-h5-xWF" firstAttribute="centerX" secondItem="xjo-aI-6lC" secondAttribute="centerXWithinMargins" multiplier="0.5" id="Uu8-hd-Gp4"/>
-                            <constraint firstItem="hAP-h5-xWF" firstAttribute="top" secondItem="mU2-wN-ikk" secondAttribute="bottom" constant="-5" id="l2h-7i-V4E"/>
-                            <constraint firstItem="mU2-wN-ikk" firstAttribute="leading" secondItem="xjo-aI-6lC" secondAttribute="leadingMargin" id="rou-Da-hNM"/>
-                            <constraint firstItem="eg8-Am-FTG" firstAttribute="top" secondItem="mU2-wN-ikk" secondAttribute="bottom" constant="122" id="vym-xb-rh4"/>
-                            <constraint firstItem="hYa-xW-PiC" firstAttribute="centerX" secondItem="xjo-aI-6lC" secondAttribute="centerXWithinMargins" multiplier="1.5" id="zxI-Ke-afh"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Status" image="Status" id="N1N-pg-m4a"/>
                 </viewController>
@@ -684,6 +655,7 @@
         <image name="Map" width="24" height="24"/>
         <image name="Mountain" width="300" height="333"/>
         <image name="Pause" width="128" height="128"/>
+        <image name="Snowboard" width="256" height="256"/>
         <image name="Status" width="24" height="24"/>
         <image name="Stop" width="128" height="128"/>
         <image name="Trip" width="24" height="24"/>
