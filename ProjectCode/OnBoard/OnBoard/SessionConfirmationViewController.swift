@@ -9,13 +9,21 @@
 import UIKit
 import MapKit
 
-class SessionConfirmationViewController: UIViewController,UITableViewDelegate {
+class SessionConfirmationViewController: UIViewController {
 
     var selectedResort : SkiResort?
     
+    @IBOutlet weak var beginASButton: UIButton!
     @IBOutlet weak var toggleButtonAreaView: UIView!
-    @IBOutlet weak var infoTable: UITableView!
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var telLabel: UILabel!
+    @IBOutlet weak var siteLabel: UILabel!
+    @IBOutlet weak var seasonLabel: UILabel!
+
+    
+    
+
     @IBAction func toggleMapType(sender: AnyObject) {
         if let toggle = sender as? UISwitch{
             mapView.mapType = toggle.on ? MKMapType.Hybrid : MKMapType.Standard
@@ -26,6 +34,13 @@ class SessionConfirmationViewController: UIViewController,UITableViewDelegate {
         super.viewDidLoad()
         
         self.title = selectedResort!.Name
+        self.beginASButton.layer.cornerRadius = 10
+        if let resort = selectedResort {
+            self.telLabel.text = resort.Phone
+            self.siteLabel.text = resort.Website
+            self.seasonLabel.text = resort.Season
+        }
+        
         mapView.mapType = MKMapType.Standard
         var regionRadius : CLLocationDistance = 5000
         if let resort = selectedResort {
@@ -33,6 +48,8 @@ class SessionConfirmationViewController: UIViewController,UITableViewDelegate {
         }
         addBlurEffectToView(toggleButtonAreaView)
         // Do any additional setup after loading the view.
+        
+        
     }
     func addBlurEffectToView(targetView : UIView){
         var effect = UIBlurEffect (style: UIBlurEffectStyle.Light)
@@ -45,32 +62,33 @@ class SessionConfirmationViewController: UIViewController,UITableViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 4
+//    }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        if let resort = selectedResort {
-            switch indexPath.row {
-            case 0:
-                cell.textLabel?.text = resort.Address
-            case 1:
-                cell.textLabel?.text = resort.Phone
-            case 2:
-                cell.textLabel?.text = resort.Website
-            case 3:
-                cell.textLabel?.text = resort.Season
-            default:
-                cell.textLabel?.text = resort.Name
-            }
-        }
-        return cell
-    }
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        var cell = UITableViewCell()
+//        if let resort = selectedResort {
+//            switch indexPath.row {
+//            case 0:
+//                cell.textLabel?.text = resort.Address
+//            case 1:
+//                cell.textLabel?.text = resort.Phone
+//            case 2:
+//                cell.textLabel?.text = resort.Website
+//            case 3:
+//                cell.textLabel?.text = resort.Season
+//            default:
+//                cell.textLabel?.text = resort.Name
+//            }
+//        }
+//        return cell
+//    }
 
     
     // MARK: - Navigation

@@ -12,6 +12,7 @@ import Darwin
 
 class LocationSpecificationViewController: UIViewController,UITableViewDelegate{
 
+    @IBOutlet weak var chooseLocation: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func pickClosestResort(sender: AnyObject) {
         if let userLocation = CoreLocationManager.sharedInstance.latestLocation {
@@ -29,6 +30,7 @@ class LocationSpecificationViewController: UIViewController,UITableViewDelegate{
         //addBlurEffectToView(photoView)
         
         // Do any additional setup after loading the view.
+        self.chooseLocation.layer.cornerRadius = 10
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +60,11 @@ class LocationSpecificationViewController: UIViewController,UITableViewDelegate{
         var userArray = UserManager.sharedInstance.GetUserArray()
         cell.textLabel?.text =  SkiResortDataManager.sharedInstance.SkiResortArray[indexPath.row].Name
         return cell
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        return "Ski Resorts"
     }
     
     // MARK: - Navigation
