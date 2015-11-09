@@ -82,8 +82,10 @@ class LocationSpecificationViewController: UIViewController,UITableViewDelegate{
         sessionConfirmationVC.selectedResort = nil
         if let pathIndex = tableView.indexPathForSelectedRow() {
             sessionConfirmationVC.selectedResort = SkiResortDataManager.sharedInstance.SkiResortArray[pathIndex.row]
+            SkiResortDataManager.sharedInstance.SetSelectedResort(SkiResortDataManager.sharedInstance.SkiResortArray[pathIndex.row])
         }else{
             sessionConfirmationVC.selectedResort = SkiResortDataManager.sharedInstance.SkiResortArray[0]
+            SkiResortDataManager.sharedInstance.SetSelectedResort(SkiResortDataManager.sharedInstance.SkiResortArray[0])
         }
     }
     

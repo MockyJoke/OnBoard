@@ -514,7 +514,7 @@
         <!--Map-->
         <scene sceneID="xqb-DC-2GV">
             <objects>
-                <viewController id="o86-if-mQy" sceneMemberID="viewController">
+                <viewController id="o86-if-mQy" customClass="MapViewController" customModule="OnBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CGP-rN-s8g"/>
                         <viewControllerLayoutGuide type="bottom" id="a8B-ow-9s9"/>
@@ -526,6 +526,15 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HOP-dr-Nnj">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7B-d4-7vL">
+                                <rect key="frame" x="16" y="499" width="42" height="42"/>
+                                <state key="normal" image="LocationArrow">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="userLocationButtonAction:" destination="o86-if-mQy" eventType="touchUpInside" id="Esn-V5-Dwj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -534,9 +543,14 @@
                             <constraint firstAttribute="trailing" secondItem="HOP-dr-Nnj" secondAttribute="trailing" id="124-8y-yg4"/>
                             <constraint firstItem="HOP-dr-Nnj" firstAttribute="top" secondItem="ghh-x8-xwG" secondAttribute="top" id="2wU-Vx-HUP"/>
                             <constraint firstItem="HOP-dr-Nnj" firstAttribute="leading" secondItem="ghh-x8-xwG" secondAttribute="leading" id="6nf-Pr-CYF"/>
+                            <constraint firstItem="a8B-ow-9s9" firstAttribute="top" secondItem="p7B-d4-7vL" secondAttribute="bottom" constant="10" id="ICN-5v-zDT"/>
+                            <constraint firstItem="p7B-d4-7vL" firstAttribute="leading" secondItem="ghh-x8-xwG" secondAttribute="leadingMargin" id="nhm-JR-Hax"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="KPo-4G-j15"/>
+                    <connections>
+                        <outlet property="mapView" destination="HOP-dr-Nnj" id="QnH-FF-vN0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMY-Ve-kQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -836,6 +850,7 @@
         <image name="AddUser" width="256" height="256"/>
         <image name="Group" width="256" height="256"/>
         <image name="GroupJoin" width="128" height="128"/>
+        <image name="LocationArrow" width="42" height="42"/>
         <image name="Map" width="24" height="24"/>
         <image name="Mountain" width="300" height="333"/>
         <image name="Snowboard" width="256" height="256"/>

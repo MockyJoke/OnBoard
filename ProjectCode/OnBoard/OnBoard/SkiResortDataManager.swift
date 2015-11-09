@@ -14,7 +14,7 @@ class SkiResortDataManager : NSObject {
     internal private(set) static var sharedInstance = SkiResortDataManager()
     
     internal private(set) var SkiResortArray : [SkiResort]
-    
+    internal private(set) var SelectedSkiResort :SkiResort?
     private override init(){
         SkiResortArray = [SkiResort]()
         let path = NSBundle.mainBundle().pathForResource("SkiResortData", ofType: "plist") //parse SkiAreaData.plist
@@ -44,6 +44,10 @@ class SkiResortDataManager : NSObject {
     }
     func GetClosestResort(location : CLLocation)->SkiResort{
         return SkiResortArray[GetClosestResortIndex(location)]
+    }
+    
+    func SetSelectedResort(skiResort : SkiResort){
+        SelectedSkiResort = skiResort
     }
     
 }
