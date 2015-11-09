@@ -13,20 +13,32 @@ class SessionConfirmationViewController: UIViewController,UITableViewDelegate {
 
     var selectedResort : SkiResort?
     
+    @IBOutlet weak var toggleButtonAreaView: UIView!
     @IBOutlet weak var infoTable: UITableView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBAction func toggleMapType(sender: AnyObject) {
+        if let toggle = sender as? UISwitch{
+            mapView.mapType = toggle.on ? MKMapType.Hybrid : MKMapType.Standard
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = selectedResort!.Name
-        
-        var regionRadius : CLLocationDistance = 10000
+        mapView.mapType = MKMapType.Standard
+        var regionRadius : CLLocationDistance = 5000
         if let resort = selectedResort {
             mapView.setRegion(MKCoordinateRegionMakeWithDistance(resort.GetCoordinate2D(), regionRadius, regionRadius), animated: true)
         }
-        
+        addBlurEffectToView(toggleButtonAreaView)
         // Do any additional setup after loading the view.
+    }
+    func addBlurEffectToView(targetView : UIView){
+        var effect = UIBlurEffect (style: UIBlurEffectStyle.Light)
+        var effectView = UIVisualEffectView(effect: effect)
+        effectView.frame = CGRectMake (0,0,targetView.frame.width,targetView.frame.height)
+        targetView.insertSubview(effectView, atIndex: 0)
     }
 
     override func didReceiveMemoryWarning() {

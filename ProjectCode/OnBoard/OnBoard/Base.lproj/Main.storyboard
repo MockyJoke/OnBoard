@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YBz-RE-KyU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YBz-RE-KyU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -321,6 +321,27 @@
                                     <outlet property="dataSource" destination="T5B-0o-z1r" id="eFK-5X-qFV"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVC-9a-TGk">
+                                <rect key="frame" x="420" y="254" width="180" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hybrid View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zg-H6-xcU">
+                                        <rect key="frame" x="10" y="10" width="92" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R1q-iO-R52">
+                                        <rect key="frame" x="123" y="5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="toggleMapType:" destination="T5B-0o-z1r" eventType="valueChanged" id="FdU-zj-Ddt"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="93n-dH-IrK"/>
+                                    <constraint firstAttribute="width" constant="180" id="okA-Pf-ybO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -337,6 +358,8 @@
                             <constraint firstItem="yqr-Lh-aOb" firstAttribute="top" secondItem="zqN-w7-8Cc" secondAttribute="bottom" constant="14" id="ael-Ch-zev"/>
                             <constraint firstItem="Dmn-lx-I16" firstAttribute="top" secondItem="nDP-pz-Wv5" secondAttribute="bottom" constant="228" id="ccC-dU-t2h"/>
                             <constraint firstItem="zqN-w7-8Cc" firstAttribute="centerX" secondItem="Dmn-lx-I16" secondAttribute="centerX" id="cmX-6d-png"/>
+                            <constraint firstItem="uVC-9a-TGk" firstAttribute="top" secondItem="dzL-El-tCL" secondAttribute="bottom" constant="-40" id="gdQ-eK-qmM"/>
+                            <constraint firstItem="uVC-9a-TGk" firstAttribute="leading" secondItem="dzL-El-tCL" secondAttribute="trailing" constant="-180" id="hvA-Pl-LJ8"/>
                             <constraint firstItem="dzL-El-tCL" firstAttribute="top" secondItem="nDP-pz-Wv5" secondAttribute="bottom" id="syw-1R-08h"/>
                             <constraint firstItem="Dmn-lx-I16" firstAttribute="trailing" secondItem="dzL-El-tCL" secondAttribute="trailing" id="uAk-3o-Qdl"/>
                         </constraints>
@@ -353,6 +376,7 @@
                     <connections>
                         <outlet property="infoTable" destination="Dmn-lx-I16" id="Ged-7U-OKP"/>
                         <outlet property="mapView" destination="dzL-El-tCL" id="9nD-vr-WYh"/>
+                        <outlet property="toggleButtonAreaView" destination="uVC-9a-TGk" id="pif-nt-aOA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jd8-p8-nKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
