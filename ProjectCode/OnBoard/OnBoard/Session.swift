@@ -9,14 +9,18 @@
 import Foundation
 
 class Session : StorableObject{
+    internal private(set) var Resort : SkiResort
     internal private(set) var StartTime : NSDate?
     internal private(set) var EndTime : NSDate?
     internal private(set) var IsStarted : Bool
     internal private(set) var IsEnded : Bool
-    internal private(set) var SnapshotArray : [SessionSnapshot]?
-    override init(){
+    internal private(set) var SnapshotArray : [SessionSnapshot]
+
+    init(resort : SkiResort){
         IsStarted = false
         IsEnded = false
+        SnapshotArray = [SessionSnapshot]()
+        Resort = resort
         super.init()
     }
 
@@ -57,10 +61,15 @@ class Session : StorableObject{
         }
     }
     
+    func GetDurationHMSString() -> String{
+        let interval = Int(GetDuration())
+        let seconds = interval % 60
+        let minutes = (interval / 60) % 60
+        let hours = (interval / 3600)
+        return String (format: "%02d : %02d : %02d", hours, minutes, seconds)
+    }
+    
     func RecordSnapShot(){
-        if(SnapshotArray == nil){
-            SnapshotArray = Array<SessionSnapshot>();
-        }
-        //SnapshotArray!.append(SessionSnapshot.GetCurrentSnapshot())
+        SnapshotArray.append(SessionSnapshot.GetCurrentSnapshot())
     }
 }

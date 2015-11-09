@@ -30,6 +30,7 @@ class TripViewController: UIViewController {
         println(MotionManager.sharedInstance.GetCurrentAcceleration().z)
     }
     
+    @IBOutlet weak var durationLabel: UILabel!
     func UpdateRecentAccelerationData( acceleration : CMAcceleration){
         if(recentAccelerationData.count>10){
             recentAccelerationData.removeAtIndex(0)
@@ -40,11 +41,20 @@ class TripViewController: UIViewController {
     func update(){
         UpdateRecentAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         PlotGraph()
+        UpdateTimerLabel()
         //outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         
     }
+    
+    func UpdateTimerLabel(){
+        if let session = SessionManager.sharedInstance.CurrentSession {
+            durationLabel.text = session.GetDurationHMSString()
+        }
+    }
+    
+    
     func GetPlotData()-> NSArray{
-        var myData = [[NSString : NSObject]]()
+        var myData = [[String : NSObject]]()
         for (var i = 0; i < recentAccelerationData.count ;i++){
             var test = ["label":i,"value":NSNumber(int: Int32(recentAccelerationData[i].x))]
             myData.append(test)

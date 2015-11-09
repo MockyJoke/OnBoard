@@ -12,14 +12,15 @@ import Foundation
 class SessionManager : NSObject{
     // Singleton object for the manager
     internal private(set) static var sharedInstance = SessionManager()
-    var CurrentSession : Session?
+    internal private(set) var CurrentSession : Session?
     
     private override init(){
         
     }
     
-    func CreateNewCurrentSession() -> Session{
-        var newSession = Session()
+    func CreateNewCurrentSession( skiResort : SkiResort) -> Session{
+        var newSession = Session(resort: skiResort)
+        //user.SessionArray?.append()
         CurrentSession = newSession
         return newSession
     }

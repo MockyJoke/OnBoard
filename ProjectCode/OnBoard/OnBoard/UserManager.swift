@@ -10,8 +10,9 @@ import Foundation
 
 class UserManager : NSObject{
     let USERLIST_KEY = "USERLIST"
+    let CURRENTUSER_KEY = "CURRENTUSER"
     internal private(set) static var sharedInstance = UserManager()
-    internal private(set) var currentUser : User?
+    internal private(set) var currentUser : User
     private var localUserDict : [String:User]
 
     private override init(){
@@ -20,6 +21,12 @@ class UserManager : NSObject{
         }else{
             localUserDict = [String:User]()
             LocalStorageManager.sharedInstance.SaveObject(USERLIST_KEY, dataObject: localUserDict)
+        }
+        
+        if let user = LocalStorageManager.sharedInstance.LoadObject(CURRENTUSER_KEY) as? User {
+            currentUser = user
+        }else{
+            currentUser = User()
         }
     }
     
@@ -60,16 +67,25 @@ class UserManager : NSObject{
         return Array(localUserDict.values)
     }
     
-    internal func SpecifyCurrentUser(name: String) {
-        currentUser = GetUserByName(name)
+    internal func SpecifyCurrentUser(name: String) -> Bool {
+        if let user = GetUserByName(name){
+            currentUser = user
+            return true;
+        }else{
+            return false;
+        }
     }
     
     internal func GetCurrentUser() -> User {
-        return currentUser!
+        return currentUser
     }
     
     private func Save(){
         LocalStorageManager.sharedInstance.SaveObject(USERLIST_KEY, dataObject: localUserDict)
+        if (!currentUser.IsAnonymous){
+            LocalStorageManager.sharedInstance.SaveObject(CURRENTUSER_KEY, dataObject: currentUser)
+        }
     }
     
+
 }

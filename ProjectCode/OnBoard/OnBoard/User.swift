@@ -15,11 +15,13 @@ class User : StorableObject{
     internal private(set) var EmergencyName : String
     internal private(set) var EmergencyPhone : String
     internal private(set) var SessionArray : [Session]?
+    internal private(set) var IsAnonymous : Bool
     override init(){
         Name  = "NewUser"
         Id = NSUUID().UUIDString
         EmergencyName = ""
         EmergencyPhone = ""
+        IsAnonymous = true;
         super.init()
     }
     
@@ -28,6 +30,7 @@ class User : StorableObject{
         Id = NSUUID().UUIDString
         EmergencyPhone = emergencyPhone
         EmergencyName = emergencyName
+        IsAnonymous = false
         super.init()
     }
     
@@ -37,6 +40,7 @@ class User : StorableObject{
         self.EmergencyName=User.decodeHelper(coder: aDecoder,propertyName: "EmergencyName",defaultVal: "")
         self.EmergencyPhone=User.decodeHelper(coder: aDecoder,propertyName: "EmergencyPhone",defaultVal: "")
         self.SessionArray=User.decodeHelper(coder: aDecoder,propertyName: "SessionArray",defaultVal: nil)
+        self.IsAnonymous=User.decodeHelper(coder: aDecoder,propertyName: "IsAnonymous",defaultVal: false)
         super.init()
     }
     
@@ -46,6 +50,14 @@ class User : StorableObject{
         aCoder.encodeObject(EmergencyPhone,forKey:"EmergencyPhone")
         aCoder.encodeObject(EmergencyName,forKey:"EmergencyName")
         aCoder.encodeObject(SessionArray,forKey:"SessionArray")
+        aCoder.encodeObject(IsAnonymous,forKey:"IsAnonymous")
+    }
+    
+    internal func AddNewSession(session : Session){
+        if(SessionArray == nil){
+            SessionArray = [Session]()
+        }
+        SessionArray!.append(session)
     }
 }
 

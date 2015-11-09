@@ -60,14 +60,19 @@ class SessionConfirmationViewController: UIViewController,UITableViewDelegate {
         return cell
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let resort = selectedResort{
+            var newSession = SessionManager.sharedInstance.CreateNewCurrentSession(resort)
+            UserManager.sharedInstance.GetCurrentUser().AddNewSession(newSession)
+            newSession.StartSession()
+        }
     }
-    */
+    
 
 }
