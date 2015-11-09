@@ -452,12 +452,38 @@
                                 <rect key="frame" x="16" y="20" width="568" height="208"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-mD-q8X">
+                                <rect key="frame" x="16" y="265" width="568" height="120"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="100"/>
+                                <color key="textColor" red="0.25100508845659231" green="0.63162986179016978" blue="0.98748458059210531" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUz-dR-Zoa">
+                                <rect key="frame" x="118" y="387" width="64" height="64"/>
+                                <state key="normal" image="Pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWB-T3-ZDO">
+                                <rect key="frame" x="418" y="387" width="64" height="64"/>
+                                <inset key="imageEdgeInsets" minX="4" minY="4" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="Stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Nww-mD-q8X" firstAttribute="leading" secondItem="wRA-Q7-4gM" secondAttribute="leadingMargin" id="F0l-2L-TRd"/>
+                            <constraint firstItem="CWB-T3-ZDO" firstAttribute="centerX" secondItem="wRA-Q7-4gM" secondAttribute="centerXWithinMargins" multiplier="1.5" id="Q5N-Td-CpR"/>
                             <constraint firstItem="U2e-UL-ZaM" firstAttribute="top" secondItem="wRA-Q7-4gM" secondAttribute="topMargin" constant="20" id="QDe-Q5-6Rs"/>
+                            <constraint firstItem="Nww-mD-q8X" firstAttribute="trailing" secondItem="wRA-Q7-4gM" secondAttribute="trailingMargin" id="TxO-Jk-uUP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="U2e-UL-ZaM" secondAttribute="trailing" id="WqH-w3-ngB"/>
+                            <constraint firstItem="CWB-T3-ZDO" firstAttribute="top" secondItem="Nww-mD-q8X" secondAttribute="bottom" constant="2" id="Y2T-DW-lzy"/>
+                            <constraint firstItem="Nww-mD-q8X" firstAttribute="top" secondItem="U2e-UL-ZaM" secondAttribute="bottom" constant="37" id="Z11-41-DYQ"/>
                             <constraint firstItem="U2e-UL-ZaM" firstAttribute="leading" secondItem="wRA-Q7-4gM" secondAttribute="leadingMargin" id="eEP-yO-lTY"/>
+                            <constraint firstItem="zUz-dR-Zoa" firstAttribute="centerX" secondItem="wRA-Q7-4gM" secondAttribute="centerXWithinMargins" multiplier="0.5" id="mdi-e2-lNb"/>
+                            <constraint firstItem="zUz-dR-Zoa" firstAttribute="top" secondItem="Nww-mD-q8X" secondAttribute="bottom" constant="2" id="tAB-Uu-seq"/>
                             <constraint firstItem="U2e-UL-ZaM" firstAttribute="bottom" secondItem="byK-ws-4u3" secondAttribute="top" multiplier="0.4" constant="8" symbolic="YES" id="vnN-ID-3ab"/>
                         </constraints>
                     </view>

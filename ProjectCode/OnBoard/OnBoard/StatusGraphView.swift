@@ -27,7 +27,7 @@ class StatusGraphView: UIView {
     var linesColor  = UIColor(white: 0.9, alpha: 1)
     var axisColor   = UIColor.grayColor()
     //var graphColor  = UIColor.blackColor()
-    var graphColor = UIColor (red: 30.0/255.0, green: 133.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+    var graphColor = UIColor (red: 255.0/255.0, green: 230.0/255.0, blue: 51.0/255.0, alpha: 1.0)
     var labelFont   = UIFont.systemFontOfSize(12)
     var labelColor  = UIColor.blackColor()
     
