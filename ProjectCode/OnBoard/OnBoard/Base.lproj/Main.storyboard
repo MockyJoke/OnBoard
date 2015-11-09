@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0wa-4d-vDN">
-                                <rect key="frame" x="26" y="134" width="548" height="30"/>
+                                <rect key="frame" x="26" y="420" width="548" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="afU-Um-mbE"/>
@@ -36,7 +36,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHz-Wj-AyR">
-                                <rect key="frame" x="26" y="244" width="548" height="60"/>
+                                <rect key="frame" x="26" y="530" width="548" height="60"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PB9-q1-Zdx">
-                                <rect key="frame" x="26" y="84" width="548" height="30"/>
+                                <rect key="frame" x="26" y="370" width="548" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="A5m-39-mFD"/>
@@ -74,7 +74,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3U-82-cvf">
-                                <rect key="frame" x="26" y="184" width="548" height="30"/>
+                                <rect key="frame" x="26" y="470" width="548" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="NVF-lX-cqp"/>
@@ -90,12 +90,15 @@
                                     <outlet property="delegate" destination="gho-lv-q4z" id="57f-9r-10g"/>
                                 </connections>
                             </textField>
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddUser" translatesAutoresizingMaskIntoConstraints="NO" id="euW-3B-bkI">
+                                <rect key="frame" x="172" y="94" width="256" height="256"/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="0wa-4d-vDN" secondAttribute="centerX" id="21h-IU-zND"/>
-                            <constraint firstItem="PB9-q1-Zdx" firstAttribute="top" secondItem="v8x-4X-4Mv" secondAttribute="bottom" constant="20" id="5o4-wP-bWg"/>
+                            <constraint firstItem="PB9-q1-Zdx" firstAttribute="top" secondItem="euW-3B-bkI" secondAttribute="bottom" constant="20" id="2PM-em-NAb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qHz-Wj-AyR" secondAttribute="trailing" constant="258" id="6O9-SH-Weg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w3U-82-cvf" secondAttribute="trailing" constant="10" id="84H-kQ-NAg"/>
                             <constraint firstItem="w3U-82-cvf" firstAttribute="top" secondItem="0wa-4d-vDN" secondAttribute="bottom" constant="20" id="BMg-v4-CcJ"/>
@@ -108,9 +111,11 @@
                             <constraint firstItem="0wa-4d-vDN" firstAttribute="leading" secondItem="gwB-uZ-ann" secondAttribute="leadingMargin" constant="10" id="eCj-t3-GZg"/>
                             <constraint firstItem="w3U-82-cvf" firstAttribute="leading" secondItem="gwB-uZ-ann" secondAttribute="leadingMargin" constant="10" id="nK2-AR-qbk"/>
                             <constraint firstItem="qHz-Wj-AyR" firstAttribute="top" secondItem="w3U-82-cvf" secondAttribute="bottom" constant="30" id="oyF-rV-a8I"/>
+                            <constraint firstItem="euW-3B-bkI" firstAttribute="top" secondItem="v8x-4X-4Mv" secondAttribute="bottom" constant="30" id="qpn-KB-crP"/>
                             <constraint firstAttribute="centerX" secondItem="w3U-82-cvf" secondAttribute="centerX" id="tag-F3-wXg"/>
                             <constraint firstItem="PB9-q1-Zdx" firstAttribute="leading" secondItem="gwB-uZ-ann" secondAttribute="leadingMargin" constant="10" id="uUJ-8I-YzN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qHz-Wj-AyR" secondAttribute="trailing" constant="10" id="uzz-zB-BOZ"/>
+                            <constraint firstAttribute="centerX" secondItem="euW-3B-bkI" secondAttribute="centerX" id="wgd-A7-g0L"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -459,21 +464,21 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-mD-q8X">
-                                <rect key="frame" x="16" y="265" width="568" height="120"/>
+                                <rect key="frame" x="16" y="238" width="568" height="120"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="100"/>
                                 <color key="textColor" red="0.25100508845659231" green="0.63162986179016978" blue="0.98748458059210531" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUz-dR-Zoa">
-                                <rect key="frame" x="86" y="387" width="128" height="128"/>
+                                <rect key="frame" x="86" y="360" width="128" height="128"/>
                                 <animations/>
                                 <state key="normal" image="Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWB-T3-ZDO">
-                                <rect key="frame" x="386" y="387" width="128" height="128"/>
+                                <rect key="frame" x="386" y="360" width="128" height="128"/>
                                 <animations/>
                                 <inset key="imageEdgeInsets" minX="4" minY="4" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="Stop">
@@ -490,7 +495,7 @@
                             <constraint firstItem="Nww-mD-q8X" firstAttribute="trailing" secondItem="wRA-Q7-4gM" secondAttribute="trailingMargin" id="TxO-Jk-uUP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="U2e-UL-ZaM" secondAttribute="trailing" id="WqH-w3-ngB"/>
                             <constraint firstItem="CWB-T3-ZDO" firstAttribute="top" secondItem="Nww-mD-q8X" secondAttribute="bottom" constant="2" id="Y2T-DW-lzy"/>
-                            <constraint firstItem="Nww-mD-q8X" firstAttribute="top" secondItem="U2e-UL-ZaM" secondAttribute="bottom" constant="37" id="Z11-41-DYQ"/>
+                            <constraint firstItem="Nww-mD-q8X" firstAttribute="top" secondItem="U2e-UL-ZaM" secondAttribute="bottom" constant="10" id="Z11-41-DYQ"/>
                             <constraint firstItem="U2e-UL-ZaM" firstAttribute="leading" secondItem="wRA-Q7-4gM" secondAttribute="leadingMargin" id="eEP-yO-lTY"/>
                             <constraint firstItem="zUz-dR-Zoa" firstAttribute="centerX" secondItem="wRA-Q7-4gM" secondAttribute="centerXWithinMargins" multiplier="0.5" id="mdi-e2-lNb"/>
                             <constraint firstItem="zUz-dR-Zoa" firstAttribute="top" secondItem="Nww-mD-q8X" secondAttribute="bottom" constant="2" id="tAB-Uu-seq"/>
@@ -675,6 +680,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AddUser" width="256" height="256"/>
         <image name="Map" width="24" height="24"/>
         <image name="Mountain" width="300" height="333"/>
         <image name="Pause" width="128" height="128"/>
