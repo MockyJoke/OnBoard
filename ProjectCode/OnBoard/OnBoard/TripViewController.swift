@@ -14,11 +14,15 @@ class TripViewController: UIViewController {
     
     @IBOutlet weak var graphZoneView: UIView!
     
-    
+    var recentData = [CMAcceleration]()
     override func viewDidLoad(){
         super.viewDidLoad()
         var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
         self.resetMaxValues()
+        
+        for i in 0...4{
+            recentData.append(MotionManager.sharedInstance.GetCurrentAcceleration())
+        }
         
         motionManager.accelerometerUpdateInterval = 1.0
         motionManager.gyroUpdateInterval = 1.0
@@ -27,11 +31,32 @@ class TripViewController: UIViewController {
         println(MotionManager.sharedInstance.GetCurrentAcceleration().x)
         println(MotionManager.sharedInstance.GetCurrentAcceleration().y)
         println(MotionManager.sharedInstance.GetCurrentAcceleration().z)
+        
     }
     
     func update(){
-        outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
+        MotionManager.sharedInstance.GetCurrentAcceleration()
+        //outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         
+    }
+    func GetPlotData()-> NSArray{
+        let myData = [
+            ["label" : "Mon",   "value" : NSNumber(int:15)],
+            ["label" : "Mon",  "value" : NSNumber(int:30)],
+            ["label" : "Mon",  "value" : NSNumber(int:7)],
+            ["label" : "Mon", "value" : NSNumber(int:60)],
+            ["label" : "Fri",   "value" : NSNumber(int:30)],
+            ["label" : "Sat",   "value" : NSNumber(int:15)],
+            ["label" : "Sun",   "value" : NSNumber(int:45)],] as NSArray
+
+        /*var myData = [[NSString : NSObject]]()
+        for item in recentData{
+            var test = ["label":"point","value":NSNumber(int: Int32(item.x))]
+            myData.append(test)
+        }*/
+        
+        
+        return myData as NSArray
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,7 +85,7 @@ class TripViewController: UIViewController {
         var width = graphZoneView.frame.width * 0.9
         var height = graphZoneView.frame.height * 0.9
         
-        let graph = StatusGraphView(frame: CGRectMake(x,y,width,height), data: myData)
+        let graph = StatusGraphView(frame: CGRectMake(x,y,width,height), data: GetPlotData())
         for view in graphZoneView.subviews {
             view.removeFromSuperview()
         }

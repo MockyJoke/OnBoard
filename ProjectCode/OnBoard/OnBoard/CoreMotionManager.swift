@@ -27,9 +27,12 @@ class MotionManager : NSObject {
     }
     
     func GetCurrentAcceleration() -> CMAcceleration{
-        let rand = Double(arc4random()%100 - 50)
+        let rand = Double(randomInt(1,max: 10))
         return CMAcceleration(x: rand,y: 1,z: 1)
         //return motionManager.accelerometerData.acceleration
     }
-}
+    
+    func randomInt(min: Int, max:Int) -> Int {
+        return min + Int(arc4random_uniform(UInt32(max - min + 1)))
+    }}
 
