@@ -12,7 +12,7 @@ class StatisticsTableViewController: UITableViewController {
     
     // TODO: Remove Placeholder values
     let tempDates = [
-        "Elle":["11/4/15","11/1/15","10/27/15","10/13/15"], "Erik":["11/3/15","1/3/15","10/12/14"]]
+        "Bob":["11/4/15","11/1/15","10/27/15","10/13/15"], "Dan":["11/3/15","1/3/15","10/12/14"]]
     
     var tempDateValues = ["11/4/15":[10232, 74, 32], "11/3/15":[13234,89,43], "10/27/15":[1232,20,10]]
     
@@ -100,7 +100,7 @@ class StatisticsTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var statDetailVC = segue.destinationViewController as! StatDetailsViewController
-        if currentUser.Name == "Elle" {
+        if currentUser.Name == "Bob" {
             statDetailVC.Time = 43
             statDetailVC.Distance = 3054
             statDetailVC.Speed = 28
