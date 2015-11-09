@@ -1,26 +1,24 @@
 //
-//  StatisticsTableViewController.swift
-//  OnBoard
+//  ChangeProfileTableViewController.swift
+//  
 //
-//  Created by Louis Chan on 11/8/15.
-//  Copyright (c) 2015 Rainbow Riders. All rights reserved.
+//  Created by Louis Chan on 2015-11-08.
+//
 //
 
 import UIKit
 
-class StatisticsTableViewController: UITableViewController {
+class ChangeProfileTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let currentUser = UserManager.sharedInstance.currentUser
-        
-        self.title = "Statistics"
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshTableData:", name: "refresh", object: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,21 +35,15 @@ class StatisticsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return UserManager.sharedInstance.GetUserCount()
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! UITableViewCell
-
+        var cell = UITableViewCell()
         var userArray = UserManager.sharedInstance.GetUserArray()
         cell.textLabel?.text =  userArray[indexPath.row].Name
-        
         return cell
     }
-
 
     /*
     // Override to support conditional editing of the table view.
@@ -61,17 +53,15 @@ class StatisticsTableViewController: UITableViewController {
     }
     */
 
-    
-    // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
             var userArray = UserManager.sharedInstance.GetUserArray()
-    
+            
             UserManager.sharedInstance.DeleteUserByName(userArray[indexPath.row].Name)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        }  
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
-
 
     /*
     // Override to support rearranging the table view.
@@ -87,6 +77,11 @@ class StatisticsTableViewController: UITableViewController {
         return true
     }
     */
+    
+    // Refreshes table to display newly added users when signal is received
+    func refreshTableData(notification: NSNotification) {
+        tableView.reloadData()
+    }
 
     /*
     // MARK: - Navigation
@@ -97,5 +92,11 @@ class StatisticsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        navigationItem.backBarButtonItem = backButton
+    }
 
 }

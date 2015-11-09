@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileSetupViewController: UIViewController , UITableViewDataSource{
+class ProfileSetupViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -42,6 +42,14 @@ class ProfileSetupViewController: UIViewController , UITableViewDataSource{
         var userArray = UserManager.sharedInstance.GetUserArray()
         cell.textLabel?.text =  userArray[indexPath.row].Name
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didDeselectAtIndexPath indexPath: NSIndexPath) {
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath)
+        let text = cell?.textLabel?.text
+        if let text = text {
+            println( text )
+        }
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

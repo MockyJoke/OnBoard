@@ -60,6 +60,10 @@ class UserManager : NSObject{
         return Array(localUserDict.values)
     }
     
+    internal func GetCurrentUser() -> User {
+        return currentUser!
+    }
+    
     private func Save(){
         LocalStorageManager.sharedInstance.SaveObject(USERLIST_KEY, dataObject: localUserDict)
     }

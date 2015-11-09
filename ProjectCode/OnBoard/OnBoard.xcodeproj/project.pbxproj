@@ -29,6 +29,7 @@
 		5476CDDE1BEC2102002A3D45 /* SkiResortData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */; };
 		54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247AD1BF00530000116D2 /* StatusGraphView.swift */; };
 		54B247B41BF018E7000116D2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247B31BF018E7000116D2 /* Queue.swift */; };
+		BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */; };
 		C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */; };
 		C45C3C2D1BE9F7BA00174AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2B1BE9F7BA00174AC1 /* Main.storyboard */; };
 		C45C3C2F1BE9F7BA00174AC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45C3C2E1BE9F7BA00174AC1 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkiResortData.plist; sourceTree = "<group>"; };
 		54B247AD1BF00530000116D2 /* StatusGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusGraphView.swift; sourceTree = "<group>"; };
 		54B247B31BF018E7000116D2 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeProfileTableViewController.swift; sourceTree = "<group>"; };
 		C45C3C241BE9F7BA00174AC1 /* OnBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C45C3C2C1BE9F7BA00174AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				C45C3C481BE9FDA200174AC1 /* ProfileSetupViewController.swift */,
 				3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */,
+				BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */,
 				54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */,
 				54B247B41BF018E7000116D2 /* Queue.swift in Sources */,
+				BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
