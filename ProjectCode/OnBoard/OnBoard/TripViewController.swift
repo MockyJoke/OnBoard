@@ -11,11 +11,14 @@ import CoreMotion
 
 
 class TripViewController: UIViewController {
-    
+    // Outlet declarations
     @IBOutlet weak var graphZoneView: UIView!
     @IBOutlet weak var durationLabel: UILabel!
     
+    // class-wise members
     var recentAccelerationData = [CMAcceleration]()
+    
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.10, target: self, selector: "update", userInfo: nil, repeats: true)
@@ -24,11 +27,16 @@ class TripViewController: UIViewController {
         for i in 0...9{
             recentAccelerationData.append(MotionManager.sharedInstance.GetCurrentAcceleration())
         }
-        
-        MotionManager.sharedInstance.StartUpdate()
-        println(MotionManager.sharedInstance.GetCurrentAcceleration().x)
-        println(MotionManager.sharedInstance.GetCurrentAcceleration().y)
-        println(MotionManager.sharedInstance.GetCurrentAcceleration().z)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // Called when subview is drawed
+    override func viewDidLayoutSubviews() {
+        PlotGraph()
     }
     
     func UpdateRecentAccelerationData( acceleration : CMAcceleration){
@@ -41,17 +49,17 @@ class TripViewController: UIViewController {
     func update(){
         UpdateRecentAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         PlotGraph()
-        UpdateTimerLabel()
+        UpdateDurationLabel()
         //outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         
     }
     
-    func UpdateTimerLabel(){
+    // Dudation Label management
+    func UpdateDurationLabel(){
         if let session = SessionManager.sharedInstance.CurrentSession {
             durationLabel.text = session.GetDurationHMSString()
         }
     }
-    
     
     func GetPlotData()-> NSArray{
         var myData = [[String : NSObject]]()
@@ -62,25 +70,7 @@ class TripViewController: UIViewController {
         return myData as NSArray
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidLayoutSubviews() {
-        PlotGraph()
-    }
-    
     func PlotGraph(){
-        let myData = [
-            ["label" : "Mon",   "value" : NSNumber(int:15)],
-            ["label" : "Tues",  "value" : NSNumber(int:30)],
-            ["label" : "Weds",  "value" : NSNumber(int:7)],
-            ["label" : "Thurs", "value" : NSNumber(int:60)],
-            ["label" : "Fri",   "value" : NSNumber(int:30)],
-            ["label" : "Sat",   "value" : NSNumber(int:15)],
-            ["label" : "Sun",   "value" : NSNumber(int:45)],
-            ] as NSArray
         // Do any additional setup after loading the view.
         
         var x = graphZoneView.frame.width * 0.05;
@@ -183,35 +173,4 @@ class TripViewController: UIViewController {
             currentMaxAccelerationZ = acceleration.z
         }
     }
-    
-    
-    
-  
-    
-    
-    //start recording
-    //motionBegan(motion: UIEventSubtype, withEvent: UIEvent)
-    
-    /*
-    //    motionManager.startAccelerometerUpdatesToQueue(queue: NSOperationQueue!) { (CMAccelerometerData!, NSError,!) -> Void in
-    self.outputAccelerationData (accerlerometerData.acceleration)
-    if (error != nil){
-    println("\(error)")
-    }
-    }
-    
-    motionManager.startGyroUpdatesToQueue(queue: NSOperationQueue!) { (<#CMGyroData!#>, <#NSError!#>) -> Void in
-    code
-    }
-    
-    motionManager.startAccelerometerUpdatesToQueue(<#queue: NSOperationQueue!#>, withHandler: <#CMAccelerometerHandler!##(CMAccelerometerData!, NSError!) -> Void#>)
-    }
-    
-    
-    
-    
-    
-    */
-    
-    
 }
