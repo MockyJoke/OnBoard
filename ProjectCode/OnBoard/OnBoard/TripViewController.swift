@@ -13,6 +13,7 @@ import CoreMotion
 class TripViewController: UIViewController {
     
     @IBOutlet weak var graphZoneView: UIView!
+    @IBOutlet weak var durationLabel: UILabel!
     
     var recentAccelerationData = [CMAcceleration]()
     override func viewDidLoad(){
@@ -30,7 +31,6 @@ class TripViewController: UIViewController {
         println(MotionManager.sharedInstance.GetCurrentAcceleration().z)
     }
     
-    @IBOutlet weak var durationLabel: UILabel!
     func UpdateRecentAccelerationData( acceleration : CMAcceleration){
         if(recentAccelerationData.count>10){
             recentAccelerationData.removeAtIndex(0)

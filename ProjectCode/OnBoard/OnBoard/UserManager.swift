@@ -70,6 +70,7 @@ class UserManager : NSObject{
     internal func SpecifyCurrentUser(name: String) -> Bool {
         if let user = GetUserByName(name){
             currentUser = user
+            Save()
             return true;
         }else{
             return false;
