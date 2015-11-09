@@ -460,18 +460,21 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-mD-q8X">
                                 <rect key="frame" x="16" y="265" width="568" height="120"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="100"/>
                                 <color key="textColor" red="0.25100508845659231" green="0.63162986179016978" blue="0.98748458059210531" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUz-dR-Zoa">
-                                <rect key="frame" x="118" y="387" width="64" height="64"/>
+                                <rect key="frame" x="86" y="387" width="128" height="128"/>
+                                <animations/>
                                 <state key="normal" image="Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWB-T3-ZDO">
-                                <rect key="frame" x="418" y="387" width="64" height="64"/>
+                                <rect key="frame" x="386" y="387" width="128" height="128"/>
+                                <animations/>
                                 <inset key="imageEdgeInsets" minX="4" minY="4" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="Stop">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -673,9 +676,9 @@
     <resources>
         <image name="Map" width="24" height="24"/>
         <image name="Mountain" width="300" height="333"/>
-        <image name="Pause" width="64" height="64"/>
+        <image name="Pause" width="128" height="128"/>
         <image name="Status" width="24" height="24"/>
-        <image name="Stop" width="64" height="64"/>
+        <image name="Stop" width="128" height="128"/>
         <image name="Trip" width="24" height="24"/>
         <image name="group" width="24" height="24"/>
     </resources>

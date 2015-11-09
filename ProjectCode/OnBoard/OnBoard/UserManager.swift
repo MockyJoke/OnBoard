@@ -60,6 +60,10 @@ class UserManager : NSObject{
         return Array(localUserDict.values)
     }
     
+    internal func SpecifyCurrentUser(name: String) {
+        currentUser = GetUserByName(name)
+    }
+    
     internal func GetCurrentUser() -> User {
         return currentUser!
     }
