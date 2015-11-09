@@ -17,7 +17,7 @@ class TripViewController: UIViewController {
     var recentAccelerationData = [CMAcceleration]()
     override func viewDidLoad(){
         super.viewDidLoad()
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: "update", userInfo: nil, repeats: true)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.10, target: self, selector: "update", userInfo: nil, repeats: true)
         self.resetMaxValues()
         
         for i in 0...9{

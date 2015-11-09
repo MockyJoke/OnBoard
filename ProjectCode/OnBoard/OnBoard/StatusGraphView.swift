@@ -26,7 +26,8 @@ class StatusGraphView: UIView {
     var showPoints  = true
     var linesColor  = UIColor(white: 0.9, alpha: 1)
     var axisColor   = UIColor.grayColor()
-    var graphColor  = UIColor.blackColor()
+    //var graphColor  = UIColor.blackColor()
+    var graphColor = UIColor (red: 30.0/255.0, green: 133.0/255.0, blue: 204.0/255.0, alpha: 1.0)
     var labelFont   = UIFont.systemFontOfSize(12)
     var labelColor  = UIColor.blackColor()
     
@@ -168,11 +169,11 @@ class StatusGraphView: UIView {
     func valueMarker() -> CALayer {
         let pointMarker = CALayer()
         pointMarker.backgroundColor = backgroundColor?.CGColor
-        pointMarker.cornerRadius = 8
+        pointMarker.cornerRadius = 3
         pointMarker.masksToBounds = true
         
         let markerInner = CALayer()
-        markerInner.frame = CGRectMake(3, 3, 10, 10)
+        markerInner.frame = CGRectMake(3, 3, 6, 6)
         markerInner.cornerRadius = 5
         markerInner.masksToBounds = true
         markerInner.backgroundColor = graphColor.CGColor
