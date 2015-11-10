@@ -9,7 +9,7 @@
 import Foundation
 
 class Session : StorableObject{
-    internal private(set) var Resort : SkiResort
+    internal private(set) var Resort : SkiResort?
     internal private(set) var StartTime : NSDate?
     internal private(set) var EndTime : NSDate?
     internal private(set) var IsStarted : Bool
@@ -25,10 +25,17 @@ class Session : StorableObject{
     }
 
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.Resort = User.decodeHelper(coder: aDecoder,propertyName: "Resort",defaultVal: nil)
+        self.StartTime=User.decodeHelper(coder: aDecoder,propertyName: "StartTime",defaultVal: NSDate())
+        self.EndTime=User.decodeHelper(coder: aDecoder,propertyName: "EndTime",defaultVal: NSDate())
+        self.IsStarted=User.decodeHelper(coder: aDecoder,propertyName: "IsStarted",defaultVal: false )
+        self.IsEnded=User.decodeHelper(coder: aDecoder,propertyName: "SessionArray",defaultVal: false)
+        self.SnapshotArray=User.decodeHelper(coder: aDecoder,propertyName: "SnapshotArray",defaultVal: [SessionSnapshot]())
+        super.init()
     }
     
     override func encodeWithCoder(aCoder:NSCoder){
+        //aCoder.encodeObject(Resort,forKey:"Resort")
         aCoder.encodeObject(StartTime,forKey:"StartTime")
         aCoder.encodeObject(EndTime,forKey:"EndTime")
         aCoder.encodeObject(IsStarted,forKey:"IsStarted")
