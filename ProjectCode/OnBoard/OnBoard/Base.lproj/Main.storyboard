@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0wa-4d-vDN">
-                                <rect key="frame" x="26" y="420" width="548" height="30"/>
+                                <rect key="frame" x="26" y="134" width="548" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="afU-Um-mbE"/>
@@ -36,7 +36,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHz-Wj-AyR">
-                                <rect key="frame" x="26" y="530" width="548" height="60"/>
+                                <rect key="frame" x="26" y="244" width="548" height="60"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PB9-q1-Zdx">
-                                <rect key="frame" x="26" y="370" width="548" height="30"/>
+                                <rect key="frame" x="26" y="84" width="548" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="A5m-39-mFD"/>
@@ -74,7 +74,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3U-82-cvf">
-                                <rect key="frame" x="26" y="470" width="548" height="30"/>
+                                <rect key="frame" x="26" y="184" width="548" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="NVF-lX-cqp"/>
@@ -91,7 +91,7 @@
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddUser" translatesAutoresizingMaskIntoConstraints="NO" id="euW-3B-bkI">
-                                <rect key="frame" x="172" y="94" width="256" height="256"/>
+                                <rect key="frame" x="172" y="324" width="256" height="256"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -100,19 +100,19 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="0wa-4d-vDN" secondAttribute="centerX" id="21h-IU-zND"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qHz-Wj-AyR" secondAttribute="trailing" constant="258" id="6O9-SH-Weg"/>
+                            <constraint firstItem="AjO-z1-GEp" firstAttribute="top" secondItem="euW-3B-bkI" secondAttribute="bottom" constant="20" id="6eM-yn-GVU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w3U-82-cvf" secondAttribute="trailing" constant="10" id="84H-kQ-NAg"/>
+                            <constraint firstItem="PB9-q1-Zdx" firstAttribute="top" secondItem="v8x-4X-4Mv" secondAttribute="bottom" constant="20" id="BI9-R7-Cpj"/>
                             <constraint firstItem="w3U-82-cvf" firstAttribute="top" secondItem="0wa-4d-vDN" secondAttribute="bottom" constant="20" id="BMg-v4-CcJ"/>
                             <constraint firstItem="0wa-4d-vDN" firstAttribute="top" secondItem="PB9-q1-Zdx" secondAttribute="bottom" constant="20" id="BQE-vp-f4F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PB9-q1-Zdx" secondAttribute="trailing" constant="10" id="J6q-a9-bUw"/>
                             <constraint firstItem="qHz-Wj-AyR" firstAttribute="leading" secondItem="gwB-uZ-ann" secondAttribute="leadingMargin" constant="10" id="LLZ-FS-Jun"/>
                             <constraint firstAttribute="centerX" secondItem="qHz-Wj-AyR" secondAttribute="centerX" id="S27-mU-3Ow"/>
-                            <constraint firstItem="AjO-z1-GEp" firstAttribute="top" secondItem="qHz-Wj-AyR" secondAttribute="bottom" constant="10" id="TNx-Wc-pDq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0wa-4d-vDN" secondAttribute="trailing" constant="10" id="U0b-nQ-p3Q"/>
                             <constraint firstAttribute="centerX" secondItem="PB9-q1-Zdx" secondAttribute="centerX" id="UpA-rw-2xp"/>
                             <constraint firstItem="0wa-4d-vDN" firstAttribute="leading" secondItem="gwB-uZ-ann" secondAttribute="leadingMargin" constant="10" id="eCj-t3-GZg"/>
                             <constraint firstItem="w3U-82-cvf" firstAttribute="leading" secondItem="gwB-uZ-ann" secondAttribute="leadingMargin" constant="10" id="nK2-AR-qbk"/>
                             <constraint firstItem="qHz-Wj-AyR" firstAttribute="top" secondItem="w3U-82-cvf" secondAttribute="bottom" constant="30" id="oyF-rV-a8I"/>
-                            <constraint firstItem="euW-3B-bkI" firstAttribute="top" secondItem="v8x-4X-4Mv" secondAttribute="bottom" constant="30" id="qpn-KB-crP"/>
                             <constraint firstAttribute="centerX" secondItem="w3U-82-cvf" secondAttribute="centerX" id="tag-F3-wXg"/>
                             <constraint firstItem="PB9-q1-Zdx" firstAttribute="leading" secondItem="gwB-uZ-ann" secondAttribute="leadingMargin" constant="10" id="uUJ-8I-YzN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qHz-Wj-AyR" secondAttribute="trailing" constant="10" id="uzz-zB-BOZ"/>
@@ -131,7 +131,6 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="addButton" destination="qHz-Wj-AyR" id="8Pi-sG-5oJ"/>
-                        <outlet property="bottomConstraint" destination="TNx-Wc-pDq" id="PvJ-TM-ntO"/>
                         <outlet property="emergencyName" destination="0wa-4d-vDN" id="R0B-Ws-r2y"/>
                         <outlet property="emergencyTel" destination="w3U-82-cvf" id="v98-p0-uGn"/>
                         <outlet property="userName" destination="PB9-q1-Zdx" id="FpM-gh-cTl"/>
