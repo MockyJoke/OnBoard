@@ -14,17 +14,15 @@ namespace OnBoardService.Models.Groups
             _connection = connection;
         }
 
-        public async Task<List<Group>> GetAllGroups()
+        public async Task<List<Group>> GetAllGroupsAsync()
         {
             string sql = string.Format(OnBoardResource.Sql_GroupGetAllGroups);
             SqlCommand cmd = new SqlCommand(sql, _connection);
             List<Group> result = null;
             using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
             {
-                if (reader.HasRows)
+                while (await reader.ReadAsync().ConfigureAwait(false))
                 {
-
-                    await reader.ReadAsync().ConfigureAwait(false);
                     if (result == null)
                     {
                         result = new List<Group>();
@@ -37,60 +35,74 @@ namespace OnBoardService.Models.Groups
 
         public async Task<Group> GetGroupByIdAsync(string groupId)
         {
-            string sql = string.Format(OnBoardResource.Sql_UserGetUserById_Id, groupId);
+            string sql = string.Format(OnBoardResource.Sql_GroupGetGroupById_Id, groupId);
             SqlCommand cmd = new SqlCommand(sql, _connection);
             Group result = null;
             using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
             {
                 if (reader.HasRows)
                 {
-                    
                     await reader.ReadAsync().ConfigureAwait(false);
-                    if(result == null)
                     result = Group.ParseGroupFromSqlRow(reader);
                 }
             }
             return result;
         }
 
-
-        public void CreateGroup()
+        public async Task<Group> GetGroupByNameAsync(string groupName)
         {
-
+            string sql = string.Format(OnBoardResource.Sql_GroupGetGroupByName_Name, groupName);
+            SqlCommand cmd = new SqlCommand(sql, _connection);
+            Group result = null;
+            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+            {
+                if (reader.HasRows)
+                {
+                    await reader.ReadAsync().ConfigureAwait(false);
+                    result = Group.ParseGroupFromSqlRow(reader);
+                }
+            }
+            return result;
         }
 
-        /*public async Task<User> CreateUserAsync(string nickName)
+        public async Task<int> GetMaxGroupId()
         {
-            User result = await GetUserByUserNickNameAsync(nickName).ConfigureAwait(false);
-            if (result == null)
+            string sql = string.Format(OnBoardResource.Sql_GroupGetMaxGroupId);
+            SqlCommand cmd = new SqlCommand(sql, _connection);
+            int result = 0;
+            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+            {
+                if (reader.HasRows)
+                {
+                    await reader.ReadAsync().ConfigureAwait(false);
+                    result = reader.GetInt32(0);
+                }
+            }
+            return result;
+        }
+
+        public async Task<Group> CreateGroup(string groupName)
+        {
+            Group result = await GetGroupByIdAsync(groupName).ConfigureAwait(false);
+            if(result == null)
             {
                 int maxUserId = 0;
                 try
                 {
-                    maxUserId = Convert.ToInt32(await GetMaxUserId().ConfigureAwait(false));
+                    maxUserId = Convert.ToInt32(await GetMaxGroupId().ConfigureAwait(false));
                 }
                 catch
                 {
                     maxUserId = 0;
                 }
-                int newUserId = maxUserId + 1;
-                string sql = string.Format(OnBoardResource.Sql_UserInsertUser_Id_NickName_GroupId,
-                    newUserId.ToString(),
-                    nickName,
-                    0.ToString());
+                int newGroupId = maxUserId + 1;
+                string sql = string.Format(OnBoardResource.Sql_GroupInsertGroup_Id_Name, newGroupId, groupName);
                 ExecuteNonQuery(sql);
-                result = await GetUserByUserIdAsync(newUserId.ToString());
-            }
-            else
-            {
-                // A user with the same nickname already exist
-                string sql = string.Format(OnBoardResource.Sql_UserUpdateUserById_Id_Nickname_GroupId,
-                    result.Id,
-                    result.NickName,
-                    result.GroupId);
-                ExecuteNonQuery(sql);
+                result = await GetGroupByIdAsync(newGroupId.ToString());
             }
             return result;
-        }*/
+        }
+
+        
     }
 }

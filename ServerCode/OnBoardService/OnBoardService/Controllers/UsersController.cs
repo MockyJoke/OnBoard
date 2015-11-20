@@ -14,61 +14,33 @@ namespace OnBoardService.Controllers
         // GET: api/Users
         public IEnumerable<User> Get()
         {
-            UsersUtility userUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            IEnumerable<User> result = userUtil.GetAllUsers().Result;
-            if (result == null)
-            {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            }
-            else
-            {
-                return result;
-            }
+            UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
+            IEnumerable<User> result = usersUtil.GetAllUsersAsync().Result;
+            return this.SmartWebReturn(result);
         }
 
         // GET: api/Users/5
         public User Get(string id)
         {
-            UsersUtility userUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            User result = userUtil.GetUserByUserIdAsync(id).Result;
-            if (result == null)
-            {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            }
-            else
-            {
-                return result;
-            }
+            UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
+            User result = usersUtil.GetUserByUserIdAsync(id).Result;
+            return this.SmartWebReturn(result);
         }
 
         // GET: api/Users?nickName=
         public User GetByNickName(string nickName)
         {
-            UsersUtility userUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            User result = userUtil.GetUserByUserNickNameAsync(nickName).Result;
-            if (result == null)
-            {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            }
-            else
-            {
-                return result;
-            }
+            UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
+            User result = usersUtil.GetUserByUserNickNameAsync(nickName).Result;
+            return this.SmartWebReturn(result);
         }
 
         // GET: api/Users?groupId=
         public IEnumerable<User> GetByGroupId(string groupId)
         {
-            UsersUtility userUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            IEnumerable<User> result = userUtil.GetUsersByGroupIdAsync(groupId).Result;
-            if (result == null)
-            {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            }
-            else
-            {
-                return result;
-            }
+            UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
+            IEnumerable<User> result = usersUtil.GetUsersByGroupIdAsync(groupId).Result;
+            return this.SmartWebReturn(result);
         }
 
         // POST: api/Users
@@ -76,18 +48,19 @@ namespace OnBoardService.Controllers
         //{
         //}
 
-        // POST: /api/Users?nickName={} 
-        public HttpResponseMessage Post(string nickName)
-        {
-            UsersUtility userUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            User user= userUtil.CreateUserAsync(nickName).Result;
-            HttpResponseMessage responseMessage = Request.CreateResponse<User>(user);
-            return responseMessage;
-        }
 
         // PUT: api/Users/5
-        public void Put(string id, [FromBody]string NickName)
+        /*public void Put(string id, [FromBody]string NickName)
         {
+        }*/
+
+        // PUT: /api/Users?nickName={} 
+        public HttpResponseMessage Put(string nickName)
+        {
+            UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
+            User user = usersUtil.CreateUserAsync(nickName).Result;
+            HttpResponseMessage responseMessage = Request.CreateResponse<User>(user);
+            return responseMessage;
         }
 
         // DELETE: api/Users/5

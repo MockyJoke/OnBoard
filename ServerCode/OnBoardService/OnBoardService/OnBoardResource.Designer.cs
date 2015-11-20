@@ -89,11 +89,40 @@ namespace OnBoardService {
         
         /// <summary>
         ///   Looks up a localized string similar to Select * From [dbo].[Group]
-        ///Where Id=&apos;{0}&apos;.
+        ///Where Id={0}.
         /// </summary>
         internal static string Sql_GroupGetGroupById_Id {
             get {
                 return ResourceManager.GetString("Sql_GroupGetGroupById_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select * From [dbo].[Group]
+        ///Where NickName = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string Sql_GroupGetGroupByName_Name {
+            get {
+                return ResourceManager.GetString("Sql_GroupGetGroupByName_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select MAX(Id)From [dbo].[Group].
+        /// </summary>
+        internal static string Sql_GroupGetMaxGroupId {
+            get {
+                return ResourceManager.GetString("Sql_GroupGetMaxGroupId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO [dbo].[Group] (Id,Name)
+        ///Values ({0},&apos;{1}&apos;);.
+        /// </summary>
+        internal static string Sql_GroupInsertGroup_Id_Name {
+            get {
+                return ResourceManager.GetString("Sql_GroupInsertGroup_Id_Name", resourceCulture);
             }
         }
         
@@ -117,7 +146,7 @@ namespace OnBoardService {
         
         /// <summary>
         ///   Looks up a localized string similar to Select * From [dbo].[User]
-        ///Where Id=&apos;{0}&apos;.
+        ///Where Id={0}.
         /// </summary>
         internal static string Sql_UserGetUserById_Id {
             get {
@@ -137,7 +166,7 @@ namespace OnBoardService {
         
         /// <summary>
         ///   Looks up a localized string similar to Select * From [dbo].[User]
-        ///Where GroupId=&apos;{0}&apos;.
+        ///Where GroupId={0}.
         /// </summary>
         internal static string Sql_UserGetUsersByGroupId_GroupId {
             get {
@@ -146,8 +175,8 @@ namespace OnBoardService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO [dbo].[User] (Id,NickName,GroupId)
-        ///Values (&apos;{0}&apos;,&apos;{1}&apos;,&apos;{2}&apos;);.
+        ///   Looks up a localized string similar to Select * From [dbo].[User]
+        ///Where NickName = &apos;jerry&apos;;.
         /// </summary>
         internal static string Sql_UserInsertUser_Id_NickName_GroupId {
             get {
@@ -157,8 +186,8 @@ namespace OnBoardService {
         
         /// <summary>
         ///   Looks up a localized string similar to UPDATE [dbo].[User]
-        ///SET NickName = &apos;{1}&apos;, GroupId=&apos;{2}&apos;
-        ///WHERE Id=&apos;{0}&apos;;.
+        ///SET NickName = &apos;{1}&apos;, GroupId={2}
+        ///WHERE Id={0};.
         /// </summary>
         internal static string Sql_UserUpdateUserById_Id_Nickname_GroupId {
             get {

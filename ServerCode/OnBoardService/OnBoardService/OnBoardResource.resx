@@ -128,7 +128,18 @@
   </data>
   <data name="Sql_GroupGetGroupById_Id" xml:space="preserve">
     <value>Select * From [dbo].[Group]
-Where Id='{0}'</value>
+Where Id={0}</value>
+  </data>
+  <data name="Sql_GroupGetGroupByName_Name" xml:space="preserve">
+    <value>Select * From [dbo].[Group]
+Where NickName = '{0}';</value>
+  </data>
+  <data name="Sql_GroupGetMaxGroupId" xml:space="preserve">
+    <value>Select MAX(Id)From [dbo].[Group]</value>
+  </data>
+  <data name="Sql_GroupInsertGroup_Id_Name" xml:space="preserve">
+    <value>INSERT INTO [dbo].[Group] (Id,Name)
+Values ({0},'{1}');</value>
   </data>
   <data name="Sql_UserGetAllUsers" xml:space="preserve">
     <value>Select * From [dbo].[User]</value>
@@ -138,7 +149,7 @@ Where Id='{0}'</value>
   </data>
   <data name="Sql_UserGetUserById_Id" xml:space="preserve">
     <value>Select * From [dbo].[User]
-Where Id='{0}'</value>
+Where Id={0}</value>
   </data>
   <data name="Sql_UserGetUserByNickName_NickName" xml:space="preserve">
     <value>Select * From [dbo].[User]
@@ -146,15 +157,15 @@ Where NickName = '{0}';</value>
   </data>
   <data name="Sql_UserGetUsersByGroupId_GroupId" xml:space="preserve">
     <value>Select * From [dbo].[User]
-Where GroupId='{0}'</value>
+Where GroupId={0}</value>
   </data>
   <data name="Sql_UserInsertUser_Id_NickName_GroupId" xml:space="preserve">
-    <value>INSERT INTO [dbo].[User] (Id,NickName,GroupId)
-Values ('{0}','{1}','{2}');</value>
+    <value>Select * From [dbo].[User]
+Where NickName = 'jerry';</value>
   </data>
   <data name="Sql_UserUpdateUserById_Id_Nickname_GroupId" xml:space="preserve">
     <value>UPDATE [dbo].[User]
-SET NickName = '{1}', GroupId='{2}'
-WHERE Id='{0}';</value>
+SET NickName = '{1}', GroupId={2}
+WHERE Id={0};</value>
   </data>
 </root>

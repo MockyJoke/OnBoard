@@ -46,17 +46,17 @@ namespace OnBoardService.Models.Users
             return result;
         }
 
-        public async Task<string> GetMaxUserId()
+        public async Task<int> GetMaxUserId()
         {
             string sql = string.Format(OnBoardResource.Sql_UserGetMaxUserId);
             SqlCommand cmd = new SqlCommand(sql, _connection);
-            string result = null;
+            int result = 0;
             using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
             {
                 if (reader.HasRows)
                 {
                     await reader.ReadAsync().ConfigureAwait(false);
-                    result = reader.GetString(0);
+                    result = reader.GetInt32(0);
                 }
             }
             return result;
@@ -82,20 +82,20 @@ namespace OnBoardService.Models.Users
             return result;
         }
 
-        public async Task<List<User>> GetAllUsers()
+        public async Task<List<User>> GetAllUsersAsync()
         {
             string sql = string.Format(OnBoardResource.Sql_UserGetAllUsers);
             SqlCommand cmd = new SqlCommand(sql, _connection);
             List<User> result = null;
             using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
             {
-                if (reader.HasRows)
+                while (await reader.ReadAsync().ConfigureAwait(false))
                 {
                     if (result == null)
                     {
                         result = new List<User>();
                     }
-                    await reader.ReadAsync().ConfigureAwait(false);
+                    
                     result.Add(User.ParseUserFromSqlRow(reader));
                 }
             }
@@ -120,8 +120,8 @@ namespace OnBoardService.Models.Users
                 int newUserId = maxUserId + 1;
                 string sql = string.Format(OnBoardResource.Sql_UserInsertUser_Id_NickName_GroupId,
                     newUserId.ToString(),
-                    nickName,
-                    0.ToString());
+                    nickName);
+
                 ExecuteNonQuery(sql);
                 result = await GetUserByUserIdAsync(newUserId.ToString());
             }
