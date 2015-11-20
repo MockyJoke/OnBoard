@@ -79,6 +79,34 @@ namespace OnBoardService {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select * From [dbo].[Group].
+        /// </summary>
+        internal static string Sql_GroupGetAllGroups {
+            get {
+                return ResourceManager.GetString("Sql_GroupGetAllGroups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select * From [dbo].[Group]
+        ///Where Id=&apos;{0}&apos;.
+        /// </summary>
+        internal static string Sql_GroupGetGroupById_Id {
+            get {
+                return ResourceManager.GetString("Sql_GroupGetGroupById_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select * From [dbo].[User].
+        /// </summary>
+        internal static string Sql_UserGetAllUsers {
+            get {
+                return ResourceManager.GetString("Sql_UserGetAllUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select MAX(Id)From [dbo].[User].
         /// </summary>
         internal static string Sql_UserGetMaxUserId {
@@ -89,7 +117,7 @@ namespace OnBoardService {
         
         /// <summary>
         ///   Looks up a localized string similar to Select * From [dbo].[User]
-        ///Where Id={0}.
+        ///Where Id=&apos;{0}&apos;.
         /// </summary>
         internal static string Sql_UserGetUserById_Id {
             get {
@@ -104,6 +132,16 @@ namespace OnBoardService {
         internal static string Sql_UserGetUserByNickName_NickName {
             get {
                 return ResourceManager.GetString("Sql_UserGetUserByNickName_NickName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select * From [dbo].[User]
+        ///Where GroupId=&apos;{0}&apos;.
+        /// </summary>
+        internal static string Sql_UserGetUsersByGroupId_GroupId {
+            get {
+                return ResourceManager.GetString("Sql_UserGetUsersByGroupId_GroupId", resourceCulture);
             }
         }
         

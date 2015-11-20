@@ -10,7 +10,7 @@ namespace OnBoardService.Models.Users
 
         public User()
         {
-            Id = "N/A";
+            Id = "0";
         }
         public User(string id, string nickName, string groupId)
         {

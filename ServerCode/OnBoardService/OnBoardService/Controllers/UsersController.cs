@@ -12,9 +12,18 @@ namespace OnBoardService.Controllers
     public class UsersController : ApiController
     {
         // GET: api/Users
-        public IEnumerable<string> Get()
+        public IEnumerable<User> Get()
         {
-            return new string[] { "value1", "value2" };
+            UsersUtility userUtil = new UsersUtility(DatabaseManager.Instance.Connection);
+            IEnumerable<User> result = userUtil.GetAllUsers().Result;
+            if (result == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return result;
+            }
         }
 
         // GET: api/Users/5
@@ -22,6 +31,36 @@ namespace OnBoardService.Controllers
         {
             UsersUtility userUtil = new UsersUtility(DatabaseManager.Instance.Connection);
             User result = userUtil.GetUserByUserIdAsync(id).Result;
+            if (result == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return result;
+            }
+        }
+
+        // GET: api/Users?nickName=
+        public User GetByNickName(string nickName)
+        {
+            UsersUtility userUtil = new UsersUtility(DatabaseManager.Instance.Connection);
+            User result = userUtil.GetUserByUserNickNameAsync(nickName).Result;
+            if (result == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return result;
+            }
+        }
+
+        // GET: api/Users?groupId=
+        public IEnumerable<User> GetByGroupId(string groupId)
+        {
+            UsersUtility userUtil = new UsersUtility(DatabaseManager.Instance.Connection);
+            IEnumerable<User> result = userUtil.GetUsersByGroupIdAsync(groupId).Result;
             if (result == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
@@ -41,7 +80,7 @@ namespace OnBoardService.Controllers
         public HttpResponseMessage Post(string nickName)
         {
             UsersUtility userUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            User user= userUtil.AddUserAsync(nickName).Result;
+            User user= userUtil.CreateUserAsync(nickName).Result;
             HttpResponseMessage responseMessage = Request.CreateResponse<User>(user);
             return responseMessage;
         }

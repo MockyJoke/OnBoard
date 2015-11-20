@@ -123,16 +123,30 @@
   <data name="RemoteDatabaseConstr" xml:space="preserve">
     <value>Data Source=e8yqwmqjxx.database.windows.net;Initial Catalog=fundata;Integrated Security=False;User ID=johnsonp;Password=Qwerty123.;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False</value>
   </data>
+  <data name="Sql_GroupGetAllGroups" xml:space="preserve">
+    <value>Select * From [dbo].[Group]</value>
+  </data>
+  <data name="Sql_GroupGetGroupById_Id" xml:space="preserve">
+    <value>Select * From [dbo].[Group]
+Where Id='{0}'</value>
+  </data>
+  <data name="Sql_UserGetAllUsers" xml:space="preserve">
+    <value>Select * From [dbo].[User]</value>
+  </data>
   <data name="Sql_UserGetMaxUserId" xml:space="preserve">
     <value>Select MAX(Id)From [dbo].[User]</value>
   </data>
   <data name="Sql_UserGetUserById_Id" xml:space="preserve">
     <value>Select * From [dbo].[User]
-Where Id={0}</value>
+Where Id='{0}'</value>
   </data>
   <data name="Sql_UserGetUserByNickName_NickName" xml:space="preserve">
     <value>Select * From [dbo].[User]
 Where NickName = '{0}';</value>
+  </data>
+  <data name="Sql_UserGetUsersByGroupId_GroupId" xml:space="preserve">
+    <value>Select * From [dbo].[User]
+Where GroupId='{0}'</value>
   </data>
   <data name="Sql_UserInsertUser_Id_NickName_GroupId" xml:space="preserve">
     <value>INSERT INTO [dbo].[User] (Id,NickName,GroupId)

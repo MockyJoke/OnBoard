@@ -62,8 +62,48 @@ namespace OnBoardService.Models.Users
             return result;
         }
 
+        public async Task<List<User>> GetUsersByGroupIdAsync(string groupId)
+        {
+            string sql = string.Format(OnBoardResource.Sql_UserGetUsersByGroupId_GroupId, groupId);
+            SqlCommand cmd = new SqlCommand(sql, _connection);
+            List<User> result = null;
+            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+            {
+                if (reader.HasRows)
+                {
+                    if (result == null)
+                    {
+                        result = new List<User>();
+                    }
+                    await reader.ReadAsync().ConfigureAwait(false);
+                    result.Add(User.ParseUserFromSqlRow(reader));
+                }
+            }
+            return result;
+        }
 
-        public async Task<User> AddUserAsync(string nickName)
+        public async Task<List<User>> GetAllUsers()
+        {
+            string sql = string.Format(OnBoardResource.Sql_UserGetAllUsers);
+            SqlCommand cmd = new SqlCommand(sql, _connection);
+            List<User> result = null;
+            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+            {
+                if (reader.HasRows)
+                {
+                    if (result == null)
+                    {
+                        result = new List<User>();
+                    }
+                    await reader.ReadAsync().ConfigureAwait(false);
+                    result.Add(User.ParseUserFromSqlRow(reader));
+                }
+            }
+            return result;
+        }
+
+
+        public async Task<User> CreateUserAsync(string nickName)
         {
             User result = await GetUserByUserNickNameAsync(nickName).ConfigureAwait(false);
             if (result == null)
@@ -106,5 +146,7 @@ namespace OnBoardService.Models.Users
             ExecuteNonQuery(sql);
             return user;
         }
+
+
     }
 }

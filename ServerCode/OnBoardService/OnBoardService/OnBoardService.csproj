@@ -200,6 +200,8 @@
     </Compile>
     <Compile Include="Models\DatabaseUtility.cs" />
     <Compile Include="Models\Database\DatabaseManager.cs" />
+    <Compile Include="Models\Groups\Group.cs" />
+    <Compile Include="Models\Groups\GroupsUtility.cs" />
     <Compile Include="Models\Users\User.cs" />
     <Compile Include="Models\Users\UsersUtility.cs" />
     <Compile Include="OnBoardResource.Designer.cs">
@@ -269,7 +271,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Groups\" />
     <Folder Include="Models\Locations\" />
   </ItemGroup>
   <ItemGroup>

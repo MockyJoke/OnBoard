@@ -32,8 +32,8 @@ namespace OnBoardService.Models.Database
 
         private DatabaseManager()
         {
-            //_connection = new SqlConnection(OnBoardResource.LocalDatabaseConStr);
-            _connection = new SqlConnection(OnBoardResource.RemoteDatabaseConstr);
+            _connection = new SqlConnection(OnBoardResource.LocalDatabaseConStr);
+            //_connection = new SqlConnection(OnBoardResource.RemoteDatabaseConstr);
         }
 
         /// <summary>
