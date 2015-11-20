@@ -88,6 +88,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Spatial, Version=5.6.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.6.2\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
@@ -209,6 +210,11 @@
     </Compile>
     <Compile Include="Models\DatabaseUtility.cs" />
     <Compile Include="Models\Database\DatabaseManager.cs" />
+    <Compile Include="Models\Database\OnBoardModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnBoardModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Groups\Group.cs" />
     <Compile Include="Models\Groups\GroupsUtility.cs" />
     <Compile Include="Models\Users\User.cs" />
@@ -255,6 +261,13 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\Database\OnBoardModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OnBoardModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Database\OnBoardModel.edmx.diagram">
+      <DependentUpon>OnBoardModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
