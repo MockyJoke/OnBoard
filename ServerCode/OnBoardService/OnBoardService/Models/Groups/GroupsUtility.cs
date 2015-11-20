@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnBoardService.Models.Database;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,102 +8,52 @@ using System.Web;
 
 namespace OnBoardService.Models.Groups
 {
-    public class GroupsUtility :DatabaseUtility
+    public class GroupsUtility : IDisposable
     {
-        public GroupsUtility (SqlConnection connection)
+        OnBoardDbContext _context;
+        public GroupsUtility ()
         {
-            _connection = connection;
+            _context = new OnBoardDbContext();
         }
 
-        public async Task<List<Group>> GetAllGroupsAsync()
+        public List<Group> GetAllGroups()
         {
-            string sql = string.Format(OnBoardResource.Sql_GroupGetAllGroups);
-            SqlCommand cmd = new SqlCommand(sql, _connection);
-            List<Group> result = null;
-            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
-            {
-                while (await reader.ReadAsync().ConfigureAwait(false))
-                {
-                    if (result == null)
-                    {
-                        result = new List<Group>();
-                    }
-                        result.Add(Group.ParseGroupFromSqlRow(reader));
-                }
-            }
-            return result;
+            return _context.Groups.ToList();
         }
 
-        public async Task<Group> GetGroupByIdAsync(string groupId)
+        public Group GetGroupById(int id)
         {
-            string sql = string.Format(OnBoardResource.Sql_GroupGetGroupById_Id, groupId);
-            SqlCommand cmd = new SqlCommand(sql, _connection);
-            Group result = null;
-            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
-            {
-                if (reader.HasRows)
-                {
-                    await reader.ReadAsync().ConfigureAwait(false);
-                    result = Group.ParseGroupFromSqlRow(reader);
-                }
-            }
-            return result;
+            return _context.Groups.FirstOrDefault(g => g.Id == id);
         }
 
-        public async Task<Group> GetGroupByNameAsync(string groupName)
+        public Group GetGroupByName(string name)
         {
-            string sql = string.Format(OnBoardResource.Sql_GroupGetGroupByName_Name, groupName);
-            SqlCommand cmd = new SqlCommand(sql, _connection);
-            Group result = null;
-            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
-            {
-                if (reader.HasRows)
-                {
-                    await reader.ReadAsync().ConfigureAwait(false);
-                    result = Group.ParseGroupFromSqlRow(reader);
-                }
-            }
-            return result;
+            return _context.Groups.FirstOrDefault(g => g.Name == name);
         }
 
-        public async Task<int> GetMaxGroupId()
+        public int GetMaxGroupId()
         {
-            string sql = string.Format(OnBoardResource.Sql_GroupGetMaxGroupId);
-            SqlCommand cmd = new SqlCommand(sql, _connection);
-            int result = 0;
-            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
-            {
-                if (reader.HasRows)
-                {
-                    await reader.ReadAsync().ConfigureAwait(false);
-                    result = reader.GetInt32(0);
-                }
-            }
-            return result;
+            return _context.Groups.Max(g => g.Id);
         }
 
-        public async Task<Group> CreateGroup(string groupName)
+        public Group CreateGroup(string name)
         {
-            Group result = await GetGroupByIdAsync(groupName).ConfigureAwait(false);
+            Group result = GetGroupByName(name);
             if(result == null)
             {
-                int maxUserId = 0;
-                try
+                result = new Group()
                 {
-                    maxUserId = Convert.ToInt32(await GetMaxGroupId().ConfigureAwait(false));
-                }
-                catch
-                {
-                    maxUserId = 0;
-                }
-                int newGroupId = maxUserId + 1;
-                string sql = string.Format(OnBoardResource.Sql_GroupInsertGroup_Id_Name, newGroupId, groupName);
-                ExecuteNonQuery(sql);
-                result = await GetGroupByIdAsync(newGroupId.ToString());
+                    Name = name
+                };
+                _context.Groups.Add(result);
+                _context.SaveChanges();
             }
             return result;
         }
 
-        
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
     }
 }

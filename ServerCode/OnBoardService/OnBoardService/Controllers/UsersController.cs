@@ -14,33 +14,41 @@ namespace OnBoardService.Controllers
         // GET: api/Users
         public IEnumerable<User> Get()
         {
-            UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            IEnumerable<User> result = usersUtil.GetAllUsersAsync().Result;
-            return this.SmartWebReturn(result);
+            using (UsersUtility usersUtil = new UsersUtility())
+            {
+                IEnumerable<User> result = usersUtil.GetAllUsers();
+                return this.SmartWebReturn(result);
+            }
         }
 
         // GET: api/Users/5
-        public User Get(string id)
+        public User Get(int id)
         {
-            UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            User result = usersUtil.GetUserByUserIdAsync(id).Result;
-            return this.SmartWebReturn(result);
+            using (UsersUtility usersUtil = new UsersUtility())
+            {
+                User result = usersUtil.GetUserByUserId(id);
+                return this.SmartWebReturn(result);
+            }
         }
 
         // GET: api/Users?nickName=
-        public User GetByNickName(string nickName)
+        public User GetByNickName(string name)
         {
-            UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            User result = usersUtil.GetUserByUserNickNameAsync(nickName).Result;
-            return this.SmartWebReturn(result);
+            using (UsersUtility usersUtil = new UsersUtility())
+            {
+                User result = usersUtil.GetUserByUserNickName(name);
+                return this.SmartWebReturn(result);
+            }
         }
 
         // GET: api/Users?groupId=
-        public IEnumerable<User> GetByGroupId(string groupId)
+        public IEnumerable<User> GetByGroupId(int groupId)
         {
-            UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            IEnumerable<User> result = usersUtil.GetUsersByGroupIdAsync(groupId).Result;
-            return this.SmartWebReturn(result);
+            using (UsersUtility usersUtil = new UsersUtility())
+            {
+                 IEnumerable<User> result = usersUtil.GetUsersByGroupId(groupId);
+                return this.SmartWebReturn(result);
+            }
         }
 
         // POST: api/Users
@@ -55,12 +63,17 @@ namespace OnBoardService.Controllers
         }*/
 
         // PUT: /api/Users?nickName={} 
-        public HttpResponseMessage Put(string nickName)
+        public User Put(string name)
         {
-            UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
-            User user = usersUtil.CreateUserAsync(nickName).Result;
-            HttpResponseMessage responseMessage = Request.CreateResponse<User>(user);
-            return responseMessage;
+            //UsersUtility usersUtil = new UsersUtility(DatabaseManager.Instance.Connection);
+            //User user = usersUtil.CreateUserAsync(nickName).Result;
+            //HttpResponseMessage responseMessage = Request.CreateResponse<User>(user);
+            //return responseMessage;
+            using (UsersUtility usersUtil = new UsersUtility())
+            {
+                User result = usersUtil.CreateUser(name);
+                return this.SmartWebReturn(result);
+            }
         }
 
         // DELETE: api/Users/5

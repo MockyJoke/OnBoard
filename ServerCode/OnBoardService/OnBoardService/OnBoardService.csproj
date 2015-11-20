@@ -210,14 +210,28 @@
     </Compile>
     <Compile Include="Models\DatabaseUtility.cs" />
     <Compile Include="Models\Database\DatabaseManager.cs" />
+    <Compile Include="Models\Database\Group.cs">
+      <DependentUpon>OnBoardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Database\OnBoardModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnBoardModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Database\OnBoardModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnBoardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Database\OnBoardModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OnBoardModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Groups\Group.cs" />
+    <Compile Include="Models\Database\User.cs">
+      <DependentUpon>OnBoardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Groups\GroupsUtility.cs" />
-    <Compile Include="Models\Users\User.cs" />
     <Compile Include="Models\Users\UsersUtility.cs" />
     <Compile Include="OnBoardResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -240,6 +254,17 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\Database\OnBoardModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OnBoardModel.Context.cs</LastGenOutput>
+      <DependentUpon>OnBoardModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Database\OnBoardModel.edmx.sql" />
+    <Content Include="Models\Database\OnBoardModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OnBoardModel.cs</LastGenOutput>
+      <DependentUpon>OnBoardModel.edmx</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -302,6 +327,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="OnBoardModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OnBoardModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="OnBoardModelStoreContainer">
     <EntitySet Name="Groups" EntityType="OnBoardModel.Store.Groups" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Users" EntityType="OnBoardModel.Store.Users" store:Type="Tables" Schema="dbo" />
@@ -25,8 +25,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="GroupId" Type="int" Nullable="true" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="true" />
   </EntityType>
   <Association Name="GroupUser">
     <End Role="Group" Type="OnBoardModel.Store.Groups" Multiplicity="0..1" />
@@ -44,7 +44,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="OnBoardModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="OnBoardDbContext" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="OnBoardDBContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Groups" EntityType="OnBoardModel.Group" />
           <EntitySet Name="Users" EntityType="OnBoardModel.User" />
           <AssociationSet Name="GroupUser" Association="OnBoardModel.GroupUser">
@@ -65,9 +65,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
           <NavigationProperty Name="Group" Relationship="OnBoardModel.GroupUser" FromRole="User" ToRole="Group" />
           <Property Name="GroupId" Type="Int32" Nullable="true" />
-          <Property Name="Name" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="GroupUser">
           <End Type="OnBoardModel.Group" Role="Group" Multiplicity="0..1" />
@@ -86,7 +86,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="OnBoardModelStoreContainer" CdmEntityContainer="OnBoardDbContext">
+  <EntityContainerMapping StorageEntityContainer="OnBoardModelStoreContainer" CdmEntityContainer="OnBoardDBContext">
     <EntitySetMapping Name="Groups">
       <EntityTypeMapping TypeName="IsTypeOf(OnBoardModel.Group)">
         <MappingFragment StoreEntitySet="Groups">
@@ -99,8 +99,8 @@
       <EntityTypeMapping TypeName="IsTypeOf(OnBoardModel.User)">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -119,7 +119,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

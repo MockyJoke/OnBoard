@@ -14,17 +14,21 @@ namespace OnBoardService.Controllers
         // GET: api/Groups
         public IEnumerable<Group> Get()
         {
-            GroupsUtility groupsUtil = new GroupsUtility(DatabaseManager.Instance.Connection);
-            IEnumerable<Group> result = groupsUtil.GetAllGroupsAsync().Result;
-            return this.SmartWebReturn(result);
+            using (GroupsUtility groupsUtil = new GroupsUtility())
+            {
+                IEnumerable<Group> result = groupsUtil.GetAllGroups();
+                return this.SmartWebReturn(result);
+            }
         }
 
         // GET: api/Groups/5
-        public Group Get(string id)
+        public Group Get(int id)
         {
-            GroupsUtility groupsUtil = new GroupsUtility(DatabaseManager.Instance.Connection);
-            Group result = groupsUtil.GetGroupByIdAsync(id).Result;
-            return this.SmartWebReturn(result);
+            using (GroupsUtility groupsUtil = new GroupsUtility())
+            {
+                Group result = groupsUtil.GetGroupById(id);
+                return this.SmartWebReturn(result);
+            }
         }
 
         // POST: api/Groups
@@ -40,9 +44,11 @@ namespace OnBoardService.Controllers
         // PUT: api/Groups?name=
         public Group Put(string name)
         {
-            GroupsUtility groupsUtil = new GroupsUtility(DatabaseManager.Instance.Connection);
-            Group result = groupsUtil.CreateGroup(name).Result;
-            return this.SmartWebReturn(result);
+            using (GroupsUtility groupsUtil = new GroupsUtility())
+            {
+                Group result = groupsUtil.CreateGroup(name);
+                return this.SmartWebReturn(result);
+            }
         }
 
         // DELETE: api/Groups/5

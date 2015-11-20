@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnBoardService.Models.Database;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,146 +8,68 @@ using System.Web;
 
 namespace OnBoardService.Models.Users
 {
-    public class UsersUtility : DatabaseUtility
+    public class UsersUtility : IDisposable
     {
-        public UsersUtility(SqlConnection connection)
+        OnBoardDbContext _context;
+        public UsersUtility()
         {
-            _connection = connection;
+            _context = new OnBoardDbContext();
+        }
+        public User GetUserByUserId(int userId)
+        {
+            return _context.Users.FirstOrDefault(u => (u.Id == userId));
         }
 
-        public async Task<User> GetUserByUserIdAsync(string userId)
+        public User GetUserByUserNickName(string name)
         {
-            string sql = string.Format(OnBoardResource.Sql_UserGetUserById_Id, userId);
-            SqlCommand cmd = new SqlCommand(sql, _connection);
-            User result = null;
-            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
-            {
-                if (reader.HasRows)
-                {
-                    await reader.ReadAsync().ConfigureAwait(false);
-                    result = User.ParseUserFromSqlRow(reader);
-                }
-            }
-            return result;
+            return _context.Users.FirstOrDefault(u => (u.Name == name));
         }
 
-        public async Task<User> GetUserByUserNickNameAsync(string nickName)
+        public int GetMaxUserId()
         {
-            string sql = string.Format(OnBoardResource.Sql_UserGetUserByNickName_NickName, nickName);
-            SqlCommand cmd = new SqlCommand(sql, _connection);
-            User result = null;
-            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
-            {
-                if (reader.HasRows)
-                {
-                    await reader.ReadAsync().ConfigureAwait(false);
-                    result = User.ParseUserFromSqlRow(reader);
-                }
-            }
-            return result;
+            return _context.Users.Max(u => u.Id);
         }
 
-        public async Task<int> GetMaxUserId()
+        public List<User> GetUsersByGroupId(int groupId)
         {
-            string sql = string.Format(OnBoardResource.Sql_UserGetMaxUserId);
-            SqlCommand cmd = new SqlCommand(sql, _connection);
-            int result = 0;
-            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
-            {
-                if (reader.HasRows)
-                {
-                    await reader.ReadAsync().ConfigureAwait(false);
-                    result = reader.GetInt32(0);
-                }
-            }
-            return result;
+            return _context.Users.Where(u  => u.GroupId == groupId).ToList();
         }
 
-        public async Task<List<User>> GetUsersByGroupIdAsync(string groupId)
+        public  List<User> GetAllUsers()
         {
-            string sql = string.Format(OnBoardResource.Sql_UserGetUsersByGroupId_GroupId, groupId);
-            SqlCommand cmd = new SqlCommand(sql, _connection);
-            List<User> result = null;
-            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
-            {
-                if (reader.HasRows)
-                {
-                    if (result == null)
-                    {
-                        result = new List<User>();
-                    }
-                    await reader.ReadAsync().ConfigureAwait(false);
-                    result.Add(User.ParseUserFromSqlRow(reader));
-                }
-            }
-            return result;
+            return _context.Users.ToList();
         }
 
-        public async Task<List<User>> GetAllUsersAsync()
+        public User CreateUser(string name)
         {
-            string sql = string.Format(OnBoardResource.Sql_UserGetAllUsers);
-            SqlCommand cmd = new SqlCommand(sql, _connection);
-            List<User> result = null;
-            using (SqlDataReader reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+            User result =GetUserByUserNickName(name);
+            if(result == null)
             {
-                while (await reader.ReadAsync().ConfigureAwait(false))
+                result = new User()
                 {
-                    if (result == null)
-                    {
-                        result = new List<User>();
-                    }
-                    
-                    result.Add(User.ParseUserFromSqlRow(reader));
-                }
-            }
-            return result;
-        }
-
-
-        public async Task<User> CreateUserAsync(string nickName)
-        {
-            User result = await GetUserByUserNickNameAsync(nickName).ConfigureAwait(false);
-            if (result == null)
-            {
-                int maxUserId = 0;
-                try
-                {
-                    maxUserId = Convert.ToInt32(await GetMaxUserId().ConfigureAwait(false));
-                }
-                catch
-                {
-                    maxUserId = 0;
-                }
-                int newUserId = maxUserId + 1;
-                string sql = string.Format(OnBoardResource.Sql_UserInsertUser_Id_NickName_GroupId,
-                    newUserId.ToString(),
-                    nickName);
-
-                ExecuteNonQuery(sql);
-                result = await GetUserByUserIdAsync(newUserId.ToString());
-            }
-            else
-            {
-                // A user with the same nickname already exist
-                string sql = string.Format(OnBoardResource.Sql_UserUpdateUserById_Id_Nickname_GroupId,
-                    result.Id,
-                    result.NickName,
-                    result.GroupId);
-                ExecuteNonQuery(sql);
+                    Name = name
+                };
+                _context.Users.Add(result);
+                _context.SaveChanges();
             }
             return result;
         }
 
         public User UpdateUser(User user)
         {
-            string sql = string.Format(OnBoardResource.Sql_UserUpdateUserById_Id_Nickname_GroupId,
-                    user.Id,
-                    user.NickName,
-                    user.GroupId);
-            ExecuteNonQuery(sql);
-            return user;
+            User result = _context.Users.FirstOrDefault(u => u.Id == user.Id);
+            if(result != null)
+            {
+                result.Name = user.Name;
+                result.GroupId = user.GroupId;
+                _context.SaveChanges();
+            }
+            return result;
         }
 
-
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
     }
 }
