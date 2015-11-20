@@ -8,7 +8,7 @@ using System.Web;
 
 namespace OnBoardService.Models.Groups
 {
-    public class GroupsUtility : IDisposable
+    public class GroupsUtility
     {
         OnBoardDbContext _context;
         public GroupsUtility ()
@@ -49,11 +49,6 @@ namespace OnBoardService.Models.Groups
                 _context.SaveChanges();
             }
             return result;
-        }
-
-        public void Dispose()
-        {
-            _context.Dispose();
         }
     }
 }

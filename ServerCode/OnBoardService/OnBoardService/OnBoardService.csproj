@@ -231,8 +231,8 @@
     <Compile Include="Models\Database\User.cs">
       <DependentUpon>OnBoardModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Groups\GroupsUtility.cs" />
-    <Compile Include="Models\Users\UsersUtility.cs" />
+    <Compile Include="Models\GroupsUtility.cs" />
+    <Compile Include="Models\UsersUtility.cs" />
     <Compile Include="OnBoardResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -317,9 +317,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Locations\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

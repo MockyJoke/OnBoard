@@ -11,24 +11,19 @@ namespace OnBoardService.Controllers
 {
     public class GroupsController : ApiController
     {
+        GroupsUtility groupsUtil = new GroupsUtility();
         // GET: api/Groups
         public IEnumerable<Group> Get()
         {
-            using (GroupsUtility groupsUtil = new GroupsUtility())
-            {
-                IEnumerable<Group> result = groupsUtil.GetAllGroups();
-                return this.SmartWebReturn(result);
-            }
+            IEnumerable<Group> result = groupsUtil.GetAllGroups();
+            return this.SmartWebReturn(result);
         }
 
         // GET: api/Groups/5
         public Group Get(int id)
         {
-            using (GroupsUtility groupsUtil = new GroupsUtility())
-            {
                 Group result = groupsUtil.GetGroupById(id);
                 return this.SmartWebReturn(result);
-            }
         }
 
         // POST: api/Groups
@@ -44,11 +39,10 @@ namespace OnBoardService.Controllers
         // PUT: api/Groups?name=
         public Group Put(string name)
         {
-            using (GroupsUtility groupsUtil = new GroupsUtility())
-            {
+
                 Group result = groupsUtil.CreateGroup(name);
                 return this.SmartWebReturn(result);
-            }
+
         }
 
         // DELETE: api/Groups/5
@@ -56,5 +50,5 @@ namespace OnBoardService.Controllers
         {
         }
     }
-    
+
 }

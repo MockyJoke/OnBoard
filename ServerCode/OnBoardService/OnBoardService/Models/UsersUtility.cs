@@ -1,4 +1,5 @@
 ﻿using OnBoardService.Models.Database;
+using OnBoardService.Models.Groups;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,7 +9,7 @@ using System.Web;
 
 namespace OnBoardService.Models.Users
 {
-    public class UsersUtility : IDisposable
+    public class UsersUtility
     {
         OnBoardDbContext _context;
         public UsersUtility()
@@ -32,18 +33,18 @@ namespace OnBoardService.Models.Users
 
         public List<User> GetUsersByGroupId(int groupId)
         {
-            return _context.Users.Where(u  => u.GroupId == groupId).ToList();
+            return _context.Users.Where(u => u.GroupId == groupId).ToList();
         }
 
-        public  List<User> GetAllUsers()
+        public List<User> GetAllUsers()
         {
             return _context.Users.ToList();
         }
 
         public User CreateUser(string name)
         {
-            User result =GetUserByUserNickName(name);
-            if(result == null)
+            User result = GetUserByUserNickName(name);
+            if (result == null)
             {
                 result = new User()
                 {
@@ -58,7 +59,7 @@ namespace OnBoardService.Models.Users
         public User UpdateUser(User user)
         {
             User result = _context.Users.FirstOrDefault(u => u.Id == user.Id);
-            if(result != null)
+            if (result != null)
             {
                 result.Name = user.Name;
                 result.GroupId = user.GroupId;
@@ -67,9 +68,17 @@ namespace OnBoardService.Models.Users
             return result;
         }
 
-        public void Dispose()
+        public User JoinGroup(int userId, int groupId)
         {
-            _context.Dispose();
+            User user = GetUserByUserId(userId);
+            GroupsUtility groupsUtil = new GroupsUtility();
+            Group group = groupsUtil.GetGroupById(groupId);
+            if (user != null && group != null)
+            {
+                user.GroupId = groupId;
+                _context.SaveChanges();
+            }
+            return user;
         }
     }
 }

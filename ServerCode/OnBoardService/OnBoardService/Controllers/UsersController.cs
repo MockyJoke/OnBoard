@@ -11,50 +11,48 @@ namespace OnBoardService.Controllers
 {
     public class UsersController : ApiController
     {
+        UsersUtility usersUtil = new UsersUtility();
         // GET: api/Users
         public IEnumerable<User> Get()
         {
-            using (UsersUtility usersUtil = new UsersUtility())
-            {
-                IEnumerable<User> result = usersUtil.GetAllUsers();
-                return this.SmartWebReturn(result);
-            }
+            UsersUtility usersUtil = new UsersUtility();
+            IEnumerable<User> result = usersUtil.GetAllUsers();
+            return this.SmartWebReturn(result);
         }
 
         // GET: api/Users/5
         public User Get(int id)
         {
-            using (UsersUtility usersUtil = new UsersUtility())
-            {
-                User result = usersUtil.GetUserByUserId(id);
-                return this.SmartWebReturn(result);
-            }
+            User result = usersUtil.GetUserByUserId(id);
+            return this.SmartWebReturn(result);
         }
 
         // GET: api/Users?nickName=
         public User GetByNickName(string name)
         {
-            using (UsersUtility usersUtil = new UsersUtility())
-            {
-                User result = usersUtil.GetUserByUserNickName(name);
-                return this.SmartWebReturn(result);
-            }
+            User result = usersUtil.GetUserByUserNickName(name);
+            return this.SmartWebReturn(result);
         }
 
         // GET: api/Users?groupId=
         public IEnumerable<User> GetByGroupId(int groupId)
         {
-            using (UsersUtility usersUtil = new UsersUtility())
-            {
-                 IEnumerable<User> result = usersUtil.GetUsersByGroupId(groupId);
-                return this.SmartWebReturn(result);
-            }
+            IEnumerable<User> result = usersUtil.GetUsersByGroupId(groupId);
+            return this.SmartWebReturn(result);
         }
 
-        // POST: api/Users
+        //POST: api/Users
         //public void Post([FromBody]string value)
         //{
         //}
+
+        // POST: api/Users/01?groupId=0
+        // Joing a group
+        public User Post(int id, int groupId)
+        {
+            User result = usersUtil.JoinGroup(id, groupId);
+            return this.SmartWebReturn(result);
+        }
 
 
         // PUT: api/Users/5
@@ -69,11 +67,10 @@ namespace OnBoardService.Controllers
             //User user = usersUtil.CreateUserAsync(nickName).Result;
             //HttpResponseMessage responseMessage = Request.CreateResponse<User>(user);
             //return responseMessage;
-            using (UsersUtility usersUtil = new UsersUtility())
-            {
-                User result = usersUtil.CreateUser(name);
-                return this.SmartWebReturn(result);
-            }
+
+            User result = usersUtil.CreateUser(name);
+            return this.SmartWebReturn(result);
+
         }
 
         // DELETE: api/Users/5
