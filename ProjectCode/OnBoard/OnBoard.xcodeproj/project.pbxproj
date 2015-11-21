@@ -19,6 +19,8 @@
 		541CFF501BEADF6900DEB2D3 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */; };
 		541CFF521BEAE38500DEB2D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF511BEAE38500DEB2D3 /* User.swift */; };
 		541CFF541BEAEADE00DEB2D3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF531BEAEADE00DEB2D3 /* UserManager.swift */; };
+		546FC70F1C0011EE00B9EB51 /* WebApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FC70E1C0011EE00B9EB51 /* WebApiManager.swift */; };
+		546FC7151C0014F100B9EB51 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FC7141C0014F100B9EB51 /* SwiftyJSON.swift */; };
 		54765AE31BEE9BD000EC49AF /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54765AE11BEE9BD000EC49AF /* Session.swift */; };
 		54765AE41BEE9BD000EC49AF /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54765AE21BEE9BD000EC49AF /* SessionManager.swift */; };
 		54765AEC1BEEA01200EC49AF /* SessionSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54765AEB1BEEA01200EC49AF /* SessionSnapshot.swift */; };
@@ -65,6 +67,8 @@
 		541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		541CFF511BEAE38500DEB2D3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		541CFF531BEAEADE00DEB2D3 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		546FC70E1C0011EE00B9EB51 /* WebApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApiManager.swift; sourceTree = "<group>"; };
+		546FC7141C0014F100B9EB51 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		54765AE11BEE9BD000EC49AF /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		54765AE21BEE9BD000EC49AF /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		54765AEB1BEEA01200EC49AF /* SessionSnapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionSnapshot.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 		541CFF451BEAC18A00DEB2D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				546FC70D1C0011C400B9EB51 /* Web */,
 				54B247B21BF018DA000116D2 /* Container */,
 				12ED59661BEE87C5007EBAC6 /* CoreMotion */,
 				54765AE01BEE9BAA00EC49AF /* Session */,
@@ -175,6 +180,15 @@
 				541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */,
 			);
 			name = Storage;
+			sourceTree = "<group>";
+		};
+		546FC70D1C0011C400B9EB51 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				546FC7141C0014F100B9EB51 /* SwiftyJSON.swift */,
+				546FC70E1C0011EE00B9EB51 /* WebApiManager.swift */,
+			);
+			name = Web;
 			sourceTree = "<group>";
 		};
 		54765AE01BEE9BAA00EC49AF /* Session */ = {
@@ -400,6 +414,7 @@
 				541CFF541BEAEADE00DEB2D3 /* UserManager.swift in Sources */,
 				C45C3C4F1BEA038500174AC1 /* SessionConfirmationViewController.swift in Sources */,
 				5476CDD91BEC1B06002A3D45 /* SkiResortDataManager.swift in Sources */,
+				546FC70F1C0011EE00B9EB51 /* WebApiManager.swift in Sources */,
 				5476CDDC1BEC1B86002A3D45 /* SkiResort.swift in Sources */,
 				3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */,
 				C45C3C4D1BEA027E00174AC1 /* LocationSpecificationViewController.swift in Sources */,
@@ -415,6 +430,7 @@
 				541CFF4C1BEAC8DD00DEB2D3 /* CoreLocationManager.swift in Sources */,
 				54765AF01BEEA05E00EC49AF /* MotionSnapshot.swift in Sources */,
 				541CFF501BEADF6900DEB2D3 /* LocalStorageManager.swift in Sources */,
+				546FC7151C0014F100B9EB51 /* SwiftyJSON.swift in Sources */,
 				54765AEC1BEEA01200EC49AF /* SessionSnapshot.swift in Sources */,
 				540B33851BF151DF007F6B7B /* MapViewController.swift in Sources */,
 				BFAD5EF11BF09CF40022D079 /* StatisticsTableViewController.swift in Sources */,

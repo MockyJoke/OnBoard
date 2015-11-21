@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println(resort.Name)
         }
         MotionManager.sharedInstance.StartUpdate()
+        let baseURL = "http://OnBoardWeb.cloudapp.net/api/users"
+        //WebApiManager.sharedInstance.MakeHTTPGetRequest(baseURL, onCompletion: <#ServiceResponse##(JSON, NSError?) -> Void#>)
         return true
     }
 
