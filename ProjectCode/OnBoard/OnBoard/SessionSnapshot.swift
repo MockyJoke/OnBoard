@@ -8,7 +8,7 @@
 //
 import Foundation
 
-class SessionSnapshot : StorableObject,NSCoding{
+class SessionSnapshot : StorableObject, NSCoding{
     var snapshotTime : NSDate
     var locationSnapshot : LocationSnapshot?
     //var motionSnapshot : MotionSnapshot?
