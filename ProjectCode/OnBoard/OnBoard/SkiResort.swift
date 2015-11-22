@@ -10,14 +10,14 @@ import Foundation
 import CoreLocation
 
 class SkiResort : StorableObject, NSCoding {
-    internal private(set) var Name : String?
-    internal private(set) var Id : String?
-    internal private(set) var Season : String?
-    internal private(set) var Phone : String?
+    internal private(set) var Name : String
+    internal private(set) var Id : String
+    internal private(set) var Season : String
+    internal private(set) var Phone : String
     internal private(set) var Lat : Double
     internal private(set) var Lon : Double
-    internal private(set) var Website : String?
-    internal private(set) var Address : String?
+    internal private(set) var Website : String
+    internal private(set) var Address : String
     init (lineString : String){
         var sectionArray = split(lineString) {$0 == "@"}
         Id = sectionArray[0]
@@ -41,14 +41,14 @@ class SkiResort : StorableObject, NSCoding {
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.Name = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Name", defaultVal: nil)
-        self.Id = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Id", defaultVal: nil)
-        self.Season = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Season", defaultVal: nil)
-        self.Phone = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Phone", defaultVal: nil)
+        self.Name = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Name", defaultVal: "")
+        self.Id = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Id", defaultVal: "")
+        self.Season = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Season", defaultVal: "")
+        self.Phone = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Phone", defaultVal: "")
         self.Lat = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Lat", defaultVal: 0.0)
         self.Lon = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Lon", defaultVal: 0.0)
-        self.Website = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Website", defaultVal: nil)
-        self.Address = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Address", defaultVal: nil)
+        self.Website = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Website", defaultVal: "")
+        self.Address = SkiResort.decodeHelper(coder: aDecoder, propertyName: "Address", defaultVal: "")
         super.init()
     }
     

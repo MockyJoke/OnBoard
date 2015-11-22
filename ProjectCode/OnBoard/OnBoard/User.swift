@@ -14,7 +14,7 @@ class User : StorableObject{
     internal private(set) var Id : Int
     internal private(set) var EmergencyName : String
     internal private(set) var EmergencyPhone : String
-    internal private(set) var SessionArray : [Session]?
+    internal  var SessionArray : [Session]?
     internal private(set) var IsAnonymous : Bool
     override init(){
         Name  = "Anonymous"
@@ -39,7 +39,9 @@ class User : StorableObject{
         self.Id=User.decodeHelper(coder: aDecoder,propertyName: "Id",defaultVal: 0)
         self.EmergencyName=User.decodeHelper(coder: aDecoder,propertyName: "EmergencyName",defaultVal: "")
         self.EmergencyPhone=User.decodeHelper(coder: aDecoder,propertyName: "EmergencyPhone",defaultVal: "")
-        self.SessionArray=User.decodeHelper(coder: aDecoder,propertyName: "SessionArray",defaultVal: nil)
+        let sessionArrayData = User.decodeHelper(coder: aDecoder,propertyName: "SessionArray",defaultVal: NSData())
+        self.SessionArray = NSKeyedUnarchiver.unarchiveObjectWithData(sessionArrayData) as? [Session]
+        
         self.IsAnonymous=User.decodeHelper(coder: aDecoder,propertyName: "IsAnonymous",defaultVal: false)
         super.init()
     }
@@ -49,7 +51,11 @@ class User : StorableObject{
         aCoder.encodeObject(Id,forKey:"Id")
         aCoder.encodeObject(EmergencyPhone,forKey:"EmergencyPhone")
         aCoder.encodeObject(EmergencyName,forKey:"EmergencyName")
-        aCoder.encodeObject(SessionArray,forKey:"SessionArray")
+        println("SessionBeing Saved, count: \(SessionArray?.count)")
+        //aCoder.encodeObject(SessionArray,forKey:"SessionArray")
+        if let sessionArray  = SessionArray{
+            aCoder.encodeObject(sessionArray.ToNSData(sessionArray),forKey:"SessionArray")
+        }
         aCoder.encodeObject(IsAnonymous,forKey:"IsAnonymous")
     }
     

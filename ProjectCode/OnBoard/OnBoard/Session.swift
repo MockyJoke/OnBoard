@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-class Session : StorableObject{
+class Session : StorableObject, NSCoding {
     internal private(set) var Resort : SkiResort?
     internal private(set) var StartTime : NSDate?
     internal private(set) var EndTime : NSDate?
@@ -30,7 +30,7 @@ class Session : StorableObject{
         self.StartTime=User.decodeHelper(coder: aDecoder,propertyName: "StartTime",defaultVal: NSDate())
         self.EndTime=User.decodeHelper(coder: aDecoder,propertyName: "EndTime",defaultVal: NSDate())
         self.IsStarted=User.decodeHelper(coder: aDecoder,propertyName: "IsStarted",defaultVal: false )
-        self.IsEnded=User.decodeHelper(coder: aDecoder,propertyName: "SessionArray",defaultVal: false)
+        self.IsEnded=User.decodeHelper(coder: aDecoder,propertyName: "IsEnded",defaultVal: false)
         self.SnapshotArray=User.decodeHelper(coder: aDecoder,propertyName: "SnapshotArray",defaultVal: [SessionSnapshot]())
         super.init()
     }
@@ -41,7 +41,7 @@ class Session : StorableObject{
         aCoder.encodeObject(EndTime,forKey:"EndTime")
         aCoder.encodeObject(IsStarted,forKey:"IsStarted")
         aCoder.encodeObject(IsEnded,forKey:"IsEnded")
-        aCoder.encodeObject(SnapshotArray,forKey:"SessionSnapshot")
+        aCoder.encodeObject(SnapshotArray,forKey:"SnapshotArray")
     }
     
     // To start this Session!
@@ -77,7 +77,7 @@ class Session : StorableObject{
         return String (format: "%02d : %02d : %02d", hours, minutes, seconds)
     }
     
-    func RecordSnapShot(){
+    func TakeSnapshot(){
         SnapshotArray.append(SessionSnapshot.GetCurrentSnapshot())
     }
     
@@ -85,7 +85,7 @@ class Session : StorableObject{
     func GetTotalDistance() -> CLLocationDistance {
         var totalDistance : CLLocationDistance = 0
         for var i = 0; i < SnapshotArray.count - 1; i++ {
-            if let var tempDist = SnapshotArray[i+1].locationSnapshot?.location.distanceFromLocation(SnapshotArray[i].locationSnapshot?.location) {
+            if let tempDist = SnapshotArray[i+1].locationSnapshot?.location.distanceFromLocation(SnapshotArray[i].locationSnapshot?.location) {
                 totalDistance = totalDistance + tempDist
             }
         }
