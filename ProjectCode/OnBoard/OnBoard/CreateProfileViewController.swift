@@ -17,8 +17,8 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBAction func addProfile(sender: AnyObject) {
-        UserManager.sharedInstance.CreateNewUser(userName.text, emergeName: emergencyName.text, emergPhone: emergencyTel.text)
-        
+        var newUser = UserManager.sharedInstance.CreateNewUser(userName.text, emergeName: emergencyName.text, emergPhone: emergencyTel.text)
+        OnlineServiceManager.sharedInstance.CreateUserOnServer(newUser)
         // Send signal for ProfileSetup view controller to refresh table
         navigationController?.popViewControllerAnimated(true)
         /*NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);

@@ -11,14 +11,14 @@ import Foundation
 // A class represent a user
 class User : StorableObject{
     internal private(set) var Name : String
-    internal private(set) var Id : String
+    internal private(set) var Id : Int
     internal private(set) var EmergencyName : String
     internal private(set) var EmergencyPhone : String
     internal private(set) var SessionArray : [Session]?
     internal private(set) var IsAnonymous : Bool
     override init(){
         Name  = "Anonymous"
-        Id = NSUUID().UUIDString
+        Id = 0
         EmergencyName = ""
         EmergencyPhone = ""
         IsAnonymous = true;
@@ -27,7 +27,7 @@ class User : StorableObject{
     
     init(name : String, emergencyName : String, emergencyPhone : String){
         Name  = name
-        Id = NSUUID().UUIDString
+        Id = 0
         EmergencyPhone = emergencyPhone
         EmergencyName = emergencyName
         IsAnonymous = false
@@ -36,7 +36,7 @@ class User : StorableObject{
     
     required init(coder aDecoder:NSCoder){
         self.Name = User.decodeHelper(coder: aDecoder,propertyName: "Name",defaultVal: "")
-        self.Id=User.decodeHelper(coder: aDecoder,propertyName: "Id",defaultVal: "")
+        self.Id=User.decodeHelper(coder: aDecoder,propertyName: "Id",defaultVal: 0)
         self.EmergencyName=User.decodeHelper(coder: aDecoder,propertyName: "EmergencyName",defaultVal: "")
         self.EmergencyPhone=User.decodeHelper(coder: aDecoder,propertyName: "EmergencyPhone",defaultVal: "")
         self.SessionArray=User.decodeHelper(coder: aDecoder,propertyName: "SessionArray",defaultVal: nil)
@@ -58,6 +58,10 @@ class User : StorableObject{
             SessionArray = [Session]()
         }
         SessionArray!.append(session)
+    }
+    
+    func UpdateWithJSON(json : JSON ){
+        Id = json["Id"].numberValue as Int
     }
 }
 

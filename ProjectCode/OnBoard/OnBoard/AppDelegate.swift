@@ -29,7 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         MotionManager.sharedInstance.StartUpdate()
         let baseURL = "http://OnBoardWeb.cloudapp.net/api/users"
-        //WebApiManager.sharedInstance.MakeHTTPGetRequest(baseURL, onCompletion: <#ServiceResponse##(JSON, NSError?) -> Void#>)
+        WebApiManager.sharedInstance.MakeHTTPGetRequest(baseURL, onCompletion : { json, error -> Void in
+            var count = json.count
+            for (var i = 0 ;i  < count ; i++ ) {
+                var j = json[i]
+                var k = j["Name"].string!
+                print (k)
+            }
+        })
         return true
     }
 

@@ -21,6 +21,9 @@
 		541CFF541BEAEADE00DEB2D3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF531BEAEADE00DEB2D3 /* UserManager.swift */; };
 		546FC70F1C0011EE00B9EB51 /* WebApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FC70E1C0011EE00B9EB51 /* WebApiManager.swift */; };
 		546FC7151C0014F100B9EB51 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FC7141C0014F100B9EB51 /* SwiftyJSON.swift */; };
+		546FD05A1C011D1700C8CF7B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FD0591C011D1700C8CF7B /* Group.swift */; };
+		546FD05C1C01267D00C8CF7B /* GroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FD05B1C01267D00C8CF7B /* GroupManager.swift */; };
+		546FD05F1C012CFC00C8CF7B /* OnlinServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FD05E1C012CFC00C8CF7B /* OnlinServiceManager.swift */; };
 		54765AE31BEE9BD000EC49AF /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54765AE11BEE9BD000EC49AF /* Session.swift */; };
 		54765AE41BEE9BD000EC49AF /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54765AE21BEE9BD000EC49AF /* SessionManager.swift */; };
 		54765AEC1BEEA01200EC49AF /* SessionSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54765AEB1BEEA01200EC49AF /* SessionSnapshot.swift */; };
@@ -69,6 +72,9 @@
 		541CFF531BEAEADE00DEB2D3 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		546FC70E1C0011EE00B9EB51 /* WebApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApiManager.swift; sourceTree = "<group>"; };
 		546FC7141C0014F100B9EB51 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		546FD0591C011D1700C8CF7B /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		546FD05B1C01267D00C8CF7B /* GroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupManager.swift; sourceTree = "<group>"; };
+		546FD05E1C012CFC00C8CF7B /* OnlinServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlinServiceManager.swift; sourceTree = "<group>"; };
 		54765AE11BEE9BD000EC49AF /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		54765AE21BEE9BD000EC49AF /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		54765AEB1BEEA01200EC49AF /* SessionSnapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionSnapshot.swift; sourceTree = "<group>"; };
@@ -144,6 +150,7 @@
 		541CFF451BEAC18A00DEB2D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				546FD0581C011D0800C8CF7B /* Group */,
 				546FC70D1C0011C400B9EB51 /* Web */,
 				54B247B21BF018DA000116D2 /* Container */,
 				12ED59661BEE87C5007EBAC6 /* CoreMotion */,
@@ -187,8 +194,25 @@
 			children = (
 				546FC7141C0014F100B9EB51 /* SwiftyJSON.swift */,
 				546FC70E1C0011EE00B9EB51 /* WebApiManager.swift */,
+				546FD05E1C012CFC00C8CF7B /* OnlinServiceManager.swift */,
 			);
 			name = Web;
+			sourceTree = "<group>";
+		};
+		546FD0581C011D0800C8CF7B /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				546FD0591C011D1700C8CF7B /* Group.swift */,
+				546FD05B1C01267D00C8CF7B /* GroupManager.swift */,
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
+		546FD05D1C012C4200C8CF7B /* Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Group;
 			sourceTree = "<group>";
 		};
 		54765AE01BEE9BAA00EC49AF /* Session */ = {
@@ -293,6 +317,7 @@
 		C45C3C471BE9FC7100174AC1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				546FD05D1C012C4200C8CF7B /* Group */,
 				540B33831BF151B3007F6B7B /* Map */,
 				BFAD5EF31BF09D120022D079 /* Statistics */,
 				3C9F4DA81BEFE5E600301029 /* Profile */,
@@ -423,6 +448,7 @@
 				54765AE31BEE9BD000EC49AF /* Session.swift in Sources */,
 				C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */,
 				54765AEE1BEEA04E00EC49AF /* LocationSnapshot.swift in Sources */,
+				546FD05F1C012CFC00C8CF7B /* OnlinServiceManager.swift in Sources */,
 				121078301BED788300D96B40 /* CoreMotionManager.swift in Sources */,
 				541CFF521BEAE38500DEB2D3 /* User.swift in Sources */,
 				12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */,
@@ -433,12 +459,14 @@
 				546FC7151C0014F100B9EB51 /* SwiftyJSON.swift in Sources */,
 				54765AEC1BEEA01200EC49AF /* SessionSnapshot.swift in Sources */,
 				540B33851BF151DF007F6B7B /* MapViewController.swift in Sources */,
+				546FD05A1C011D1700C8CF7B /* Group.swift in Sources */,
 				BFAD5EF11BF09CF40022D079 /* StatisticsTableViewController.swift in Sources */,
 				BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */,
 				121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */,
 				54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */,
 				54B247B41BF018E7000116D2 /* Queue.swift in Sources */,
 				BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */,
+				546FD05C1C01267D00C8CF7B /* GroupManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
