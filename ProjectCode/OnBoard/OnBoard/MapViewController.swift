@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
@@ -16,8 +17,63 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         CenterMapToResortLocation()
+        
+        mapView.showsUserLocation = true
+    
+        
     }
     
+    
+    
+    /* Zoom in on User, missing "resort" coordinates
+    func centerOnUser(){
+        var regionRadius : CLLocationDistance = 500
+        mapView.setRegion(MKCoordinateRegionMakeWithDistance(resort.GetCoordinate2D(), regionRadius, regionRadius), animated: true)
+    }*/
+    
+
+    
+    @IBAction func addPin(sender: UILongPressGestureRecognizer) {
+        
+        sender.minimumPressDuration = 2.0
+        
+        showPinAlert()
+        
+        let location = sender.locationInView(self.mapView)
+        let coordinates = self.mapView.convertPoint(location, toCoordinateFromView: self.mapView)
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = coordinates
+        
+        annotation.title = "Place"
+        annotation.subtitle = "Short Description"
+        
+        self.mapView.addAnnotation(annotation)
+        
+        //self.mapView.removeAnnotation(<#annotation: MKAnnotation!#>)
+        
+    }
+    
+    func showPinAlert() {
+        var alert = UIAlertController(title: "Create Geo-Tag?", message: "Save this location on your Maps", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+        var name = alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.placeholder = "Name this location"
+            //textField.secureTextEntry = true
+        })
+            
+        var description = alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.placeholder = "Describe this location"
+            //textField.secureTextEntry = true
+            
+        })
+            self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
