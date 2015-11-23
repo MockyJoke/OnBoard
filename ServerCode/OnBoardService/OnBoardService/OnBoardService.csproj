@@ -265,6 +265,7 @@
       <LastGenOutput>OnBoardModel.cs</LastGenOutput>
       <DependentUpon>OnBoardModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Models\Database\RemoveAll.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
