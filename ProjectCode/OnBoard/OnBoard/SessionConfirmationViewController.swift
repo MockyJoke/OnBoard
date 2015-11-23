@@ -20,6 +20,8 @@ class SessionConfirmationViewController: UIViewController {
     @IBOutlet weak var telLabel: UILabel!
     @IBOutlet weak var siteLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
+    @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var groupMembersLabel: UILabel!
 
     // ----------------------- Group Joining ------------------------------
     var joinAlertTextField: UITextField!
