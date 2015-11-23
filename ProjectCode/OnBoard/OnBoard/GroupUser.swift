@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+
+class GroupUser : NSObject{
+    var Id : Int
+    var Name : String
+    init(json : JSON){
+        Id = json["Id"].numberValue as Int
+        Name = json["Name"].string!
+    }
+}

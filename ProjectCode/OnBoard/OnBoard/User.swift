@@ -14,7 +14,7 @@ class User : StorableObject{
     internal private(set) var Id : Int
     internal private(set) var EmergencyName : String
     internal private(set) var EmergencyPhone : String
-    internal  var SessionArray : [Session]?
+    internal var SessionArray : [Session]?
     internal private(set) var IsAnonymous : Bool
     internal private(set) var GroupId : Int?
     override init(){

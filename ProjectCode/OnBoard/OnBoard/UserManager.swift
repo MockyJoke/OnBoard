@@ -45,6 +45,7 @@ class UserManager : NSObject{
     internal func CreateNewUser(newName : String, emergeName : String , emergPhone : String)-> User{
         var newUser = User(name: newName,emergencyName: emergeName ,emergencyPhone: emergPhone)
         localUserDict[newName] = newUser
+        currentUser = newUser
         Save()
         return newUser
     }

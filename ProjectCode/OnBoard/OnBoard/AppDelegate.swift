@@ -37,6 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print (k)
             }
         })
+        
+        //let url = "http://OnBoardWeb.cloudapp.net/api/users/17"
+        //var json = WebApiManager.sharedInstance.MakeHTTPRequestSync(url, methond: "PUT")
+        //OnlineServiceManager.sharedInstance.FindGroupById(3)
         return true
     }
 

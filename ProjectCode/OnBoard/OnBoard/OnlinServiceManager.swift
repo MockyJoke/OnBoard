@@ -45,4 +45,13 @@ class OnlineServiceManager : NSObject{
             return nil
         }
     }
+    
+    func CreateGroup(name : String) -> Group? {
+        let url = "http://OnBoardWeb.cloudapp.net/api/groups?name=\(name)"
+        if let json = WebApiManager.sharedInstance.MakeHTTPRequestSync(url,methond: "PUT"){
+            return Group(json: json)
+        }else{
+            return nil
+        }
+    }
 }

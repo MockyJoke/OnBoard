@@ -47,15 +47,23 @@ class WebApiManager : NSObject{
     
     
     func MakeHTTPRequestSync(url: String, methond : String) -> JSON?{
-        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        let u = NSURL(string : url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
+        let request = NSMutableURLRequest(URL: u!)
         request.HTTPMethod = methond
-        var response : AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
-        if let responseData = NSURLConnection.sendSynchronousRequest(request,returningResponse: response, error:nil)
+        var response : NSURLResponse?
+        var err : NSError?
+        if let responseData = NSURLConnection.sendSynchronousRequest(request,returningResponse: &response, error: &err)
         {
-            return JSON(data: responseData)
-        }else{
-            return nil
+            if let rep = response as? NSHTTPURLResponse
+            {
+                println("HTTP \(methond) : \(url)")
+                println("Server retuned:\(rep.statusCode)")
+                if(rep.statusCode >= 200 && rep.statusCode < 300){
+                    return JSON(data: responseData)
+                }
+            }
         }
+        return nil
     }
     
 }
