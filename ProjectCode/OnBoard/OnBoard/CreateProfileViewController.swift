@@ -16,6 +16,10 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addButton: UIButton!
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
+    
+    
+    
     @IBAction func addProfile(sender: AnyObject) {
         var newUser = UserManager.sharedInstance.CreateNewUser(userName.text, emergeName: emergencyName.text, emergPhone: emergencyTel.text)
         OnlineServiceManager.sharedInstance.CreateUserOnServer(newUser)

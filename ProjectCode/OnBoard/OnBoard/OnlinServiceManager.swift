@@ -18,9 +18,31 @@ class OnlineServiceManager : NSObject{
         
     }
     
-    func CreateUserOnServer(user : User) {
+    func CreateUserOnServer(user : User) -> Bool{
         let url = "http://OnBoardWeb.cloudapp.net/api/users?name="+user.Name
-        var json = WebApiManager.sharedInstance.MakeHTTPRequestSync(url,methond: "PUT")
-        
-    }  
+        if let json = WebApiManager.sharedInstance.MakeHTTPRequestSync(url,methond: "PUT"){
+            user.UpdateWithJSON(json)
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func FindGroupById(groupId : Int) -> Group? {
+        let url = "http://OnBoardWeb.cloudapp.net/api/groups/\(groupId)"
+        if let json = WebApiManager.sharedInstance.MakeHTTPRequestSync(url,methond: "GET"){
+            return Group(json: json)
+        }else{
+            return nil
+        }
+    }
+    
+    func JoinGroup(user : User, groupId : Int) -> Group? {
+        let url = "http://OnBoardWeb.cloudapp.net/api/users/\(user.Id)?groupId=\(groupId)"
+        if let json = WebApiManager.sharedInstance.MakeHTTPRequestSync(url,methond: "POST"){
+            return Group(json: json)
+        }else{
+            return nil
+        }
+    }
 }

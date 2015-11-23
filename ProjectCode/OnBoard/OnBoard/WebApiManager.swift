@@ -52,7 +52,7 @@ class WebApiManager : NSObject{
         var response : AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
         if let responseData = NSURLConnection.sendSynchronousRequest(request,returningResponse: response, error:nil)
         {
-            return JSON(responseData)
+            return JSON(data: responseData)
         }else{
             return nil
         }
