@@ -12,12 +12,22 @@ import MapKit
 
 class MapViewController: UIViewController {
 
+    
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tagCurrentLocationButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       //  print("connectivity is \(Connectivity.isConnectedToNetwork())")
+        
+        
+        //check if there is an internet connection
+        Connectivity.checkConnection()
+        
+        
         // Do any additional setup after loading the view.
         CenterMapToResortLocation()
         

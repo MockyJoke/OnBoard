@@ -46,4 +46,5 @@ class SessionSnapshot : StorableObject, NSCoding{
         //aCoder.encodeObject(motionSnapshot,forKey:"motionSnapshot")
     
             }
+    
 }

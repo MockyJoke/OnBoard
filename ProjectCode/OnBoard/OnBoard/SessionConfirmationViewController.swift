@@ -20,8 +20,72 @@ class SessionConfirmationViewController: UIViewController {
     @IBOutlet weak var telLabel: UILabel!
     @IBOutlet weak var siteLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
+    @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var groupMembersLabel: UILabel!
 
+    // ----------------------- Group Joining ------------------------------
+    var joinAlertTextField: UITextField!
+    @IBAction func joinGroupAction(sender: AnyObject) {
+        
+        var alert = UIAlertController(title: "Join a group", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addTextFieldWithConfigurationHandler(configurationJoinGroupTextField)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:handleJoinGroupCancel))
+        alert.addAction(UIAlertAction(title: "Search", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.GetCurrentUser())
+            
+            if let group = OnlineServiceManager.sharedInstance.FindGroupById(self.joinAlertTextField.text.toInt()!){
+                var g = OnlineServiceManager.sharedInstance.JoinGroup(UserManager.sharedInstance.GetCurrentUser(), groupId: group.Id)
+            }
+        }))
+        self.presentViewController(alert, animated: true, completion: {
+            println("completion block")
+        })
+    }
     
+    func handleJoinGroupCancel(alertView: UIAlertAction!)
+    {
+        println("Cancelled !!")
+    }
+    
+    func configurationJoinGroupTextField(textField: UITextField!)
+    {
+        textField.keyboardType = UIKeyboardType.NumberPad
+        textField.returnKeyType = UIReturnKeyType.Go
+        textField.placeholder = "Enter a group ID"
+        joinAlertTextField = textField
+    }
+    // -----------------------End of Group Joining -------------------------
+    
+    // ----------------------- Create Group --------------------------------
+    var createGroupAlertTextField: UITextField!
+    @IBAction func createGroupAction(sender: AnyObject) {
+        var alert = UIAlertController(title: "Create a group", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addTextFieldWithConfigurationHandler(configurationCreateGroupTextField)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:handleCreateGroupCancel))
+        alert.addAction(UIAlertAction(title: "Create", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.GetCurrentUser())
+            if let group = OnlineServiceManager.sharedInstance.CreateGroup(self.createGroupAlertTextField.text){
+                OnlineServiceManager.sharedInstance.JoinGroup(UserManager.sharedInstance.currentUser, groupId: group.Id)
+            }
+        }))
+        self.presentViewController(alert, animated: true, completion: {
+            println("completion block")
+        })
+    }
+    
+    func handleCreateGroupCancel(alertView: UIAlertAction!)
+    {
+        println("Cancelled !!")
+    }
+    
+    func configurationCreateGroupTextField(textField: UITextField!)
+    {
+        textField.keyboardType = UIKeyboardType.NumberPad
+        textField.returnKeyType = UIReturnKeyType.Go
+        textField.placeholder = "Enter a group Name"
+        createGroupAlertTextField = textField
+    }
+    // ---------------------- End of Create Group ---------------------------
     
 
     @IBAction func toggleMapType(sender: AnyObject) {
@@ -106,3 +170,4 @@ class SessionConfirmationViewController: UIViewController {
     
 
 }
+

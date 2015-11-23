@@ -63,3 +63,9 @@ class StorableObject : NSObject, NSCoding{
         preconditionFailure("Method not overrided")
     }
 }
+
+extension Array{
+    func ToNSData(theArray : Array<StorableObject>) -> NSData{
+        return NSKeyedArchiver.archivedDataWithRootObject(theArray)
+    }
+}
