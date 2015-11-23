@@ -159,7 +159,6 @@
 				54B247B21BF018DA000116D2 /* Container */,
 				12ED59661BEE87C5007EBAC6 /* CoreMotion */,
 				54765AE01BEE9BAA00EC49AF /* Session */,
-				5476CDDA1BEC1B68002A3D45 /* SkiResortData */,
 				541CFF4E1BEADE9200DEB2D3 /* Storage */,
 				541CFF4D1BEADE8000DEB2D3 /* User */,
 				541CFF4A1BEAC8C300DEB2D3 /* Utility */,
@@ -224,6 +223,7 @@
 		54765AE01BEE9BAA00EC49AF /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				5476CDDA1BEC1B68002A3D45 /* SkiResortData */,
 				54765AE11BEE9BD000EC49AF /* Session.swift */,
 				54765AE21BEE9BD000EC49AF /* SessionManager.swift */,
 				54765AEB1BEEA01200EC49AF /* SessionSnapshot.swift */,

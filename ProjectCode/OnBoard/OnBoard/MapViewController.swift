@@ -17,8 +17,13 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("connectivity is \(Connectivity.isConnectedToNetwork())")
-
+       //  print("connectivity is \(Connectivity.isConnectedToNetwork())")
+        
+        
+        //check if there is an internet connection
+        Connectivity.checkConnection()
+        
+        
         // Do any additional setup after loading the view.
         CenterMapToResortLocation()
     }
