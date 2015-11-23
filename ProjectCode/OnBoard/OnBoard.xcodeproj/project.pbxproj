@@ -34,6 +34,7 @@
 		5476CDDE1BEC2102002A3D45 /* SkiResortData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */; };
 		54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247AD1BF00530000116D2 /* StatusGraphView.swift */; };
 		54B247B41BF018E7000116D2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247B31BF018E7000116D2 /* Queue.swift */; };
+		6F4594441C0288B700EC85F5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4594431C0288B700EC85F5 /* Connectivity.swift */; };
 		BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */; };
 		BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */; };
 		BFAD5EF11BF09CF40022D079 /* StatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5EEF1BF09CF40022D079 /* StatisticsTableViewController.swift */; };
@@ -85,6 +86,7 @@
 		5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkiResortData.plist; sourceTree = "<group>"; };
 		54B247AD1BF00530000116D2 /* StatusGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusGraphView.swift; sourceTree = "<group>"; };
 		54B247B31BF018E7000116D2 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		6F4594431C0288B700EC85F5 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeProfileTableViewController.swift; sourceTree = "<group>"; };
 		BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatDetailsViewController.swift; sourceTree = "<group>"; };
 		BFAD5EEF1BF09CF40022D079 /* StatisticsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				546FC7141C0014F100B9EB51 /* SwiftyJSON.swift */,
 				546FC70E1C0011EE00B9EB51 /* WebApiManager.swift */,
+				6F4594431C0288B700EC85F5 /* Connectivity.swift */,
 				546FD05E1C012CFC00C8CF7B /* OnlinServiceManager.swift */,
 			);
 			name = Web;
@@ -448,6 +451,7 @@
 				54765AE31BEE9BD000EC49AF /* Session.swift in Sources */,
 				C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */,
 				54765AEE1BEEA04E00EC49AF /* LocationSnapshot.swift in Sources */,
+				6F4594441C0288B700EC85F5 /* Connectivity.swift in Sources */,
 				546FD05F1C012CFC00C8CF7B /* OnlinServiceManager.swift in Sources */,
 				121078301BED788300D96B40 /* CoreMotionManager.swift in Sources */,
 				541CFF521BEAE38500DEB2D3 /* User.swift in Sources */,

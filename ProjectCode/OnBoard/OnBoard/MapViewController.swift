@@ -11,9 +11,14 @@ import MapKit
 
 class MapViewController: UIViewController {
 
+    
+    
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("connectivity is \(Connectivity.isConnectedToNetwork())")
+
         // Do any additional setup after loading the view.
         CenterMapToResortLocation()
     }
