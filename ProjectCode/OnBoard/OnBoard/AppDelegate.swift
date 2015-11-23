@@ -28,6 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println(resort.Name)
         }
         MotionManager.sharedInstance.StartUpdate()
+        let baseURL = "http://OnBoardWeb.cloudapp.net/api/users"
+        WebApiManager.sharedInstance.MakeHTTPGetRequest(baseURL, onCompletion : { json, error -> Void in
+            var count = json.count
+            for (var i = 0 ;i  < count ; i++ ) {
+                var j = json[i]
+                var k = j["Name"].string!
+                print (k)
+            }
+        })
+        
+        //let url = "http://OnBoardWeb.cloudapp.net/api/users/17"
+        //var json = WebApiManager.sharedInstance.MakeHTTPRequestSync(url, methond: "PUT")
+        //OnlineServiceManager.sharedInstance.FindGroupById(3)
         return true
     }
 

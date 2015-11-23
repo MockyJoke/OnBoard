@@ -10,7 +10,7 @@ import Foundation
 
 class UserManager : NSObject{
     let USERLIST_KEY = "USERLIST"
-    let CURRENTUSER_KEY = "CURRENTUSER"
+    let CURRENTUSERNAME_KEY = "CURRENTUSERNAME"
     internal private(set) static var sharedInstance = UserManager()
     internal private(set) var currentUser : User
     private var localUserDict : [String:User]
@@ -23,8 +23,13 @@ class UserManager : NSObject{
             LocalStorageManager.sharedInstance.SaveObject(USERLIST_KEY, dataObject: localUserDict)
         }
         
-        if let user = LocalStorageManager.sharedInstance.LoadObject(CURRENTUSER_KEY) as? User {
-            currentUser = user
+        if let userName = LocalStorageManager.sharedInstance.LoadObject(CURRENTUSERNAME_KEY) as? String {
+            if let user = localUserDict[userName]{
+                currentUser = user
+            }else{
+                // User is gone!
+                currentUser = User()
+            }
         }else{
             currentUser = User()
         }
@@ -40,6 +45,7 @@ class UserManager : NSObject{
     internal func CreateNewUser(newName : String, emergeName : String , emergPhone : String)-> User{
         var newUser = User(name: newName,emergencyName: emergeName ,emergencyPhone: emergPhone)
         localUserDict[newName] = newUser
+        currentUser = newUser
         Save()
         return newUser
     }
@@ -81,11 +87,12 @@ class UserManager : NSObject{
         return currentUser
     }
     
-    private func Save(){
-        LocalStorageManager.sharedInstance.SaveObject(USERLIST_KEY, dataObject: localUserDict)
+    internal func Save(){
+        
         if (!currentUser.IsAnonymous){
-            LocalStorageManager.sharedInstance.SaveObject(CURRENTUSER_KEY, dataObject: currentUser)
+            LocalStorageManager.sharedInstance.SaveObject(CURRENTUSERNAME_KEY, dataObject: currentUser.Name)
         }
+        LocalStorageManager.sharedInstance.SaveObject(USERLIST_KEY, dataObject: localUserDict)
     }
     
 

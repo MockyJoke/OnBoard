@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import CoreLocation
 
-class Session : StorableObject{
+class Session : StorableObject, NSCoding {
     internal private(set) var Resort : SkiResort?
     internal private(set) var StartTime : NSDate?
     internal private(set) var EndTime : NSDate?
@@ -29,23 +30,23 @@ class Session : StorableObject{
         self.StartTime=User.decodeHelper(coder: aDecoder,propertyName: "StartTime",defaultVal: NSDate())
         self.EndTime=User.decodeHelper(coder: aDecoder,propertyName: "EndTime",defaultVal: NSDate())
         self.IsStarted=User.decodeHelper(coder: aDecoder,propertyName: "IsStarted",defaultVal: false )
-        self.IsEnded=User.decodeHelper(coder: aDecoder,propertyName: "SessionArray",defaultVal: false)
+        self.IsEnded=User.decodeHelper(coder: aDecoder,propertyName: "IsEnded",defaultVal: false)
         self.SnapshotArray=User.decodeHelper(coder: aDecoder,propertyName: "SnapshotArray",defaultVal: [SessionSnapshot]())
         super.init()
     }
     
     override func encodeWithCoder(aCoder:NSCoder){
-        //aCoder.encodeObject(Resort,forKey:"Resort")
+        aCoder.encodeObject(Resort,forKey:"Resort")
         aCoder.encodeObject(StartTime,forKey:"StartTime")
         aCoder.encodeObject(EndTime,forKey:"EndTime")
         aCoder.encodeObject(IsStarted,forKey:"IsStarted")
         aCoder.encodeObject(IsEnded,forKey:"IsEnded")
-        //aCoder.encodeObject(SnapshotArray,forKey:"SessionSnapshot")
+        aCoder.encodeObject(SnapshotArray,forKey:"SnapshotArray")
     }
     
     // To start this Session!
     func StartSession(){
-        if ( !IsStarted && !IsEnded){
+        if ( !IsStarted && !IsEnded ){
             IsStarted = true
             StartTime = NSDate()
         }
@@ -59,7 +60,7 @@ class Session : StorableObject{
     
     // Get how many seconds since the session started
     func GetDuration() -> NSTimeInterval{
-        if ( IsStarted && IsEnded){
+        if ( IsStarted && IsEnded ){
             return EndTime!.timeIntervalSinceDate(StartTime!)
         }else if(IsStarted && !IsEnded){
             return NSDate().timeIntervalSinceDate(StartTime!)
@@ -76,7 +77,27 @@ class Session : StorableObject{
         return String (format: "%02d : %02d : %02d", hours, minutes, seconds)
     }
     
-    func RecordSnapShot(){
+    func TakeSnapshot(){
         SnapshotArray.append(SessionSnapshot.GetCurrentSnapshot())
+    }
+    
+    // Returns distance travelled in meters
+    func GetTotalDistance() -> CLLocationDistance {
+        var totalDistance : CLLocationDistance = 0
+        for var i = 0; i < SnapshotArray.count - 1; i++ {
+            if let tempDist = SnapshotArray[i+1].locationSnapshot?.location.distanceFromLocation(SnapshotArray[i].locationSnapshot?.location) {
+                totalDistance = totalDistance + tempDist
+            }
+        }
+        return totalDistance
+    }
+    
+    // Returns average speed in km/hr
+    func GetAvgSpeed() -> Double {
+        let distance = self.GetTotalDistance()
+        let time = Double(self.GetDuration())
+        let distance_km = distance / 1000
+        let time_hours = time / 3600
+        return distance_km / time_hours
     }
 }

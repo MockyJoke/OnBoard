@@ -19,15 +19,18 @@ class TripViewController: UIViewController {
     // class-wise members
     var recentAccelerationData = [CMAcceleration]()
     var updateTimer : NSTimer?
-    
+    var user : User?
+    var tempUser : User?
     override func viewDidLoad(){
         super.viewDidLoad()
-        updateTimer = NSTimer.scheduledTimerWithTimeInterval(0.10, target: self, selector: "update", userInfo: nil, repeats: true)
+        updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
         self.resetMaxValues()
-        
+        user = UserManager.sharedInstance.currentUser
+        tempUser = UserManager.sharedInstance.GetUserByName("Hy")
         for i in 0...9{
             recentAccelerationData.append(MotionManager.sharedInstance.GetCurrentAcceleration())
         }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,6 +47,10 @@ class TripViewController: UIViewController {
         SessionManager.sharedInstance.EndCurrentSession()
         updateTimer?.invalidate()
         endSessionButton.hidden = true
+        UserManager.sharedInstance.Save()
+        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())
+        print(UserManager.sharedInstance.currentUser.SessionArray![0].SnapshotArray.count)
+
     }
     func UpdateRecentAccelerationData( acceleration : CMAcceleration){
         if(recentAccelerationData.count>10){
@@ -56,6 +63,8 @@ class TripViewController: UIViewController {
         UpdateRecentAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         PlotGraph()
         UpdateDurationLabel()
+        SessionManager.sharedInstance.CurrentSession?.TakeSnapshot()
+        UserManager.sharedInstance.currentUser
         //outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
     }
     

@@ -9,6 +9,20 @@
 import Foundation
 import CoreLocation
 
-struct LocationSnapshot{
+class LocationSnapshot : StorableObject, NSCoding{
     var location : CLLocation
+    
+    init(location :CLLocation) {
+        self.location = location
+        super.init()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+         self.location = LocationSnapshot.decodeHelper(coder: aDecoder,propertyName: "location",defaultVal: CLLocation())
+        super.init()
+    }
+    
+    override func encodeWithCoder(aCoder:NSCoder){
+        aCoder.encodeObject(location,forKey:"location")
+    }
 }
