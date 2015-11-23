@@ -21,7 +21,40 @@ class SessionConfirmationViewController: UIViewController {
     @IBOutlet weak var siteLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
 
+    var joinAlertTextField: UITextField!
+    @IBAction func joinGroupAction(sender: AnyObject) {
+        
+        var alert = UIAlertController(title: "Join a group", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:handleCancel))
+        alert.addAction(UIAlertAction(title: "Search", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.GetCurrentUser())
+            
+            if let group = OnlineServiceManager.sharedInstance.FindGroupById(self.joinAlertTextField.text.toInt()!){
+                OnlineServiceManager.sharedInstance.JoinGroup(UserManager.sharedInstance.GetCurrentUser(), groupId: group.Id)
+            }
+        }))
+        self.presentViewController(alert, animated: true, completion: {
+            println("completion block")
+        })
+    }
     
+    func handleCancel(alertView: UIAlertAction!)
+    {
+        println("Cancelled !!")
+    }
+    
+    func configurationTextField(textField: UITextField!)
+    {
+        textField.keyboardType = UIKeyboardType.NumberPad
+        textField.returnKeyType = UIReturnKeyType.Go
+        textField.placeholder = "Enter a group ID"
+        joinAlertTextField = textField
+    }
+    
+    @IBAction func createGroupAction(sender: AnyObject) {
+        
+    }
     
 
     @IBAction func toggleMapType(sender: AnyObject) {
@@ -106,3 +139,4 @@ class SessionConfirmationViewController: UIViewController {
     
 
 }
+

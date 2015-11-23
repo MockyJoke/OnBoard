@@ -16,6 +16,7 @@ class User : StorableObject{
     internal private(set) var EmergencyPhone : String
     internal  var SessionArray : [Session]?
     internal private(set) var IsAnonymous : Bool
+    internal private(set) var GroupId : Int?
     override init(){
         Name  = "Anonymous"
         Id = 0
@@ -67,7 +68,8 @@ class User : StorableObject{
     }
     
     func UpdateWithJSON(json : JSON ){
-        Id = json["Id"].numberValue as Int
+        Id = json["Id"].intValue
+        
     }
 }
 
