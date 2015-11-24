@@ -27,6 +27,7 @@ class SessionConfirmationViewController: UIViewController {
     var joinAlertTextField: UITextField!
     @IBAction func joinGroupAction(sender: AnyObject) {
         
+        var g : Group?
         var alert = UIAlertController(title: "Join a group", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addTextFieldWithConfigurationHandler(configurationJoinGroupTextField)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:handleJoinGroupCancel))
@@ -34,12 +35,23 @@ class SessionConfirmationViewController: UIViewController {
             OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.GetCurrentUser())
             
             if let group = OnlineServiceManager.sharedInstance.FindGroupById(self.joinAlertTextField.text.toInt()!){
-                var g = OnlineServiceManager.sharedInstance.JoinGroup(UserManager.sharedInstance.GetCurrentUser(), groupId: group.Id)
+                if let user = OnlineServiceManager.sharedInstance.JoinGroup(UserManager.sharedInstance.GetCurrentUser(), groupId: group.Id)
+                {
+                    if let g = OnlineServiceManager.sharedInstance.FindGroupById(self.joinAlertTextField.text.toInt()!)
+                    {
+                        self.groupNameLabel.text = "\(g.Name) ID: (\(g.Id))"
+                        self.groupMembersLabel.text = " \(g.GroupUsers[0].Name) and \(g.GroupUsers.count-1) more."
+                    }
+                }
+                
+                
             }
         }))
         self.presentViewController(alert, animated: true, completion: {
             println("completion block")
         })
+        
+
     }
     
     func handleJoinGroupCancel(alertView: UIAlertAction!)
@@ -52,6 +64,7 @@ class SessionConfirmationViewController: UIViewController {
         textField.keyboardType = UIKeyboardType.NumberPad
         textField.returnKeyType = UIReturnKeyType.Go
         textField.placeholder = "Enter a group ID"
+        textField.text = String(6)
         joinAlertTextField = textField
     }
     // -----------------------End of Group Joining -------------------------
@@ -66,6 +79,11 @@ class SessionConfirmationViewController: UIViewController {
             OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.GetCurrentUser())
             if let group = OnlineServiceManager.sharedInstance.CreateGroup(self.createGroupAlertTextField.text){
                 OnlineServiceManager.sharedInstance.JoinGroup(UserManager.sharedInstance.currentUser, groupId: group.Id)
+                if let g = OnlineServiceManager.sharedInstance.FindGroupById(group.Id)
+                {
+                    self.groupNameLabel.text = "\(g.Name) ID: (\(g.Id))"
+                    self.groupMembersLabel.text = " \(g.GroupUsers[0].Name) and \(g.GroupUsers.count-1) more."
+                }
             }
         }))
         self.presentViewController(alert, animated: true, completion: {
