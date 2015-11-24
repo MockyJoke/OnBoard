@@ -51,34 +51,24 @@ class MapViewController: UIViewController {
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(resort.GetCoordinate2D(), regionRadius, regionRadius), animated: true)
     }*/
     
+    var location = CGPoint()
+    var coordinates = CLLocationCoordinate2D()
     var inputedText1: String = "Place"
-    var inputedText2: String = "Short Description"
+    var inputedText2: String = "Description"
     var canceled: Bool!
 
     
     @IBAction func addPin(sender: UILongPressGestureRecognizer) {
         
         sender.minimumPressDuration = 2.0
-        mapView.showsUserLocation = false
-        showPinAlert()
         
         let location = sender.locationInView(self.mapView)
         let coordinates = self.mapView.convertPoint(location, toCoordinateFromView: self.mapView)
         
-        let annotation = MKPointAnnotation()
-        
-        annotation.coordinate = coordinates
-        
-        annotation.title = inputedText1+"HIT"
-        annotation.subtitle = inputedText2
-        
-        self.mapView.addAnnotation(annotation)
-        
-        mapView.showsUserLocation = true
+        showPinAlert()
         
         
         //self.mapView.removeAnnotation(<#annotation: MKAnnotation!#>)
-        
     }
     
     
@@ -104,8 +94,25 @@ class MapViewController: UIViewController {
         
         alertcontroller.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
             let input1 = alertcontroller.textFields?.first as! UITextField
+            
+            
+            self.mapView.showsUserLocation = false
+            
             self.inputedText1 = input1.text
             
+            
+            let annotation = MKPointAnnotation()
+            
+            annotation.coordinate = self.coordinates
+            
+            annotation.title = self.inputedText1
+            annotation.subtitle = self.inputedText2
+            
+            self.mapView.addAnnotation(annotation)
+            
+            self.mapView.showsUserLocation = true
+  
+
             println(input1.text+"HIHIHI")
         
         }))
