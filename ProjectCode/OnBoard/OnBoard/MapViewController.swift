@@ -62,29 +62,47 @@ class MapViewController: UIViewController {
         
         sender.minimumPressDuration = 2.0
         
-        let location = sender.locationInView(self.mapView)
-        let coordinates = self.mapView.convertPoint(location, toCoordinateFromView: self.mapView)
+        location = sender.locationInView(self.mapView)
+        coordinates = self.mapView.convertPoint(location, toCoordinateFromView: self.mapView)
         
-        showPinAlert()
+        showPinAlert(coordinates)
         
+        /*mapView.showsUserLocation = false
+        
+        
+        
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = coordinates
+        
+        annotation.title = inputedText1
+        annotation.subtitle = inputedText2
+        
+        self.mapView.addAnnotation(annotation)
+        
+        mapView.showsUserLocation = true
+        */
         
         //self.mapView.removeAnnotation(<#annotation: MKAnnotation!#>)
+
     }
     
     
     
   
-    func showPinAlert() {
+    
+    func showPinAlert(GPS: CLLocationCoordinate2D) {
         var alertcontroller = UIAlertController(title: "Create Geo-Tag?", message: "Save this location on your Maps", preferredStyle: UIAlertControllerStyle.Alert)
-
+        
         
         alertcontroller.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "Name this location"
             
             //textField.secureTextEntry = true
-
-        })
             
+        })
+        
         alertcontroller.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "Describe this location"
             
@@ -95,46 +113,45 @@ class MapViewController: UIViewController {
         alertcontroller.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
             let input1 = alertcontroller.textFields?.first as! UITextField
             
-            
-            self.mapView.showsUserLocation = false
+            let input2 = alertcontroller.textFields?[1] as! UITextField
             
             self.inputedText1 = input1.text
             
             
+            self.mapView.showsUserLocation = false
+            
+            
+            
+            
             let annotation = MKPointAnnotation()
             
-            annotation.coordinate = self.coordinates
+            annotation.coordinate = GPS
             
-            annotation.title = self.inputedText1
-            annotation.subtitle = self.inputedText2
+            annotation.title = input1.text
+            annotation.subtitle = input2.text
             
             self.mapView.addAnnotation(annotation)
             
             self.mapView.showsUserLocation = true
-  
-
-            println(input1.text+"HIHIHI")
-        
-        }))
             
-        alertcontroller.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
-        self.canceled = true
-    
+            
+            println(input1.text+"HIHIHI")
+            
         }))
-            self.presentViewController(alertcontroller, animated: true, completion: nil)
+        
+        alertcontroller.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+            self.canceled = true
+            
+        }))
+        self.presentViewController(alertcontroller, animated: true, completion: nil)
     }
-
+    
     
     
     @IBAction func tagCurrentLocationButton(sender: AnyObject) {
-        showPinAlert()
-        let annotation = MKPointAnnotation()
-        annotation.title = "Place"
-        
-        annotation.subtitle = "Short Description"
-        annotation.coordinate = CLLocationCoordinate2D(latitude: self.mapView.userLocation.coordinate.latitude, longitude: self.mapView.userLocation.coordinate.longitude)
-        self.mapView.addAnnotation(annotation)
+        showPinAlert(CLLocationCoordinate2D(latitude: self.mapView.userLocation.coordinate.latitude, longitude: self.mapView.userLocation.coordinate.longitude))
     }
+
 
 
     override func didReceiveMemoryWarning() {
