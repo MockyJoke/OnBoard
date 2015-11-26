@@ -47,6 +47,8 @@
 		C45C3C4D1BEA027E00174AC1 /* LocationSpecificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C4C1BEA027E00174AC1 /* LocationSpecificationViewController.swift */; };
 		C45C3C4F1BEA038500174AC1 /* SessionConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C4E1BEA038500174AC1 /* SessionConfirmationViewController.swift */; };
 		C45C3C511BEA05D100174AC1 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C3C501BEA05D100174AC1 /* StartupViewController.swift */; };
+		C46901061C059C8D00D26D56 /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46901051C059C8D00D26D56 /* TelerikUI.framework */; };
+		C46901091C059D7400D26D56 /* TelerikBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = C46901081C059D7400D26D56 /* TelerikBridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,9 @@
 		C45C3C4C1BEA027E00174AC1 /* LocationSpecificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSpecificationViewController.swift; sourceTree = "<group>"; };
 		C45C3C4E1BEA038500174AC1 /* SessionConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionConfirmationViewController.swift; sourceTree = "<group>"; };
 		C45C3C501BEA05D100174AC1 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
+		C46901051C059C8D00D26D56 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
+		C46901071C059D7300D26D56 /* OnBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnBoard-Bridging-Header.h"; sourceTree = "<group>"; };
+		C46901081C059D7400D26D56 /* TelerikBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelerikBridge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C46901061C059C8D00D26D56 /* TelerikUI.framework in Frameworks */,
 				12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +260,8 @@
 			isa = PBXGroup;
 			children = (
 				54B247AD1BF00530000116D2 /* StatusGraphView.swift */,
+				C46901081C059D7400D26D56 /* TelerikBridge.m */,
+				C46901071C059D7300D26D56 /* OnBoard-Bridging-Header.h */,
 			);
 			name = Graph;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 		C45C3C1B1BE9F7BA00174AC1 = {
 			isa = PBXGroup;
 			children = (
+				C46901051C059C8D00D26D56 /* TelerikUI.framework */,
 				12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */,
 				C45C3C261BE9F7BA00174AC1 /* OnBoard */,
 				C45C3C3B1BE9F7BA00174AC1 /* OnBoardTests */,
@@ -379,6 +388,7 @@
 		C45C3C1C1BE9F7BA00174AC1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Rainbow Riders";
 				TargetAttributes = {
@@ -443,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				541CFF541BEAEADE00DEB2D3 /* UserManager.swift in Sources */,
+				C46901091C059D7400D26D56 /* TelerikBridge.m in Sources */,
 				C45C3C4F1BEA038500174AC1 /* SessionConfirmationViewController.swift in Sources */,
 				5476CDD91BEC1B06002A3D45 /* SkiResortDataManager.swift in Sources */,
 				546FC70F1C0011EE00B9EB51 /* WebApiManager.swift in Sources */,
@@ -593,11 +604,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = OnBoard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RainbowRiders.OnBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnBoard/OnBoard-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -605,11 +623,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = OnBoard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RainbowRiders.OnBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnBoard/OnBoard-Bridging-Header.h";
 			};
 			name = Release;
 		};
