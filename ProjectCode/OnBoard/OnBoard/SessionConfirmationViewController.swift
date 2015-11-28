@@ -20,8 +20,15 @@ class SessionConfirmationViewController: UIViewController {
     @IBOutlet weak var telLabel: UILabel!
     @IBOutlet weak var siteLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
+    
+
+    @IBOutlet weak var groupStatusLabel: UILabel!
     @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var groupIdLabel: UILabel!
     @IBOutlet weak var groupMembersLabel: UILabel!
+
+    @IBOutlet weak var groupSubView: UIView!
+
 
     // ----------------------- Group Joining ------------------------------
     var joinAlertTextField: UITextField!
@@ -39,7 +46,10 @@ class SessionConfirmationViewController: UIViewController {
                 {
                     if let g = OnlineServiceManager.sharedInstance.FindGroupById(self.joinAlertTextField.text.toInt()!)
                     {
-                        self.groupNameLabel.text = "\(g.Name) ID: (\(g.Id))"
+                        self.groupStatusLabel.text = ""
+                        self.groupSubView.hidden = false;
+                        self.groupNameLabel.text = "\(g.Name)"
+                        self.groupIdLabel.text = "\(g.Id)"
                         self.groupMembersLabel.text = " \(g.GroupUsers[0].Name) and \(g.GroupUsers.count-1) more."
                     }
                 }
@@ -81,7 +91,10 @@ class SessionConfirmationViewController: UIViewController {
                 OnlineServiceManager.sharedInstance.JoinGroup(UserManager.sharedInstance.currentUser, groupId: group.Id)
                 if let g = OnlineServiceManager.sharedInstance.FindGroupById(group.Id)
                 {
-                    self.groupNameLabel.text = "\(g.Name) ID: (\(g.Id))"
+                    self.groupStatusLabel.text = ""
+                    self.groupSubView.hidden = false;
+                    self.groupNameLabel.text = "\(g.Name)"
+                    self.groupIdLabel.text = "\(g.Id)"
                     self.groupMembersLabel.text = " \(g.GroupUsers[0].Name) and \(g.GroupUsers.count-1) more."
                 }
             }
@@ -114,7 +127,7 @@ class SessionConfirmationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.groupSubView.hidden = true;
         self.title = selectedResort!.Name
         self.beginASButton.layer.cornerRadius = 10
         if let resort = selectedResort {

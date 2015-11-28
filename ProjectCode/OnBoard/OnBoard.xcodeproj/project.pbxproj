@@ -23,6 +23,7 @@
 		545DDBE51C02775200D5E1B7 /* GroupManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545DDBE41C02775200D5E1B7 /* GroupManagementViewController.swift */; };
 		545DDBE71C02852500D5E1B7 /* GroupUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545DDBE61C02852500D5E1B7 /* GroupUser.swift */; };
 		545E92B11C092D40002BAB9A /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545E92B01C092D40002BAB9A /* GroupViewController.swift */; };
+		545E92B31C094710002BAB9A /* ActiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545E92B21C094710002BAB9A /* ActiveData.swift */; };
 		546FC70F1C0011EE00B9EB51 /* WebApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FC70E1C0011EE00B9EB51 /* WebApiManager.swift */; };
 		546FC7151C0014F100B9EB51 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FC7141C0014F100B9EB51 /* SwiftyJSON.swift */; };
 		546FD05A1C011D1700C8CF7B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FD0591C011D1700C8CF7B /* Group.swift */; };
@@ -81,6 +82,7 @@
 		545DDBE41C02775200D5E1B7 /* GroupManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupManagementViewController.swift; sourceTree = "<group>"; };
 		545DDBE61C02852500D5E1B7 /* GroupUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupUser.swift; sourceTree = "<group>"; };
 		545E92B01C092D40002BAB9A /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		545E92B21C094710002BAB9A /* ActiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveData.swift; sourceTree = "<group>"; };
 		546FC70E1C0011EE00B9EB51 /* WebApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApiManager.swift; sourceTree = "<group>"; };
 		546FC7141C0014F100B9EB51 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		546FD0591C011D1700C8CF7B /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				546FD0591C011D1700C8CF7B /* Group.swift */,
 				545DDBE61C02852500D5E1B7 /* GroupUser.swift */,
+				545E92B21C094710002BAB9A /* ActiveData.swift */,
 			);
 			name = Group;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */,
 				C45C3C4D1BEA027E00174AC1 /* LocationSpecificationViewController.swift in Sources */,
 				54765AE41BEE9BD000EC49AF /* SessionManager.swift in Sources */,
+				545E92B31C094710002BAB9A /* ActiveData.swift in Sources */,
 				C45C3C491BE9FDA200174AC1 /* ProfileSetupViewController.swift in Sources */,
 				54765AE31BEE9BD000EC49AF /* Session.swift in Sources */,
 				C45C3C281BE9F7BA00174AC1 /* AppDelegate.swift in Sources */,
