@@ -561,7 +561,7 @@
         <!--Group-->
         <scene sceneID="Epk-1v-qVH">
             <objects>
-                <viewController id="Jh0-VC-lEI" sceneMemberID="viewController">
+                <viewController id="Jh0-VC-lEI" customClass="GroupViewController" customModule="OnBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h1v-3t-ybr"/>
                         <viewControllerLayoutGuide type="bottom" id="XLp-mp-sYW"/>
