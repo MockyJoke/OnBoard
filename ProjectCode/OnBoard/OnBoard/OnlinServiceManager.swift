@@ -54,4 +54,22 @@ class OnlineServiceManager : NSObject{
             return nil
         }
     }
+    
+    func SaveActiveData(userId : Int, lat : Double, lon : Double, statusCode : String)  -> ActiveData? {
+        let url = "http://OnBoardWeb.cloudapp.net/api/activedata?userid=\(userId)&lat=\(lat)&lon=\(lon)&statuscode=\(statusCode)"
+        if let json = WebApiManager.sharedInstance.MakeHTTPRequestSync(url,methond: "POST"){
+            return ActiveData(json: json)
+        }else{
+            return nil
+        }
+    }
+    
+    func GetActiveDataByUserId(userId : Int) -> ActiveData? {
+        let url = "http://OnBoardWeb.cloudapp.net/api/activedata?userid=\(userId)"
+        if let json = WebApiManager.sharedInstance.MakeHTTPRequestSync(url,methond: "GET"){
+            return ActiveData(json: json)
+        }else{
+            return nil
+        }
+    }
 }
