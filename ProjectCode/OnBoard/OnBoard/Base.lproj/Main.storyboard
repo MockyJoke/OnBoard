@@ -90,7 +90,7 @@
                                     <outlet property="delegate" destination="gho-lv-q4z" id="57f-9r-10g"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="AddUser" translatesAutoresizingMaskIntoConstraints="NO" id="euW-3B-bkI">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddUser" translatesAutoresizingMaskIntoConstraints="NO" id="euW-3B-bkI">
                                 <rect key="frame" x="172" y="324" width="256" height="256"/>
                                 <animations/>
                             </imageView>
@@ -561,7 +561,7 @@
         <!--Group-->
         <scene sceneID="Epk-1v-qVH">
             <objects>
-                <viewController id="Jh0-VC-lEI" sceneMemberID="viewController">
+                <viewController id="Jh0-VC-lEI" customClass="GroupViewController" customModule="OnBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h1v-3t-ybr"/>
                         <viewControllerLayoutGuide type="bottom" id="XLp-mp-sYW"/>
