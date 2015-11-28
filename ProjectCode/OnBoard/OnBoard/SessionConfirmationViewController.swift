@@ -26,9 +26,12 @@ class SessionConfirmationViewController: UIViewController {
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupIdLabel: UILabel!
     @IBOutlet weak var groupMembersLabel: UILabel!
-
     @IBOutlet weak var groupSubView: UIView!
-
+    
+    // ----------------------- General Grouping ---------------------------
+    func promtAnonymous(){
+        let alert = UIAlertView(title: "Error", message: "You can not join a group as an anonymous user. Create a profile before retrying.", delegate: nil, cancelButtonTitle: nil)
+    }
 
     // ----------------------- Group Joining ------------------------------
     var joinAlertTextField: UITextField!
@@ -72,7 +75,7 @@ class SessionConfirmationViewController: UIViewController {
     func configurationJoinGroupTextField(textField: UITextField!)
     {
         textField.keyboardType = UIKeyboardType.NumberPad
-        textField.returnKeyType = UIReturnKeyType.Go
+        //textField.returnKeyType = UIReturnKeyType.Go
         textField.placeholder = "Enter a group ID"
         textField.text = String(6)
         joinAlertTextField = textField
@@ -111,7 +114,6 @@ class SessionConfirmationViewController: UIViewController {
     
     func configurationCreateGroupTextField(textField: UITextField!)
     {
-        textField.keyboardType = UIKeyboardType.NumberPad
         textField.returnKeyType = UIReturnKeyType.Go
         textField.placeholder = "Enter a group Name"
         createGroupAlertTextField = textField

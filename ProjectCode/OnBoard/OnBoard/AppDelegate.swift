@@ -24,11 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var b = NSKeyedUnarchiver.unarchiveObjectWithData(modelData) as! Ball
         print(b.Name)*/
         CoreLocationManager.sharedInstance.StartUpdate()
-        for resort in SkiResortDataManager.sharedInstance.SkiResortArray{
+        /*for resort in SkiResortDataManager.sharedInstance.SkiResortArray{
             println(resort.Name)
-        }
+        }*/
         MotionManager.sharedInstance.StartUpdate()
-        let baseURL = "http://OnBoardWeb.cloudapp.net/api/users"
+        /*let baseURL = "http://OnBoardWeb.cloudapp.net/api/users"
         WebApiManager.sharedInstance.MakeHTTPGetRequest(baseURL, onCompletion : { json, error -> Void in
             var count = json.count
             for (var i = 0 ;i  < count ; i++ ) {
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 var k = j["Name"].string!
                 print (k)
             }
-        })
+        })*/
         
         //let url = "http://OnBoardWeb.cloudapp.net/api/users/17"
         //var json = WebApiManager.sharedInstance.MakeHTTPRequestSync(url, methond: "PUT")
