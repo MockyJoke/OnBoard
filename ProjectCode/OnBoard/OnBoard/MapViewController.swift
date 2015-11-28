@@ -142,6 +142,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.setRegion(newRegion, animated: true)
         
         if (myLocations.count > 1){
+            
             var sourceIndex = myLocations.count - 1
             var destinationIndex = myLocations.count - 2
             
