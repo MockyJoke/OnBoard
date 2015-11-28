@@ -27,5 +27,6 @@ namespace OnBoardService.Models.Database
     
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<ActiveData> ActiveDatas { get; set; }
     }
 }

@@ -209,6 +209,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DatabaseUtility.cs" />
+    <Compile Include="Models\Database\ActiveData.cs">
+      <DependentUpon>OnBoardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Database\DatabaseManager.cs" />
     <Compile Include="Models\Database\Group.cs">
       <DependentUpon>OnBoardModel.tt</DependentUpon>

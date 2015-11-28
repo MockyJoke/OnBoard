@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="OnBoardModel.Group" Width="1.5" PointX="2.25" PointY="2.75" />
         <EntityTypeShape EntityType="OnBoardModel.User" Width="1.5" PointX="5.25" PointY="2.75" />
         <AssociationConnector Association="OnBoardModel.GroupUser" />
+        <EntityTypeShape EntityType="OnBoardModel.ActiveData" Width="1.5" PointX="8.125" PointY="2.75" />
+        <AssociationConnector Association="OnBoardModel.UserActiveData" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

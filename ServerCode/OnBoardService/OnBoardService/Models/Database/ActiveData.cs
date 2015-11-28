@@ -12,13 +12,13 @@ namespace OnBoardService.Models.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class ActiveData
     {
         public int Id { get; set; }
-        public Nullable<int> GroupId { get; set; }
-        public string Name { get; set; }
+        public double Lat { get; set; }
+        public double Lon { get; set; }
+        public string StatusCode { get; set; }
     
-        public virtual Group Group { get; set; }
-        public virtual ActiveData ActiveData { get; set; }
+        public virtual User User { get; set; }
     }
 }

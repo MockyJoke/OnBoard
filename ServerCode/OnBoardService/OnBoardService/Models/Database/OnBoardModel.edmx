@@ -8,9 +8,14 @@
   <EntityContainer Name="OnBoardModelStoreContainer">
     <EntitySet Name="Groups" EntityType="OnBoardModel.Store.Groups" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Users" EntityType="OnBoardModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActiveDatas" EntityType="OnBoardModel.Store.ActiveDatas" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="GroupUser" Association="OnBoardModel.Store.GroupUser">
       <End Role="Group" EntitySet="Groups" />
       <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserActiveData" Association="OnBoardModel.Store.UserActiveData">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ActiveData" EntitySet="ActiveDatas" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Groups">
@@ -28,6 +33,16 @@
     <Property Name="GroupId" Type="int" Nullable="true" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="ActiveDatas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Lat" Type="float" Nullable="false" />
+    <Property Name="Lon" Type="float" Nullable="false" />
+    <Property Name="StatusCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="GroupUser">
     <End Role="Group" Type="OnBoardModel.Store.Groups" Multiplicity="0..1" />
     <End Role="User" Type="OnBoardModel.Store.Users" Multiplicity="*" />
@@ -37,6 +52,18 @@
       </Principal>
       <Dependent Role="User">
         <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserActiveData">
+    <End Role="User" Type="OnBoardModel.Store.Users" Multiplicity="1" />
+    <End Role="ActiveData" Type="OnBoardModel.Store.ActiveDatas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActiveData">
+        <PropertyRef Name="User_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -50,6 +77,11 @@
           <AssociationSet Name="GroupUser" Association="OnBoardModel.GroupUser">
             <End Role="Group" EntitySet="Groups" />
             <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="ActiveDatas" EntityType="OnBoardModel.ActiveData" />
+          <AssociationSet Name="UserActiveData" Association="OnBoardModel.UserActiveData">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ActiveData" EntitySet="ActiveDatas" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Group">
@@ -68,6 +100,7 @@
           <NavigationProperty Name="Group" Relationship="OnBoardModel.GroupUser" FromRole="User" ToRole="Group" />
           <Property Name="GroupId" Type="Int32" Nullable="true" />
           <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="ActiveData" Relationship="OnBoardModel.UserActiveData" FromRole="User" ToRole="ActiveData" />
         </EntityType>
         <Association Name="GroupUser">
           <End Type="OnBoardModel.Group" Role="Group" Multiplicity="0..1" />
@@ -80,6 +113,20 @@
               <PropertyRef Name="GroupId" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ActiveData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="OnBoardModel.UserActiveData" FromRole="ActiveData" ToRole="User" />
+          <Property Name="Lat" Type="Double" Nullable="false" />
+          <Property Name="Lon" Type="Double" Nullable="false" />
+          <Property Name="StatusCode" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="UserActiveData">
+          <End Type="OnBoardModel.User" Role="User" Multiplicity="1" />
+          <End Type="OnBoardModel.ActiveData" Role="ActiveData" Multiplicity="0..1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -104,6 +151,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ActiveDatas">
+      <EntityTypeMapping TypeName="IsTypeOf(OnBoardModel.ActiveData)">
+        <MappingFragment StoreEntitySet="ActiveDatas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Lon" ColumnName="Lon" />
+          <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserActiveData" TypeName="OnBoardModel.UserActiveData" StoreEntitySet="ActiveDatas">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="ActiveData">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
