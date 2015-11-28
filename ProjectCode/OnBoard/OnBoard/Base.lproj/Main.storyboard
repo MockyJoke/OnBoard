@@ -665,15 +665,6 @@
                                     <outletCollection property="gestureRecognizers" destination="Hhp-vK-idH" appends="YES" id="3PD-xo-mAJ"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUF-Cw-1Yu">
-                                <rect key="frame" x="16" y="28" width="184" height="17"/>
-                                <state key="normal" title="Geo-tag Current Location">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagCurrentLocationButton:" destination="o86-if-mQy" eventType="touchUpInside" id="jxd-9W-ZxU"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7B-d4-7vL">
                                 <rect key="frame" x="16" y="499" width="42" height="42"/>
                                 <animations/>
@@ -684,6 +675,15 @@
                                     <action selector="userLocationButtonAction:" destination="o86-if-mQy" eventType="touchUpInside" id="Esn-V5-Dwj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUF-Cw-1Yu">
+                                <rect key="frame" x="408" y="511" width="176" height="30"/>
+                                <state key="normal" title="Geo-tag Current Location">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tagCurrentLocationButton:" destination="o86-if-mQy" eventType="touchUpInside" id="jxd-9W-ZxU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -692,8 +692,10 @@
                             <constraint firstAttribute="trailing" secondItem="HOP-dr-Nnj" secondAttribute="trailing" id="124-8y-yg4"/>
                             <constraint firstItem="HOP-dr-Nnj" firstAttribute="top" secondItem="ghh-x8-xwG" secondAttribute="top" id="2wU-Vx-HUP"/>
                             <constraint firstItem="HOP-dr-Nnj" firstAttribute="leading" secondItem="ghh-x8-xwG" secondAttribute="leading" id="6nf-Pr-CYF"/>
+                            <constraint firstItem="KUF-Cw-1Yu" firstAttribute="trailing" secondItem="ghh-x8-xwG" secondAttribute="trailingMargin" id="CYM-gV-GIn"/>
                             <constraint firstItem="a8B-ow-9s9" firstAttribute="top" secondItem="p7B-d4-7vL" secondAttribute="bottom" constant="10" id="ICN-5v-zDT"/>
                             <constraint firstItem="p7B-d4-7vL" firstAttribute="leading" secondItem="ghh-x8-xwG" secondAttribute="leadingMargin" id="nhm-JR-Hax"/>
+                            <constraint firstItem="a8B-ow-9s9" firstAttribute="top" secondItem="KUF-Cw-1Yu" secondAttribute="bottom" constant="10" id="pKz-NT-GVq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="KPo-4G-j15"/>

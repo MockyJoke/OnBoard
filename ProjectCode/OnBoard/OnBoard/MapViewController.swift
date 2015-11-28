@@ -8,15 +8,17 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tagCurrentLocationButton: UIButton!
     
+    var manager:CLLocationManager!
+    var myLocations: [CLLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +33,18 @@ class MapViewController: UIViewController {
         // Do any additional setup after loading the view.
         CenterMapToResortLocation()
         
-        mapView.showsUserLocation = true
-    
         
+        //Setup our Location Manager
+        manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestAlwaysAuthorization()
+        manager.startUpdatingLocation()
+        
+        //Setup our Map View
+        mapView.delegate = self
+        //mapView.mapType = MKMapType.Satellite
+        mapView.showsUserLocation = true
     }
     
 
@@ -67,29 +78,9 @@ class MapViewController: UIViewController {
         
         showPinAlert(coordinates)
         
-        /*mapView.showsUserLocation = false
-        
-        
-        
-        
-        let annotation = MKPointAnnotation()
-        
-        annotation.coordinate = coordinates
-        
-        annotation.title = inputedText1
-        annotation.subtitle = inputedText2
-        
-        self.mapView.addAnnotation(annotation)
-        
-        mapView.showsUserLocation = true
-        */
-        
         //self.mapView.removeAnnotation(<#annotation: MKAnnotation!#>)
 
     }
-    
-    
-    
   
     
     func showPinAlert(GPS: CLLocationCoordinate2D) {
@@ -117,11 +108,7 @@ class MapViewController: UIViewController {
             
             self.inputedText1 = input1.text
             
-            
             self.mapView.showsUserLocation = false
-            
-            
-            
             
             let annotation = MKPointAnnotation()
             
@@ -129,13 +116,12 @@ class MapViewController: UIViewController {
             
             annotation.title = input1.text
             annotation.subtitle = input2.text
-            
+           
             self.mapView.addAnnotation(annotation)
             
             self.mapView.showsUserLocation = true
             
             
-            println(input1.text+"HIHIHI")
             
         }))
         
@@ -146,6 +132,41 @@ class MapViewController: UIViewController {
         self.presentViewController(alertcontroller, animated: true, completion: nil)
     }
     
+    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+        //theLabel.text = "\(locations[0])"
+        myLocations.append(locations[0] as! CLLocation)
+        
+        let spanX = 0.007
+        let spanY = 0.007
+        var newRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpanMake(spanX, spanY))
+        mapView.setRegion(newRegion, animated: true)
+        
+        if (myLocations.count > 1){
+            var sourceIndex = myLocations.count - 1
+            var destinationIndex = myLocations.count - 2
+            
+            let c1 = myLocations[sourceIndex].coordinate
+            let c2 = myLocations[destinationIndex].coordinate
+            var a = [c1, c2]
+            var polyline = MKPolyline(coordinates: &a, count: a.count)
+            mapView.addOverlay(polyline)
+            
+            
+            }
+        }
+    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        
+        if overlay is MKPolyline {
+            var polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = UIColor.blueColor().colorWithAlphaComponent(0.4)
+            polylineRenderer.lineWidth = 8
+            return polylineRenderer
+        }
+        else {
+            return nil
+        }
+    }
     
     
     @IBAction func tagCurrentLocationButton(sender: AnyObject) {
@@ -176,6 +197,8 @@ class MapViewController: UIViewController {
             mapView.setRegion(MKCoordinateRegionMakeWithDistance(resort.GetCoordinate2D(), regionRadius, regionRadius), animated: true)
         }
     }
+    
+    
     
 
     /*
