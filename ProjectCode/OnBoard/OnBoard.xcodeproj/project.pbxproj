@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		121078301BED788300D96B40 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1210782F1BED788300D96B40 /* CoreMotionManager.swift */; };
 		121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121078311BED7BDB00D96B40 /* Acceleration.swift */; };
+		124863CC1C09282D00D86E62 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124863CB1C09282D00D86E62 /* HealthKit.framework */; };
 		12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */; };
 		12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */; };
 		3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */; };
@@ -64,6 +65,8 @@
 /* Begin PBXFileReference section */
 		1210782F1BED788300D96B40 /* CoreMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMotionManager.swift; sourceTree = "<group>"; };
 		121078311BED7BDB00D96B40 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
+		124863CA1C09282D00D86E62 /* OnBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OnBoard.entitlements; sourceTree = "<group>"; };
+		124863CB1C09282D00D86E62 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124863CC1C09282D00D86E62 /* HealthKit.framework in Frameworks */,
 				C46901061C059C8D00D26D56 /* TelerikUI.framework in Frameworks */,
 				12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */,
 			);
@@ -286,6 +290,7 @@
 		C45C3C1B1BE9F7BA00174AC1 = {
 			isa = PBXGroup;
 			children = (
+				124863CB1C09282D00D86E62 /* HealthKit.framework */,
 				C46901051C059C8D00D26D56 /* TelerikUI.framework */,
 				12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */,
 				C45C3C261BE9F7BA00174AC1 /* OnBoard */,
@@ -306,6 +311,7 @@
 		C45C3C261BE9F7BA00174AC1 /* OnBoard */ = {
 			isa = PBXGroup;
 			children = (
+				124863CA1C09282D00D86E62 /* OnBoard.entitlements */,
 				54B247A81BEFFBFD000116D2 /* Graph */,
 				5476CDD31BEC0EB5002A3D45 /* AppResources */,
 				541CFF451BEAC18A00DEB2D3 /* Model */,
@@ -394,7 +400,11 @@
 				TargetAttributes = {
 					C45C3C231BE9F7BA00174AC1 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = XM6475YHW9;
 						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
@@ -605,6 +615,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OnBoard/OnBoard.entitlements;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -624,6 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OnBoard/OnBoard.entitlements;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
