@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		121078301BED788300D96B40 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1210782F1BED788300D96B40 /* CoreMotionManager.swift */; };
 		121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121078311BED7BDB00D96B40 /* Acceleration.swift */; };
-		124863CC1C09282D00D86E62 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124863CB1C09282D00D86E62 /* HealthKit.framework */; };
+		12186D031C0B9B1C005E04A4 /* GeoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12186D021C0B9B1C005E04A4 /* GeoTag.swift */; };
+		12186D051C0B9D5B005E04A4 /* GeoTagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12186D041C0B9D5B005E04A4 /* GeoTagManager.swift */; };
+		12186D191C0BB630005E04A4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12186D181C0BB630005E04A4 /* HealthKit.framework */; };
 		12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */; };
 		12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */; };
 		3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */; };
@@ -67,8 +69,10 @@
 /* Begin PBXFileReference section */
 		1210782F1BED788300D96B40 /* CoreMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMotionManager.swift; sourceTree = "<group>"; };
 		121078311BED7BDB00D96B40 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
+		12186D021C0B9B1C005E04A4 /* GeoTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoTag.swift; sourceTree = "<group>"; };
+		12186D041C0B9D5B005E04A4 /* GeoTagManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoTagManager.swift; sourceTree = "<group>"; };
+		12186D181C0BB630005E04A4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		124863CA1C09282D00D86E62 /* OnBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OnBoard.entitlements; sourceTree = "<group>"; };
-		124863CB1C09282D00D86E62 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				124863CC1C09282D00D86E62 /* HealthKit.framework in Frameworks */,
+				12186D191C0BB630005E04A4 /* HealthKit.framework in Frameworks */,
 				C46901061C059C8D00D26D56 /* TelerikUI.framework in Frameworks */,
 				12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */,
 			);
@@ -139,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12186D011C0B9AEF005E04A4 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				12186D021C0B9B1C005E04A4 /* GeoTag.swift */,
+				12186D041C0B9D5B005E04A4 /* GeoTagManager.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		12ED59661BEE87C5007EBAC6 /* CoreMotion */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +181,7 @@
 		541CFF451BEAC18A00DEB2D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				12186D011C0B9AEF005E04A4 /* Map */,
 				546FD0581C011D0800C8CF7B /* Group */,
 				546FC70D1C0011C400B9EB51 /* Web */,
 				54B247B21BF018DA000116D2 /* Container */,
@@ -296,7 +310,7 @@
 		C45C3C1B1BE9F7BA00174AC1 = {
 			isa = PBXGroup;
 			children = (
-				124863CB1C09282D00D86E62 /* HealthKit.framework */,
+				12186D181C0BB630005E04A4 /* HealthKit.framework */,
 				C46901051C059C8D00D26D56 /* TelerikUI.framework */,
 				12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */,
 				C45C3C261BE9F7BA00174AC1 /* OnBoard */,
@@ -470,6 +484,7 @@
 			files = (
 				541CFF541BEAEADE00DEB2D3 /* UserManager.swift in Sources */,
 				C46901091C059D7400D26D56 /* TelerikBridge.m in Sources */,
+				12186D031C0B9B1C005E04A4 /* GeoTag.swift in Sources */,
 				C45C3C4F1BEA038500174AC1 /* SessionConfirmationViewController.swift in Sources */,
 				5476CDD91BEC1B06002A3D45 /* SkiResortDataManager.swift in Sources */,
 				546FC70F1C0011EE00B9EB51 /* WebApiManager.swift in Sources */,
@@ -499,6 +514,7 @@
 				BFAD5EF11BF09CF40022D079 /* StatisticsTableViewController.swift in Sources */,
 				BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */,
 				121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */,
+				12186D051C0B9D5B005E04A4 /* GeoTagManager.swift in Sources */,
 				54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */,
 				54B247B41BF018E7000116D2 /* Queue.swift in Sources */,
 				BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */,
@@ -624,12 +640,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = OnBoard/OnBoard.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = OnBoard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RainbowRiders.OnBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -644,12 +661,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = OnBoard/OnBoard.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = OnBoard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RainbowRiders.OnBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";

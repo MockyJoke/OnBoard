@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470366044.246956"
+            timestampString = "470527237.807235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "showPinAlert(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470366044.246956"
+            timestampString = "470527237.807235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "MapViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470366044.246956"
+            timestampString = "470527237.807235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "showPinAlert(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -199,11 +199,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470366044.246956"
+            timestampString = "470527237.807235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -215,13 +215,106 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470450968.234376"
+            timestampString = "470527237.807235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "removePin(_:)"
-            landmarkType = "5">
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "MapViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnBoard/MapViewController.swift"
+            timestampString = "470528847.082361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "MapViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnBoard.MapViewController.location.getter : C.CGPoint"
+                  moduleName = "OnBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gcui/Desktop/OnBoard/ProjectCode/OnBoard/OnBoard/MapViewController.swift"
+                  timestampString = "470528847.103938"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnBoard.MapViewController.location.setter : C.CGPoint"
+                  moduleName = "OnBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gcui/Desktop/OnBoard/ProjectCode/OnBoard/OnBoard/MapViewController.swift"
+                  timestampString = "470528847.104116"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnBoard.MapViewController.location.materializeForSet : C.CGPoint"
+                  moduleName = "OnBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gcui/Desktop/OnBoard/ProjectCode/OnBoard/OnBoard/MapViewController.swift"
+                  timestampString = "470528847.104233"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnBoard.MapViewController.init (OnBoard.MapViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; OnBoard.MapViewController"
+                  moduleName = "OnBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gcui/Desktop/OnBoard/ProjectCode/OnBoard/OnBoard/MapViewController.swift"
+                  timestampString = "470528847.104343"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "305">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnBoard.MapViewController.init (OnBoard.MapViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; OnBoard.MapViewController"
+                  moduleName = "OnBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gcui/Desktop/OnBoard/ProjectCode/OnBoard/OnBoard/MapViewController.swift"
+                  timestampString = "470528847.104454"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "212">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

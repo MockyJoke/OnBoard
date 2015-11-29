@@ -40,14 +40,14 @@ class LocationSpecificationViewController: UIViewController,UITableViewDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    func addBlurEffectToView(targetView : UIView){
+    /*func addBlurEffectToView(targetView : UIView){
         var effect = UIBlurEffect (style: UIBlurEffectStyle.Light)
         var effectView = UIVisualEffectView(effect: effect)
         effectView.layer.cornerRadius = 10.0
         effectView.clipsToBounds = true
         effectView.frame = CGRectMake (0,0,targetView.frame.width*0.9,targetView.frame.height * 0.9)
         targetView.addSubview(effectView)
-    }
+    }*/
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

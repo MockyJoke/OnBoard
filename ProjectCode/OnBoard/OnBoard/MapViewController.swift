@@ -46,6 +46,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         //mapView.mapType = MKMapType.Satellite
         mapView.showsUserLocation = true
     }
+  /*
+    func LoadPinsFromStorage(){
+        //var key = GeoTagManager.sharedInstance.GetGeoTag(<#title: String#>)
+        for (GeoTag.title, GeoTag.subTitle, coord) in GeoTagManager.sharedInstance.geoTagDict
+        {
+            let annotation = MKPointAnnotation()
+            annotation.title = title
+            annotation.subtitle = subTitle
+            annotation.coordinate = coord
+            
+            self.mapView.addAnnotation(annotation)
+        }
+    }*/
     
 
     /*Following Variables for Pin Dropping & Alert feature
@@ -121,6 +134,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             
             self.mapView.showsUserLocation = true
             
+            GeoTagManager.sharedInstance.SaveGeoTag(GeoTag(title: input1.text, description: input2.text, coord: annotation.coordinate))
             
             
         }))
