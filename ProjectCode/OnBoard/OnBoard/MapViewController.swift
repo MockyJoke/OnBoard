@@ -169,6 +169,36 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
+    //Remove Annotation
+    
+    /*@IBAction func removePin(sender: UITapGestureRecognizer) {
+        sender.numberOfTapsRequired = 2
+        
+        if sender.locationInView(self.mapView) = MKPointAnnotation().coordinate{
+            
+            
+        }
+        
+        
+        
+    }*/
+    
+    
+    /*var tap = UITapGestureRecognizer(target: self, action: removeAnnotation())
+    tap.numberOfTapsRequired = 1
+    self.mapView.addGestureRecognizer(tap)
+    
+    func removeAnnotation(gesture: UIGestureRecognizer) {
+        
+        if gesture.state == UIGestureRecognizerState.Ended {
+            
+            self.mapView.removeAnnotation(annotation)
+            println("Annotation Removed")
+            
+        }
+        
+    }*/
+    
     
     @IBAction func tagCurrentLocationButton(sender: AnyObject) {
         showPinAlert(CLLocationCoordinate2D(latitude: self.mapView.userLocation.coordinate.latitude, longitude: self.mapView.userLocation.coordinate.longitude))

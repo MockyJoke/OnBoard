@@ -844,6 +844,7 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Hhp-vK-idH" appends="YES" id="3PD-xo-mAJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="mcS-6a-UBP" appends="YES" id="LiN-wK-pVf"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7B-d4-7vL">
@@ -890,6 +891,11 @@
                         <action selector="addPin:" destination="o86-if-mQy" id="cwB-fs-Iw5"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="mcS-6a-UBP">
+                    <connections>
+                        <action selector="removePin:" destination="o86-if-mQy" id="Pzb-eC-VQu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3189" y="1952"/>
         </scene>
