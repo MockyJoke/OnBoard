@@ -21,6 +21,7 @@ class TripViewController: UIViewController {
     var updateTimer : NSTimer?
     var user : User?
     var tempUser : User?
+    var graph : TKChart?
     override func viewDidLoad(){
         super.viewDidLoad()
         updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
@@ -40,7 +41,8 @@ class TripViewController: UIViewController {
     
     // Called when subview is drawed
     override func viewDidLayoutSubviews() {
-        PlotGraph()
+        InitializeGraph()
+        UpdateGraph()
     }
     
     @IBAction func stopSession(sender: AnyObject) {
@@ -61,7 +63,7 @@ class TripViewController: UIViewController {
     
     func update(){
         UpdateRecentAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
-        PlotGraph()
+        UpdateGraph()
         UpdateDurationLabel()
         SessionManager.sharedInstance.CurrentSession?.TakeSnapshot()
         UserManager.sharedInstance.currentUser
@@ -95,14 +97,18 @@ class TripViewController: UIViewController {
 //        return myData as NSArray
 //    }
     
-    func PlotGraph(){
-        // Do any additional setup after loading the view.
-        
+    func InitializeGraph() {
         let graphArea = CGRect(x: 0, y: 0, width: self.graphZoneView.bounds.width, height: self.graphZoneView.bounds.height)
         
-        let graph = TKChart(frame: CGRectInset(graphArea, 0, 25))
-        graph.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
-        self.graphZoneView.addSubview(graph)
+        graph = TKChart(frame: CGRectInset(graphArea, 0, 15))
+        graph!.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
+        self.graphZoneView.addSubview(graph!)
+    }
+    
+    func UpdateGraph(){
+        // Do any additional setup after loading the view.
+        
+        
         
         var dataSeries = TKChartLineSeries(items: GetPlotData())
         
@@ -112,17 +118,17 @@ class TripViewController: UIViewController {
 
         dataSeries.style.stroke = TKStroke(fill: fill, width: 2.0)
         
-        graph.addSeries(dataSeries)
+        graph!.addSeries(dataSeries)
         
-        graph.xAxis.hidden = true
-        graph.yAxis.hidden = true
+        graph!.xAxis.hidden = true
+        graph!.yAxis.hidden = true
         
-        let gridStyle = graph.gridStyle()
+        let gridStyle = graph!.gridStyle()
         gridStyle.horizontalAlternateFill = nil
         gridStyle.horizontalFill = nil
         gridStyle.horizontalLinesHidden = true
         
-        graphZoneView.addSubview(graph)
+        graphZoneView.addSubview(graph!)
         
     }
     
