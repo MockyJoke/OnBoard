@@ -8,12 +8,13 @@
 
 import UIKit
 
-class GroupViewController: UIViewController {
+class GroupViewController: UIViewController,UITableViewDelegate{
 
+@IBOutlet var memberTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let chart = TKChart(frame: CGRectInset(self.view.bounds, 15, 15))
+        /*let chart = TKChart(frame: CGRectInset(self.view.bounds, 15, 15))
         chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
         self.view.addSubview(chart)
         
@@ -29,7 +30,7 @@ class GroupViewController: UIViewController {
         chart.legend().hidden = false
         
         chart.allowAnimations = true
-
+        */
         // Do any additional setup after loading the view.
     }
 

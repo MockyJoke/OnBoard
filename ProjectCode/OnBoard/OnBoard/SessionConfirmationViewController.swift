@@ -30,13 +30,17 @@ class SessionConfirmationViewController: UIViewController {
     
     // ----------------------- General Grouping ---------------------------
     func promtAnonymous(){
-        let alert = UIAlertView(title: "Error", message: "You can not join a group as an anonymous user. Create a profile before retrying.", delegate: nil, cancelButtonTitle: nil)
+        let alert = UIAlertView(title: "Error", message: "You can not join a group as an anonymous user. Create a profile before retrying.", delegate: nil, cancelButtonTitle: "Got it")
+        alert.show()
     }
 
     // ----------------------- Group Joining ------------------------------
     var joinAlertTextField: UITextField!
     @IBAction func joinGroupAction(sender: AnyObject) {
-        
+        if(UserManager.sharedInstance.currentUser.IsAnonymous){
+            promtAnonymous();
+            return;
+        }
         var g : Group?
         var alert = UIAlertController(title: "Join a group", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addTextFieldWithConfigurationHandler(configurationJoinGroupTextField)
@@ -85,6 +89,10 @@ class SessionConfirmationViewController: UIViewController {
     // ----------------------- Create Group --------------------------------
     var createGroupAlertTextField: UITextField!
     @IBAction func createGroupAction(sender: AnyObject) {
+        if(UserManager.sharedInstance.currentUser.IsAnonymous){
+            promtAnonymous();
+            return;
+        }
         var alert = UIAlertController(title: "Create a group", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addTextFieldWithConfigurationHandler(configurationCreateGroupTextField)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:handleCreateGroupCancel))
