@@ -22,15 +22,17 @@ class TripViewController: UIViewController {
     var user : User?
     var tempUser : User?
     var graph : TKChart?
+    var dataSeries : TKChartLineSeries?
     override func viewDidLoad(){
         super.viewDidLoad()
-        updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
+        updateTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
         self.resetMaxValues()
         user = UserManager.sharedInstance.currentUser
         tempUser = UserManager.sharedInstance.GetUserByName("Hy")
         for i in 0...9{
             recentAccelerationData.append(MotionManager.sharedInstance.GetCurrentAcceleration())
         }
+        InitializeGraph()
         
     }
     
@@ -41,8 +43,11 @@ class TripViewController: UIViewController {
     
     // Called when subview is drawed
     override func viewDidLayoutSubviews() {
-        InitializeGraph()
-        UpdateGraph()
+        
+        let gridStyle = graph!.gridStyle()
+        gridStyle.horizontalAlternateFill = nil
+        gridStyle.horizontalFill = nil
+        gridStyle.horizontalLinesHidden = true
     }
     
     @IBAction func stopSession(sender: AnyObject) {
@@ -103,32 +108,34 @@ class TripViewController: UIViewController {
         graph = TKChart(frame: CGRectInset(graphArea, 0, 15))
         graph!.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
         self.graphZoneView.addSubview(graph!)
-    }
-    
-    func UpdateGraph(){
-        // Do any additional setup after loading the view.
         
-        
-        
-        var dataSeries = TKChartLineSeries(items: GetPlotData())
+        dataSeries = TKChartLineSeries(items: GetPlotData())
         
         let fill = TKLinearGradientFill(colors: [UIColor(red: 0.92, green: 0.53, blue: 0.18, alpha: 1),
             UIColor(red: 0.95, green: 0.33, blue: 1.0, alpha: 1),
             UIColor(red: 0.18, green: 0.58, blue: 0.92, alpha: 1)])
-
-        dataSeries.style.stroke = TKStroke(fill: fill, width: 2.0)
         
+        dataSeries!.style.stroke = TKStroke(fill: fill, width: 2.0)
         graph!.addSeries(dataSeries)
         
         graph!.xAxis.hidden = true
         graph!.yAxis.hidden = true
-        
-        let gridStyle = graph!.gridStyle()
-        gridStyle.horizontalAlternateFill = nil
-        gridStyle.horizontalFill = nil
-        gridStyle.horizontalLinesHidden = true
-        
         graphZoneView.addSubview(graph!)
+    }
+    
+    func UpdateGraph(){
+        // Do any additional setup after loading the view.
+        graph?.removeAllData()
+        dataSeries = TKChartLineSeries(items: GetPlotData())
+        
+        let fill = TKLinearGradientFill(colors: [UIColor(red: 0.92, green: 0.53, blue: 0.18, alpha: 1),
+            UIColor(red: 0.95, green: 0.33, blue: 1.0, alpha: 1),
+            UIColor(red: 0.18, green: 0.58, blue: 0.92, alpha: 1)])
+        
+        dataSeries!.style.stroke = TKStroke(fill: fill, width: 2.0)
+        graph!.addSeries(dataSeries)
+        graph!.xAxis.hidden = true
+        graph!.yAxis.hidden = true
         
     }
     
