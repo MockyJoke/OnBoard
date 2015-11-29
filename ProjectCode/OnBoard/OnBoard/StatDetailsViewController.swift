@@ -28,28 +28,57 @@ class StatDetailsViewController: UIViewController {
         totalDistance.text = "\(Distance)" + " m"
         averageSpeed.text = "\(Speed)" + " km/h"
         
+        // Chart size shared across all versions of the graph
         let chartArea = CGRect(x: 0, y: 0, width: self.distanceGraphView.bounds.width, height: self.distanceGraphView.bounds.height)
         
-        let chart = TKChart(frame: CGRectInset(chartArea, 15, 5))
-        chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
-        self.distanceGraphView.addSubview(chart)
+        // Create Distance graph in distanceGraphView
+        let dChart = TKChart(frame: CGRectInset(chartArea, 15, 0))
+        dChart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
+        self.distanceGraphView.addSubview(dChart)
         
+        // Create Speed graph in speedGraphView
+        let sChart = TKChart(frame: CGRectInset(chartArea, 15, 0))
+        sChart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
+        self.speedGraphView.addSubview(sChart)
+        
+        // Create Altitude graph in altitudeGraphView
+        let aChart = TKChart(frame: CGRectInset(chartArea, 15, 0))
+        aChart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
+        self.altitudeGraphView.addSubview(aChart)
+        
+        // Hiding graphs not currently selected
         speedGraphView.hidden = true
         altitudeGraphView.hidden = true
         
+        //TODO: Insert actual data
         var randomNumericData = [TKChartDataPoint]()
         for i in 0..<10 {
             randomNumericData.append(TKChartDataPoint(x: i, y: Double(arc4random() % 100)))
         }
         
+        var randomNumericData2 = [TKChartDataPoint]()
+        for i in 0..<10 {
+            randomNumericData2.append(TKChartDataPoint(x: i, y: Double(arc4random() % 100)))
+        }
+        
+        var randomNumericData3 = [TKChartDataPoint]()
+        for i in 0..<10 {
+            randomNumericData3.append(TKChartDataPoint(x: i, y: Double(arc4random() % 100)))
+        }
+        
         
         let chartSeries = TKChartLineSeries(items: randomNumericData)
-        chart.addSeries(chartSeries)
-        chart.xAxis.title = "Time (min)"
-        chart.title().hidden = true
-        chart.title().text = "This is a chart demo"
-        chart.legend().hidden = false
+        let chartSeries2 = TKChartLineSeries(items: randomNumericData2)
+        let chartSeries3 = TKChartLineSeries(items: randomNumericData3)
         
+        dChart.addSeries(chartSeries)
+        sChart.addSeries(chartSeries2)
+        aChart.addSeries(chartSeries3)
+        
+        // Chart formatting
+        dChart.xAxis.title = "Time (min)"
+        sChart.xAxis.title = "Time (min)"
+        aChart.xAxis.title = "Time (min)"
         
     }
 

@@ -76,30 +76,71 @@ class TripViewController: UIViewController {
         }
     }
     
-    func GetPlotData()-> NSArray{
-        var myData = [[String : NSObject]]()
+    func GetPlotData()-> [TKChartDataPoint] {
+        var myData = [TKChartDataPoint]()
         for (var i = 0; i < recentAccelerationData.count ;i++){
-            var test = ["label":i,"value":NSNumber(int: Int32(recentAccelerationData[i].x))]
+            var test = TKChartDataPoint(x: i, y: recentAccelerationData[i].x)
             myData.append(test)
         }
-        return myData as NSArray
+        return myData as [TKChartDataPoint]
     }
+
+    
+//    func GetPlotData()-> NSArray{
+//        var myData = [[String : NSObject]]()
+//        for (var i = 0; i < recentAccelerationData.count ;i++){
+//            var test = ["label":i,"value":NSNumber(int: Int32(recentAccelerationData[i].x))]
+//            myData.append(test)
+//        }
+//        return myData as NSArray
+//    }
     
     func PlotGraph(){
         // Do any additional setup after loading the view.
         
-        var x = graphZoneView.frame.width * 0.05;
-        var y = graphZoneView.frame.height * 0.05;
-        var width = graphZoneView.frame.width * 0.9
-        var height = graphZoneView.frame.height * 0.9
+        let graphArea = CGRect(x: 0, y: 0, width: self.graphZoneView.bounds.width, height: self.graphZoneView.bounds.height)
         
-        let graph = StatusGraphView(frame: CGRectMake(x,y,width,height), data: GetPlotData())
-        for view in graphZoneView.subviews {
-            view.removeFromSuperview()
-        }
+        let graph = TKChart(frame: CGRectInset(graphArea, 0, 25))
+        graph.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
+        self.graphZoneView.addSubview(graph)
+        
+        var dataSeries = TKChartLineSeries(items: GetPlotData())
+        
+        let fill = TKLinearGradientFill(colors: [UIColor(red: 0.92, green: 0.53, blue: 0.18, alpha: 1),
+            UIColor(red: 0.95, green: 0.33, blue: 1.0, alpha: 1),
+            UIColor(red: 0.18, green: 0.58, blue: 0.92, alpha: 1)])
+
+        dataSeries.style.stroke = TKStroke(fill: fill, width: 2.0)
+        
+        graph.addSeries(dataSeries)
+        
+        graph.xAxis.hidden = true
+        graph.yAxis.hidden = true
+        
+        let gridStyle = graph.gridStyle()
+        gridStyle.horizontalAlternateFill = nil
+        gridStyle.horizontalFill = nil
+        gridStyle.horizontalLinesHidden = true
+        
         graphZoneView.addSubview(graph)
         
     }
+    
+//    func PlotGraph(){
+//        // Do any additional setup after loading the view.
+//        
+//        var x = graphZoneView.frame.width * 0.05;
+//        var y = graphZoneView.frame.height * 0.05;
+//        var width = graphZoneView.frame.width * 0.9
+//        var height = graphZoneView.frame.height * 0.9
+//        
+//        let graph = StatusGraphView(frame: CGRectMake(x,y,width,height), data: GetPlotData())
+//        for view in graphZoneView.subviews {
+//            view.removeFromSuperview()
+//        }
+//        graphZoneView.addSubview(graph)
+//        
+//    }
     
     /*
     // MARK: - Navigation
