@@ -17,26 +17,9 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Setup group update timer 
         update()
-        //updateTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "update", userInfo: nil, repeats: true)
+        updateTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "update", userInfo: nil, repeats: true)
 
         
-        /*let chart = TKChart(frame: CGRectInset(self.view.bounds, 15, 15))
-        chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
-        self.view.addSubview(chart)
-        
-        var randomNumericData = [TKChartDataPoint]()
-        for i in 0..<10 {
-            randomNumericData.append(TKChartDataPoint(x: i, y: Double(arc4random() % 100)))
-        }
-        
-        chart.addSeries(TKChartLineSeries(items: randomNumericData))
-        
-        chart.title().hidden = false
-        chart.title().text = "This is a chart demo"
-        chart.legend().hidden = false
-        
-        chart.allowAnimations = true
-        */
         // Do any additional setup after loading the view.
     }
 
@@ -75,7 +58,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = memberTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! GroupTableViewCell
         if let g = group {
             cell.cellLabel.text = g.GroupUsers[indexPath.row].Name
-            cell.cellButton.addTarget(self, action: "cellAction", forControlEvents: .TouchUpInside)
+            /*cell.cellButton.addTarget(self, action: "cellAction", forControlEvents: .TouchUpInside)*/
         }
         
         return cell

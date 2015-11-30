@@ -757,47 +757,23 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" fixedFrame="YES">
+                                                        <rect key="frame" x="15" y="11" width="42" height="21"/>
+                                                    </variation>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pts-G7-QTk">
-                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                    <state key="normal" title="Button">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Pts-G7-QTk" firstAttribute="leading" secondItem="oh8-gL-pq9" secondAttribute="leadingMargin" id="5nK-Nw-fXf"/>
-                                                <constraint firstAttribute="centerY" secondItem="L9H-4p-eyJ" secondAttribute="centerY" id="8no-Gu-s2i"/>
-                                                <constraint firstAttribute="centerY" secondItem="Pts-G7-QTk" secondAttribute="centerY" constant="-0.5" id="GQj-hd-kEz"/>
-                                                <constraint firstItem="L9H-4p-eyJ" firstAttribute="leading" secondItem="Pts-G7-QTk" secondAttribute="trailing" constant="129" id="NPA-tQ-KQq"/>
-                                            </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="L9H-4p-eyJ"/>
-                                                    <exclude reference="Pts-G7-QTk"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <exclude reference="8no-Gu-s2i"/>
-                                                    <exclude reference="NPA-tQ-KQq"/>
-                                                    <exclude reference="5nK-Nw-fXf"/>
-                                                    <exclude reference="GQj-hd-kEz"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular">
                                                 <mask key="subviews">
                                                     <include reference="L9H-4p-eyJ"/>
-                                                    <include reference="Pts-G7-QTk"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <include reference="8no-Gu-s2i"/>
-                                                    <include reference="NPA-tQ-KQq"/>
-                                                    <include reference="5nK-Nw-fXf"/>
-                                                    <include reference="GQj-hd-kEz"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cellButton" destination="Pts-G7-QTk" id="pEN-TJ-0Mv"/>
                                             <outlet property="cellLabel" destination="L9H-4p-eyJ" id="h87-BX-Rtd"/>
                                         </connections>
                                     </tableViewCell>
