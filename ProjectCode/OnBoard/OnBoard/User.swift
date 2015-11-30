@@ -69,7 +69,7 @@ class User : StorableObject{
     
     func UpdateWithJSON(json : JSON ){
         Id = json["Id"].intValue
-        
+        GroupId = json["GroupId"].intValue
     }
 }
 

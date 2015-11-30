@@ -22,6 +22,7 @@
 		541CFF501BEADF6900DEB2D3 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */; };
 		541CFF521BEAE38500DEB2D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF511BEAE38500DEB2D3 /* User.swift */; };
 		541CFF541BEAEADE00DEB2D3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF531BEAEADE00DEB2D3 /* UserManager.swift */; };
+		5451F2981C0BB01D00DE3E60 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5451F2971C0BB01D00DE3E60 /* GroupTableViewCell.swift */; };
 		545DDBE51C02775200D5E1B7 /* GroupManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545DDBE41C02775200D5E1B7 /* GroupManagementViewController.swift */; };
 		545DDBE71C02852500D5E1B7 /* GroupUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545DDBE61C02852500D5E1B7 /* GroupUser.swift */; };
 		545E92B11C092D40002BAB9A /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545E92B01C092D40002BAB9A /* GroupViewController.swift */; };
@@ -83,6 +84,7 @@
 		541CFF4F1BEADF6900DEB2D3 /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		541CFF511BEAE38500DEB2D3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		541CFF531BEAEADE00DEB2D3 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		5451F2971C0BB01D00DE3E60 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		545DDBE41C02775200D5E1B7 /* GroupManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupManagementViewController.swift; sourceTree = "<group>"; };
 		545DDBE61C02852500D5E1B7 /* GroupUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupUser.swift; sourceTree = "<group>"; };
 		545E92B01C092D40002BAB9A /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				545DDBE41C02775200D5E1B7 /* GroupManagementViewController.swift */,
 				545E92B01C092D40002BAB9A /* GroupViewController.swift */,
+				5451F2971C0BB01D00DE3E60 /* GroupTableViewCell.swift */,
 			);
 			name = Group;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				54765AEC1BEEA01200EC49AF /* SessionSnapshot.swift in Sources */,
 				540B33851BF151DF007F6B7B /* MapViewController.swift in Sources */,
 				546FD05A1C011D1700C8CF7B /* Group.swift in Sources */,
+				5451F2981C0BB01D00DE3E60 /* GroupTableViewCell.swift in Sources */,
 				BFAD5EF11BF09CF40022D079 /* StatisticsTableViewController.swift in Sources */,
 				BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */,
 				121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */,
