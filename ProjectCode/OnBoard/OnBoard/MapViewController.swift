@@ -33,6 +33,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // Do any additional setup after loading the view.
         CenterMapToResortLocation()
         
+        //LoadPinsFromStorage()
         
         //Setup our Location Manager
         manager = CLLocationManager()
@@ -46,20 +47,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         //mapView.mapType = MKMapType.Satellite
         mapView.showsUserLocation = true
     }
-  /*
-    func LoadPinsFromStorage(){
+  
+    /*func LoadPinsFromStorage(){
         //var key = GeoTagManager.sharedInstance.GetGeoTag(<#title: String#>)
-        for (GeoTag.title, GeoTag.subTitle, coord) in GeoTagManager.sharedInstance.geoTagDict
-        {
+        for (title, geoTag) in GeoTagManager.sharedInstance.geoTagDict{
+            
             let annotation = MKPointAnnotation()
-            annotation.title = title
-            annotation.subtitle = subTitle
-            annotation.coordinate = coord
+            annotation.title = geoTag.title
+            annotation.subtitle = geoTag.subTitle
+            annotation.coordinate = geoTag.GetCoordinate2D()
             
             self.mapView.addAnnotation(annotation)
         }
-    }*/
-    
+    }
+    */
 
     /*Following Variables for Pin Dropping & Alert feature
     var inputedText1: UITextField?
