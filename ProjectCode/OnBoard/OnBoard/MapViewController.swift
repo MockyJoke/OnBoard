@@ -33,7 +33,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // Do any additional setup after loading the view.
         CenterMapToResortLocation()
         
-        //LoadPinsFromStorage()
+        LoadPinsFromStorage()
         
         //Setup our Location Manager
         manager = CLLocationManager()
@@ -48,7 +48,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.showsUserLocation = true
     }
   
-    /*func LoadPinsFromStorage(){
+    func LoadPinsFromStorage(){
         //var key = GeoTagManager.sharedInstance.GetGeoTag(<#title: String#>)
         for (title, geoTag) in GeoTagManager.sharedInstance.geoTagDict{
             
@@ -60,21 +60,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             self.mapView.addAnnotation(annotation)
         }
     }
-    */
 
-    /*Following Variables for Pin Dropping & Alert feature
-    var inputedText1: UITextField?
-    var inputedText2: UITextField?
-    
-    var canceled: Bool
-    
-    End of Pin Dropping & Alert Variables
-    */
-    /* Zoom in on User, missing "resort" coordinates
-    func centerOnUser(){
-        var regionRadius : CLLocationDistance = 500
-        mapView.setRegion(MKCoordinateRegionMakeWithDistance(resort.GetCoordinate2D(), regionRadius, regionRadius), animated: true)
-    }*/
     
     var location = CGPoint()
     var coordinates = CLLocationCoordinate2D()
@@ -184,19 +170,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
-    //Remove Annotation
+    //Remove Annotation (still stub, but needed the link to tap gesture, otherwise it would crash)
     
-    /*@IBAction func removePin(sender: UITapGestureRecognizer) {
+    @IBAction func removePin(sender: UITapGestureRecognizer) {
         sender.numberOfTapsRequired = 2
         
-        if sender.locationInView(self.mapView) = MKPointAnnotation().coordinate{
+        //if sender.locationInView(self.mapView) = MKPointAnnotation().coordinate{
             
             
-        }
+       // }
         
         
         
-    }*/
+    }
     
     
     /*var tap = UITapGestureRecognizer(target: self, action: removeAnnotation())
