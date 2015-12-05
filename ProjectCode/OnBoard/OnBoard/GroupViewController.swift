@@ -17,7 +17,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Setup group update timer 
         update()
-        updateTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: "update", userInfo: nil, repeats: true)
+        updateTimer = NSTimer.scheduledTimerWithTimeInterval(25, target: self, selector: "update", userInfo: nil, repeats: true)
 
         
         // Do any additional setup after loading the view.
@@ -32,6 +32,14 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         UpdateGroup()
         memberTableView.reloadData()
         Report()
+    }
+    
+    func UpdateGroup(){
+        if(OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.currentUser)){
+            if let group = OnlineServiceManager.sharedInstance.FindGroupById(UserManager.sharedInstance.currentUser.GroupId!){
+                self.group = group
+            }
+        }
     }
     
     func Report(){
@@ -88,13 +96,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
-    func UpdateGroup(){
-        if(OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.currentUser)){
-            if let group = OnlineServiceManager.sharedInstance.FindGroupById(UserManager.sharedInstance.currentUser.GroupId!){
-                self.group = group
-            }
-        }
-    }
+    
     
 
 }

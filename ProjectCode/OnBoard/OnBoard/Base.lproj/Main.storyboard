@@ -750,14 +750,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jxj-DE-IcC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jxj-DE-IcC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Fpb-P2-zaD"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="DEj-SK-oBB" customClass="GroupTableViewCell" customModule="OnBoard" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="DEj-SK-oBB" customClass="GroupTableViewCell" customModule="OnBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DEj-SK-oBB" id="oh8-gL-pq9">
@@ -788,41 +788,84 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4P-bO-ap9">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZHi-zm-9Mr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Doj-l1-u7j"/>
+                                                        <constraint firstAttribute="width" constant="40" id="vUC-Bf-ONU"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Doj-l1-u7j"/>
+                                                            <exclude reference="vUC-Bf-ONU"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular">
+                                                        <mask key="constraints">
+                                                            <include reference="Doj-l1-u7j"/>
+                                                            <include reference="vUC-Bf-ONU"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="L9H-4p-eyJ" firstAttribute="top" secondItem="oh8-gL-pq9" secondAttribute="topMargin" constant="4" id="1vU-9s-5Ui"/>
                                                 <constraint firstItem="0qM-Bi-Mfy" firstAttribute="leading" secondItem="oh8-gL-pq9" secondAttribute="leadingMargin" id="2gW-me-C2h"/>
+                                                <constraint firstAttribute="centerY" secondItem="ZHi-zm-9Mr" secondAttribute="centerY" id="66i-47-bEe"/>
                                                 <constraint firstItem="L9H-4p-eyJ" firstAttribute="leading" secondItem="0qM-Bi-Mfy" secondAttribute="trailing" constant="15" id="BGT-0x-fcD"/>
                                                 <constraint firstAttribute="centerY" secondItem="0qM-Bi-Mfy" secondAttribute="centerY" constant="-0.5" id="IUv-oa-0d4"/>
-                                                <constraint firstAttribute="centerY" secondItem="L9H-4p-eyJ" secondAttribute="centerY" id="QmS-Bu-m9Q"/>
+                                                <constraint firstItem="ZHi-zm-9Mr" firstAttribute="trailing" secondItem="oh8-gL-pq9" secondAttribute="trailingMargin" id="Yxw-q9-jga"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="N4P-bO-ap9" secondAttribute="bottom" constant="6" id="mea-KW-XKF"/>
+                                                <constraint firstItem="N4P-bO-ap9" firstAttribute="leading" secondItem="0qM-Bi-Mfy" secondAttribute="trailing" constant="15" id="sBz-nH-tPT"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="0qM-Bi-Mfy"/>
                                                     <exclude reference="L9H-4p-eyJ"/>
+                                                    <exclude reference="N4P-bO-ap9"/>
+                                                    <exclude reference="ZHi-zm-9Mr"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="BGT-0x-fcD"/>
-                                                    <exclude reference="QmS-Bu-m9Q"/>
                                                     <exclude reference="2gW-me-C2h"/>
                                                     <exclude reference="IUv-oa-0d4"/>
+                                                    <exclude reference="1vU-9s-5Ui"/>
+                                                    <exclude reference="BGT-0x-fcD"/>
+                                                    <exclude reference="mea-KW-XKF"/>
+                                                    <exclude reference="sBz-nH-tPT"/>
+                                                    <exclude reference="66i-47-bEe"/>
+                                                    <exclude reference="Yxw-q9-jga"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular">
                                                 <mask key="subviews">
                                                     <include reference="0qM-Bi-Mfy"/>
                                                     <include reference="L9H-4p-eyJ"/>
+                                                    <include reference="N4P-bO-ap9"/>
+                                                    <include reference="ZHi-zm-9Mr"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="BGT-0x-fcD"/>
-                                                    <include reference="QmS-Bu-m9Q"/>
                                                     <include reference="2gW-me-C2h"/>
                                                     <include reference="IUv-oa-0d4"/>
+                                                    <include reference="1vU-9s-5Ui"/>
+                                                    <include reference="BGT-0x-fcD"/>
+                                                    <include reference="mea-KW-XKF"/>
+                                                    <include reference="sBz-nH-tPT"/>
+                                                    <include reference="66i-47-bEe"/>
+                                                    <include reference="Yxw-q9-jga"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellLabel" destination="L9H-4p-eyJ" id="h87-BX-Rtd"/>
+                                            <outlet property="distanceLabel" destination="N4P-bO-ap9" id="gFR-5k-H1w"/>
                                             <outlet property="userIconImage" destination="0qM-Bi-Mfy" id="19r-UX-qOr"/>
+                                            <outlet property="userStatusIconImage" destination="ZHi-zm-9Mr" id="Wbg-zN-Zd1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

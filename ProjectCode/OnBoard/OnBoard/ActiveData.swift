@@ -11,12 +11,14 @@ import Foundation
 class ActiveData : NSObject{
     var Lat : Double
     var Lon : Double
-    var User : GroupUser
+    //var User : GroupUser
     var Id : Int
+    var StatusCode : String
     init(json : JSON){
         Id = json["Id"].numberValue as Int
         Lat = json["Lat"].numberValue as Double
         Lon = json["Lon"].numberValue as Double
-        User = GroupUser(json: json["User"])
+        StatusCode = json["StatusCode"].stringValue
+        //User = GroupUser(json: json["User"])
     }
 }

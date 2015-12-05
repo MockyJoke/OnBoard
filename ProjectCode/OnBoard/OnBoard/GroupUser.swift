@@ -12,8 +12,10 @@ import Foundation
 class GroupUser : NSObject{
     var Id : Int
     var Name : String
+    var Data : ActiveData?
     init(json : JSON){
         Id = json["Id"].numberValue as Int
         Name = json["Name"].string!
+        Data = ActiveData(json : json["ActiveData"])
     }
 }
