@@ -35,6 +35,12 @@ class GeoTagManager : NSObject{
         return geoTagDict[title];
     }
     
+    func DeleteGeoTag(geoTag: GeoTag){
+        geoTagDict.removeValueForKey(geoTag.title)
+        
+        Save()
+        }
+    
     private func Save(){
         LocalStorageManager.sharedInstance.SaveObject(GEOTAGDICT_KEY, dataObject: geoTagDict)
     }

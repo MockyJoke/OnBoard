@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470703137.308495"
+            timestampString = "470987310.621398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "showPinAlert(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470537400.716212"
+            timestampString = "470987310.621398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "MapViewController"
-            landmarkType = "3">
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "LoadPinsFromStorage()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470703137.308495"
+            timestampString = "470987310.621398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "showPinAlert(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470537400.716212"
+            timestampString = "470987310.621398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
             <Locations>
@@ -199,11 +199,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470703137.308495"
+            timestampString = "470988511.338943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "showPinAlert(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -215,11 +215,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470703137.308495"
+            timestampString = "470988511.338943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "mapView(_:rendererForOverlay:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -231,13 +231,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470537400.716212"
+            timestampString = "470987310.621398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "MapViewController"
-            landmarkType = "3">
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "LoadPinsFromStorage()"
+            landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -324,13 +324,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470537400.716212"
+            timestampString = "470987310.621398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "MapViewController"
-            landmarkType = "3">
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "LoadPinsFromStorage()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -340,13 +340,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnBoard/MapViewController.swift"
-            timestampString = "470537400.716212"
+            timestampString = "470987310.621398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "MapViewController"
-            landmarkType = "3">
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "LoadPinsFromStorage()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnBoard/MapViewController.swift"
+            timestampString = "470988410.635504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "showPinAlert(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -32,6 +32,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         // Do any additional setup after loading the view.
         CenterMapToResortLocation()
+        //CenterMapToUserLocation()
+        //CenterMapToUserZoomed()
+        
         
         LoadPinsFromStorage()
         
@@ -50,6 +53,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
   
     func LoadPinsFromStorage(){
         //var key = GeoTagManager.sharedInstance.GetGeoTag(<#title: String#>)
+        
+        mapView.removeAnnotations(mapView.annotations)
+     
+        
         for (title, geoTag) in GeoTagManager.sharedInstance.geoTagDict{
             
             let annotation = MKPointAnnotation()
@@ -82,6 +89,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
     }
   
+    //Create Geo Tag Alert
     
     func showPinAlert(GPS: CLLocationCoordinate2D) {
         var alertcontroller = UIAlertController(title: "Create Geo-Tag?", message: "Save this location on your Maps", preferredStyle: UIAlertControllerStyle.Alert)
@@ -106,7 +114,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             
             let input2 = alertcontroller.textFields?[1] as! UITextField
             
-            self.inputedText1 = input1.text
+            //self.inputedText1 = input1.text
             
             self.mapView.showsUserLocation = false
             
@@ -123,7 +131,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             
             GeoTagManager.sharedInstance.SaveGeoTag(GeoTag(title: input1.text, description: input2.text, coord: annotation.coordinate))
             
-            
+            self.LoadPinsFromStorage()
         }))
         
         alertcontroller.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
@@ -133,14 +141,46 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         self.presentViewController(alertcontroller, animated: true, completion: nil)
     }
     
+    //Delete Annotation Alert
+    
+    func confirmDelete(pin: String) {
+        let alert = UIAlertController(title: "Delete Geo-Tag", message: "Are you sure you want to permanently delete \(pin)?", preferredStyle: .ActionSheet)
+        
+        let DeleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Destructive, handler: {(action) -> Void in
+            
+            //Delete Pin
+            if let geoTag = GeoTagManager.sharedInstance.GetGeoTag(pin){
+                    GeoTagManager.sharedInstance.DeleteGeoTag(geoTag)
+            }
+            self.LoadPinsFromStorage()
+            return
+        })
+
+        let CancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        
+        // Support display in iPad
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = CGRectMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0, 1.0, 1.0)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+
+    
+    //Draw Trail base on User's movement
+    var lockedOn: Bool = false
+    
     func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
         //theLabel.text = "\(locations[0])"
         myLocations.append(locations[0] as! CLLocation)
         
+        if lockedOn == true {
         let spanX = 0.007
         let spanY = 0.007
         var newRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpanMake(spanX, spanY))
-        mapView.setRegion(newRegion, animated: true)
+            mapView.setRegion(newRegion, animated: true)}
         
         if (myLocations.count > 1){
             
@@ -170,41 +210,60 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
-    //Remove Annotation (still stub, but needed the link to tap gesture, otherwise it would crash)
+    //***Remove Annotation
     
-    @IBAction func removePin(sender: UITapGestureRecognizer) {
-        sender.numberOfTapsRequired = 2
-        
-        //if sender.locationInView(self.mapView) = MKPointAnnotation().coordinate{
+   
+    // When user taps on the disclosure button you can perform a segue to navigate to another view controller
+    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+        if control == view.rightCalloutAccessoryView{
+            println(view.annotation.title) // annotation's title
+            println(view.annotation.subtitle) // annotation's subttitle
             
+            //Perform a segue here to navigate to another viewcontroller
+            // On tapping the disclosure button you will get here
+            confirmDelete(view.annotation.title!)
             
-       // }
+        }
+    }
+    
+    // Here we add disclosure button inside annotation window
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        
+        println("viewForannotation")
+        if annotation is MKUserLocation {
+            //return nil
+            return nil
+        }
+        
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+        
+        if pinView == nil {
+            //println("Pinview was nil")
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.animatesDrop = true
+        }
+        
+        var button = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as! UIButton // button with info sign in it
+        
+        pinView?.rightCalloutAccessoryView = button
         
         
-        
+        return pinView
     }
     
     
-    /*var tap = UITapGestureRecognizer(target: self, action: removeAnnotation())
-    tap.numberOfTapsRequired = 1
-    self.mapView.addGestureRecognizer(tap)
-    
-    func removeAnnotation(gesture: UIGestureRecognizer) {
-        
-        if gesture.state == UIGestureRecognizerState.Ended {
-            
-            self.mapView.removeAnnotation(annotation)
-            println("Annotation Removed")
-            
-        }
-        
-    }*/
     
     
     @IBAction func tagCurrentLocationButton(sender: AnyObject) {
         showPinAlert(CLLocationCoordinate2D(latitude: self.mapView.userLocation.coordinate.latitude, longitude: self.mapView.userLocation.coordinate.longitude))
     }
 
+    @IBAction func lockOn(sender: AnyObject) {
+        
+        self.lockedOn = true
+    }
 
 
     override func didReceiveMemoryWarning() {
@@ -220,6 +279,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         if let location = CoreLocationManager.sharedInstance.latestLocation{
             var regionRadius : CLLocationDistance = 1000
             mapView.setRegion(MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius), animated: true)
+            mapView.showsUserLocation = true
+        }
+    }
+    
+    
+    func CenterMapToUserZoomed(){
+        let spanX = 0.007
+        let spanY = 0.007
+        if let location = CoreLocationManager.sharedInstance.latestLocation{
+        var newRegion = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpanMake(spanX, spanY))
+            mapView.setRegion(newRegion, animated: true)
         }
     }
     
