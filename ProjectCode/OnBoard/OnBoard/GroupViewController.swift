@@ -17,7 +17,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Setup group update timer 
         update()
-        updateTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "update", userInfo: nil, repeats: true)
+        updateTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: "update", userInfo: nil, repeats: true)
 
         
         // Do any additional setup after loading the view.
@@ -31,6 +31,19 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func update(){
         UpdateGroup()
         memberTableView.reloadData()
+        Report()
+    }
+    
+    func Report(){
+        let user = UserManager.sharedInstance.currentUser
+        if (user.IsAnonymous) {
+            return
+        }
+        if let location = CoreLocationManager.sharedInstance.latestLocation{
+            OnlineServiceManager.sharedInstance.SaveActiveData(user.Id, lat: location.coordinate.latitude, lon: location.coordinate.longitude, statusCode: "0")
+        }
+        
+        
     }
     
 
@@ -57,12 +70,23 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = memberTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! GroupTableViewCell
         if let g = group {
-            cell.cellLabel.text = g.GroupUsers[indexPath.row].Name
-            /*cell.cellButton.addTarget(self, action: "cellAction", forControlEvents: .TouchUpInside)*/
+            cell.UpdateCell(g.GroupUsers[indexPath.row])
         }
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        if let cell = memberTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? GroupTableViewCell{
+            cell.TapAction()
+            tableView.deselectRowAtIndexPath(indexPath, animated: false)
+            if let g = group {
+                cell.UpdateCell(g.GroupUsers[indexPath.row])
+            }
+        }
+    }
+    
     
     func UpdateGroup(){
         if(OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.currentUser)){
@@ -72,8 +96,5 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    @IBAction func cellAction(sender: UIButton!) {
-        println("You tapped the button")
-    }
 
 }

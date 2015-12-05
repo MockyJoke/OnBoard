@@ -10,7 +10,8 @@ import UIKit
 
 class GroupTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cellButton: UIButton!
+    var groupUser : GroupUser?
+    @IBOutlet weak var userIconImage: UIImageView!
     @IBOutlet weak var cellLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +22,16 @@ class GroupTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func UpdateCell(groupUser : GroupUser){
+        self.groupUser = groupUser
+        userIconImage.image = UIImage(named: "User_blue")
+        cellLabel.text = groupUser.Name
+    }
+    
+    func TapAction(){
+        print("The cell is clicked")
     }
 
 }
