@@ -24,12 +24,12 @@ namespace OnBoardService.Models
                 if (result == null)
                 {
                     result = new ActiveData();
+                    _context.ActiveDatas.Add(result);
                 }
                 result.User = user;
                 result.Lat = lat;
                 result.Lon = lon;
                 result.StatusCode = statusCode;
-                _context.ActiveDatas.Add(result);
                 _context.SaveChanges();
             }
             return result;
@@ -37,7 +37,7 @@ namespace OnBoardService.Models
 
         public List<ActiveData> GetAllActiveDatas()
         {
-            return _context.ActiveDatas.ToList();
+            return  _context.ActiveDatas.ToList();
         }
 
         public ActiveData GetActiveDataForUserId(int userId)
