@@ -69,6 +69,7 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
 
         self.title = "Create Profile"
         self.addButton.layer.cornerRadius = 10
+        
     }
 
     override func didReceiveMemoryWarning() {

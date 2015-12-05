@@ -42,6 +42,7 @@
 		54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247AD1BF00530000116D2 /* StatusGraphView.swift */; };
 		54B247B41BF018E7000116D2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247B31BF018E7000116D2 /* Queue.swift */; };
 		6F4594441C0288B700EC85F5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4594431C0288B700EC85F5 /* Connectivity.swift */; };
+		BF43F7F11C12E1E3008BC6E2 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF43F7F01C12E1E3008BC6E2 /* HealthManager.swift */; };
 		BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */; };
 		BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */; };
 		BFAD5EF11BF09CF40022D079 /* StatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5EEF1BF09CF40022D079 /* StatisticsTableViewController.swift */; };
@@ -104,6 +105,7 @@
 		54B247AD1BF00530000116D2 /* StatusGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusGraphView.swift; sourceTree = "<group>"; };
 		54B247B31BF018E7000116D2 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		6F4594431C0288B700EC85F5 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		BF43F7F01C12E1E3008BC6E2 /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeProfileTableViewController.swift; sourceTree = "<group>"; };
 		BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatDetailsViewController.swift; sourceTree = "<group>"; };
 		BFAD5EEF1BF09CF40022D079 /* StatisticsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		541CFF451BEAC18A00DEB2D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF43F7EF1C12E17A008BC6E2 /* Health */,
 				12186D011C0B9AEF005E04A4 /* Map */,
 				546FD0581C011D0800C8CF7B /* Group */,
 				546FC70D1C0011C400B9EB51 /* Web */,
@@ -299,6 +302,14 @@
 				54B247B31BF018E7000116D2 /* Queue.swift */,
 			);
 			name = Container;
+			sourceTree = "<group>";
+		};
+		BF43F7EF1C12E17A008BC6E2 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				BF43F7F01C12E1E3008BC6E2 /* HealthManager.swift */,
+			);
+			name = Health;
 			sourceTree = "<group>";
 		};
 		BFAD5EF31BF09D120022D079 /* Statistics */ = {
@@ -524,6 +535,7 @@
 				BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */,
 				545DDBE51C02775200D5E1B7 /* GroupManagementViewController.swift in Sources */,
 				545E92B11C092D40002BAB9A /* GroupViewController.swift in Sources */,
+				BF43F7F11C12E1E3008BC6E2 /* HealthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
