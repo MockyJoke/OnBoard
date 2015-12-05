@@ -18,4 +18,8 @@ class GroupUser : NSObject{
         Name = json["Name"].string!
         Data = ActiveData(json : json["ActiveData"])
     }
+    
+    func GetDistanceToOtherUser(groupUser : GroupUser){
+        
+    }
 }

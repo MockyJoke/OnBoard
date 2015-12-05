@@ -832,12 +832,12 @@
                                                     <exclude reference="ZHi-zm-9Mr"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="2gW-me-C2h"/>
-                                                    <exclude reference="IUv-oa-0d4"/>
                                                     <exclude reference="1vU-9s-5Ui"/>
                                                     <exclude reference="BGT-0x-fcD"/>
                                                     <exclude reference="mea-KW-XKF"/>
                                                     <exclude reference="sBz-nH-tPT"/>
+                                                    <exclude reference="2gW-me-C2h"/>
+                                                    <exclude reference="IUv-oa-0d4"/>
                                                     <exclude reference="66i-47-bEe"/>
                                                     <exclude reference="Yxw-q9-jga"/>
                                                 </mask>
@@ -850,12 +850,12 @@
                                                     <include reference="ZHi-zm-9Mr"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="2gW-me-C2h"/>
-                                                    <include reference="IUv-oa-0d4"/>
                                                     <include reference="1vU-9s-5Ui"/>
                                                     <include reference="BGT-0x-fcD"/>
                                                     <include reference="mea-KW-XKF"/>
                                                     <include reference="sBz-nH-tPT"/>
+                                                    <include reference="2gW-me-C2h"/>
+                                                    <include reference="IUv-oa-0d4"/>
                                                     <include reference="66i-47-bEe"/>
                                                     <include reference="Yxw-q9-jga"/>
                                                 </mask>
@@ -886,7 +886,7 @@
                             </tableView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JFw-TG-q9E" firstAttribute="top" secondItem="PEF-hw-KQT" secondAttribute="bottom" constant="8" id="2Dg-ec-rih"/>
                             <constraint firstItem="1PA-UH-onF" firstAttribute="leading" secondItem="jEv-HR-Nny" secondAttribute="leadingMargin" id="4ER-lX-B3z"/>

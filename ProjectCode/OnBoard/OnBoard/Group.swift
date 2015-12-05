@@ -20,6 +20,5 @@ class Group : NSObject {
         for (var i = 0 ; i < json["Users"].count ; i++){
             GroupUsers.append(GroupUser(json: json["Users"][i]))
         }
-        
     }
 }

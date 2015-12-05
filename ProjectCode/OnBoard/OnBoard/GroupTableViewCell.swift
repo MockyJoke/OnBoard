@@ -31,7 +31,7 @@ class GroupTableViewCell: UITableViewCell {
         userIconImage.image = UIImage(named: "User_blue")
         cellLabel.text = groupUser.Name
         if let activeData = groupUser.Data {
-            if (activeData.StatusCode != "0"){
+            if (activeData.StatusCode == "0"){
                 userStatusIconImage.image = UIImage(named: "Warning")
             }else{
                 userStatusIconImage.image = nil
