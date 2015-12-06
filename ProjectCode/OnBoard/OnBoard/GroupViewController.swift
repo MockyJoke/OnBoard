@@ -21,7 +21,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Setup group update timer 
         update()
-        updateTimer = NSTimer.scheduledTimerWithTimeInterval(25, target: self, selector: "update", userInfo: nil, repeats: true)
+        updateTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "update", userInfo: nil, repeats: true)
 
         
         // Do any additional setup after loading the view.

@@ -738,11 +738,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="220" id="3LQ-pn-emc">
-                                        <variation key="heightClass=regular" constant="200"/>
-                                    </constraint>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="50" id="DEj-SK-oBB" customClass="GroupTableViewCell" customModule="OnBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -862,16 +857,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="3LQ-pn-emc"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="3LQ-pn-emc"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="Jh0-VC-lEI" id="ocm-vd-fSc"/>
                                     <outlet property="delegate" destination="Jh0-VC-lEI" id="c9f-Kb-rJH"/>
@@ -949,6 +934,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="J08-cJ-yhC" secondAttribute="trailing" constant="-16" id="0Oy-3f-FJ9"/>
                             <constraint firstItem="4c0-9J-GhQ" firstAttribute="top" secondItem="J08-cJ-yhC" secondAttribute="bottom" constant="15" id="5Ym-LM-hnb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4c0-9J-GhQ" secondAttribute="trailing" constant="-4" id="Czv-Nx-Uol"/>
+                            <constraint firstItem="XLp-mp-sYW" firstAttribute="top" secondItem="jxj-DE-IcC" secondAttribute="bottom" id="H8V-2F-BGC"/>
                             <constraint firstItem="eYu-Rg-lds" firstAttribute="leading" secondItem="DpU-LF-g2G" secondAttribute="trailing" constant="11" id="NWw-8F-OAW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jxj-DE-IcC" secondAttribute="trailing" constant="-16" id="Qk0-5U-h8D"/>
                             <constraint firstItem="J08-cJ-yhC" firstAttribute="leading" secondItem="jEv-HR-Nny" secondAttribute="leadingMargin" constant="-16" id="VxI-eP-bvl"/>
@@ -991,6 +977,7 @@
                                 <exclude reference="yW0-gE-ejC"/>
                                 <exclude reference="5Ym-LM-hnb"/>
                                 <exclude reference="Czv-Nx-Uol"/>
+                                <exclude reference="H8V-2F-BGC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -1021,6 +1008,7 @@
                                 <include reference="yW0-gE-ejC"/>
                                 <include reference="5Ym-LM-hnb"/>
                                 <include reference="Czv-Nx-Uol"/>
+                                <include reference="H8V-2F-BGC"/>
                             </mask>
                         </variation>
                     </view>
