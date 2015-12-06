@@ -13,16 +13,15 @@ class HealthManager {
     let HKStore : HKHealthStore = HKHealthStore()
 
     func authorizeHealthKit(completion: ((success:Bool, error:NSError!) -> Void)!) {
-        let HKTypesRead = Set(arrayLiteral:[
+        let HKTypesRead = [
             HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass),
             HKObjectType.workoutType()
-            ])
+            ]
     
-        let HKTypesWritten = Set(arrayLiteral: [
+        let HKTypesWritten = [
             HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned),
-            HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning),
             HKObjectType.workoutType()
-            ])
+            ]
     
         if !HKHealthStore.isHealthDataAvailable()
         {
@@ -34,7 +33,7 @@ class HealthManager {
             return;
         }
     
-        HKStore.requestAuthorizationToShareTypes(HKTypesWritten, readTypes: HKTypesRead) { (success, error) -> Void in
+        HKStore.requestAuthorizationToShareTypes(Set(HKTypesWritten), readTypes: Set(HKTypesRead)) { (success, error) -> Void in
         
             if( completion != nil )
             {

@@ -6,10 +6,15 @@
 //  Copyright (c) 2015 Rainbow Riders. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import HealthKit
 
 class CreateProfileViewController: UIViewController, UITextFieldDelegate {
-
+    
+    let healthManager : HealthManager = HealthManager()
+    var weight: HKQuantitySample?
+    
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var emergencyName: UITextField!
     @IBOutlet weak var emergencyTel: UITextField!
@@ -17,11 +22,47 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var weightLabel: UILabel!
     
+    @IBAction func authorizeHK(sender: AnyObject) {
+        healthManager.authorizeHealthKit { (authorized,  error) -> Void in
+            if authorized {
+                println("HealthKit authorization received.")
+            }
+            else
+            {
+                println("HealthKit authorization denied.")
+                if error != nil {
+                    println("\(error)")
+                }
+            }
+        }
+    }
     
+    @IBAction func retrieveHKData(sender: AnyObject) {
+        self.weightLabel.hidden = false
+        let sampleQty = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+        
+        self.healthManager.readMostRecentSample(sampleQty, completion: { (mostRecentWeight, error) -> Void in
+            if error != nil {
+                println("Error reading weight from HKStore: \(error.localizedDescription)")
+                return
+            }
+            
+            var weightStr = "Unknown"
+            self.weight = mostRecentWeight as! HKQuantitySample?
+            if let kilograms = self.weight?.quantity.doubleValueForUnit(HKUnit.gramUnitWithMetricPrefix(.Kilo)) {
+                let weightFormatter = NSMassFormatter()
+                weightFormatter.forPersonMassUse = true;
+                weightStr = weightFormatter.stringFromKilograms(kilograms)
+            }
+            
+            self.weightLabel.text = weightStr
+        })
+    }
     
     @IBAction func addProfile(sender: AnyObject) {
-        var newUser = UserManager.sharedInstance.CreateNewUser(userName.text, emergeName: emergencyName.text, emergPhone: emergencyTel.text)
+        var newUser = UserManager.sharedInstance.CreateNewUser(userName.text, emergeName: emergencyName.text, emergPhone: emergencyTel.text, wght: weight)
         OnlineServiceManager.sharedInstance.CreateUserOnServer(newUser)
         // Send signal for ProfileSetup view controller to refresh table
         navigationController?.popViewControllerAnimated(true)
@@ -69,6 +110,7 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
 
         self.title = "Create Profile"
         self.addButton.layer.cornerRadius = 10
+        self.weightLabel.hidden = true
         
     }
 

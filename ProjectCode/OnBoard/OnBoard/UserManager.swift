@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HealthKit
 
 class UserManager : NSObject{
     let USERLIST_KEY = "USERLIST"
@@ -42,8 +43,8 @@ class UserManager : NSObject{
     }
     
     //Create a new User in the storage and returns the new User object
-    internal func CreateNewUser(newName : String, emergeName : String , emergPhone : String)-> User{
-        var newUser = User(name: newName,emergencyName: emergeName ,emergencyPhone: emergPhone)
+    internal func CreateNewUser(newName : String, emergeName : String , emergPhone : String, wght : HKQuantitySample?)-> User{
+        var newUser = User(name: newName,emergencyName: emergeName ,emergencyPhone: emergPhone, weight: wght)
         localUserDict[newName] = newUser
         currentUser = newUser
         Save()

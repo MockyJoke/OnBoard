@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HealthKit
 
 // A class represent a user
 class User : StorableObject{
@@ -14,6 +15,7 @@ class User : StorableObject{
     internal private(set) var Id : Int
     internal private(set) var EmergencyName : String
     internal private(set) var EmergencyPhone : String
+    internal private(set) var Weight : HKQuantitySample?
     internal var SessionArray : [Session]?
     internal private(set) var IsAnonymous : Bool
     internal private(set) var GroupId : Int?
@@ -22,15 +24,17 @@ class User : StorableObject{
         Id = 0
         EmergencyName = ""
         EmergencyPhone = ""
+        Weight = nil
         IsAnonymous = true;
         super.init()
     }
     
-    init(name : String, emergencyName : String, emergencyPhone : String){
+    init(name : String, emergencyName : String, emergencyPhone : String, weight : HKQuantitySample?){
         Name  = name
         Id = 0
         EmergencyPhone = emergencyPhone
         EmergencyName = emergencyName
+        Weight = weight
         IsAnonymous = false
         super.init()
     }
@@ -40,6 +44,7 @@ class User : StorableObject{
         self.Id=User.decodeHelper(coder: aDecoder,propertyName: "Id",defaultVal: 0)
         self.EmergencyName=User.decodeHelper(coder: aDecoder,propertyName: "EmergencyName",defaultVal: "")
         self.EmergencyPhone=User.decodeHelper(coder: aDecoder,propertyName: "EmergencyPhone",defaultVal: "")
+        self.Weight = User.decodeHelper(coder: aDecoder, propertyName: "Weight", defaultVal: nil)
         let sessionArrayData = User.decodeHelper(coder: aDecoder,propertyName: "SessionArray",defaultVal: NSData())
         self.SessionArray = NSKeyedUnarchiver.unarchiveObjectWithData(sessionArrayData) as? [Session]
         
@@ -52,6 +57,7 @@ class User : StorableObject{
         aCoder.encodeObject(Id,forKey:"Id")
         aCoder.encodeObject(EmergencyPhone,forKey:"EmergencyPhone")
         aCoder.encodeObject(EmergencyName,forKey:"EmergencyName")
+        aCoder.encodeObject(Weight,forKey:"Weight")
         println("SessionBeing Saved, count: \(SessionArray?.count)")
         //aCoder.encodeObject(SessionArray,forKey:"SessionArray")
         if let sessionArray  = SessionArray{
