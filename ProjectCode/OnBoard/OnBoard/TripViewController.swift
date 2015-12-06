@@ -15,6 +15,7 @@ class TripViewController: UIViewController {
     @IBOutlet weak var graphZoneView: UIView!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var endSessionButton: UIButton!
+    let maxGforce=10;
     
     // class-wise members
     var recentAccelerationData = [CMAcceleration]()
@@ -65,6 +66,27 @@ class TripViewController: UIViewController {
         recentAccelerationData.append(acceleration)
     }
     
+    
+    
+    func detectImpact(){
+        
+        updateTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
+        
+        var acceleration = MotionManager.sharedInstance.GetCurrentAcceleration()
+        var absAccel = sqrt((pow(acceleration.x,2))+(pow(acceleration.y,2))+(pow(acceleration.z,2)))
+       
+        if (absAccel > 29.4){
+            println("User might be in toruble")
+            var alert = UIAlertView(title: "High Acceleration detected", message: "Are you Ok", delegate: nil, cancelButtonTitle: "Yes")
+            alert.show()
+
+        }
+        
+    }
+    
+    
+    
+    
     func update(){
         UpdateRecentAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         UpdateGraph()
@@ -72,9 +94,13 @@ class TripViewController: UIViewController {
         SessionManager.sharedInstance.CurrentSession?.TakeSnapshot()
         UserManager.sharedInstance.currentUser
         //outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
+        
+        detectImpact()
+        
+        
     }
     
-    
+  
     // Dudation Label management
     func UpdateDurationLabel(){
         if let session = SessionManager.sharedInstance.CurrentSession {
@@ -137,6 +163,9 @@ class TripViewController: UIViewController {
         graph!.yAxis.hidden = true
         
     }
+    
+    
+
     
 //    func PlotGraph(){
 //        // Do any additional setup after loading the view.

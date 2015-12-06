@@ -11,7 +11,6 @@
 		121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121078311BED7BDB00D96B40 /* Acceleration.swift */; };
 		12186D031C0B9B1C005E04A4 /* GeoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12186D021C0B9B1C005E04A4 /* GeoTag.swift */; };
 		12186D051C0B9D5B005E04A4 /* GeoTagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12186D041C0B9D5B005E04A4 /* GeoTagManager.swift */; };
-		12186D191C0BB630005E04A4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12186D181C0BB630005E04A4 /* HealthKit.framework */; };
 		12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */; };
 		12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */; };
 		3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */; };
@@ -42,6 +41,8 @@
 		54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247AD1BF00530000116D2 /* StatusGraphView.swift */; };
 		54B247B41BF018E7000116D2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247B31BF018E7000116D2 /* Queue.swift */; };
 		6F4594441C0288B700EC85F5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4594431C0288B700EC85F5 /* Connectivity.swift */; };
+		6F6B957F1C13906B006550D8 /* CaloriesBurned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6B957E1C13906B006550D8 /* CaloriesBurned.swift */; };
+		6FB19ADB1C13B85400AE451A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FB19ADA1C13B85400AE451A /* HealthKit.framework */; };
 		BF43F7F11C12E1E3008BC6E2 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF43F7F01C12E1E3008BC6E2 /* HealthManager.swift */; };
 		BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */; };
 		BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */; };
@@ -73,7 +74,6 @@
 		121078311BED7BDB00D96B40 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
 		12186D021C0B9B1C005E04A4 /* GeoTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoTag.swift; sourceTree = "<group>"; };
 		12186D041C0B9D5B005E04A4 /* GeoTagManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoTagManager.swift; sourceTree = "<group>"; };
-		12186D181C0BB630005E04A4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		124863CA1C09282D00D86E62 /* OnBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OnBoard.entitlements; sourceTree = "<group>"; };
 		12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +105,8 @@
 		54B247AD1BF00530000116D2 /* StatusGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusGraphView.swift; sourceTree = "<group>"; };
 		54B247B31BF018E7000116D2 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		6F4594431C0288B700EC85F5 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		6F6B957E1C13906B006550D8 /* CaloriesBurned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaloriesBurned.swift; sourceTree = "<group>"; };
+		6FB19ADA1C13B85400AE451A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		BF43F7F01C12E1E3008BC6E2 /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeProfileTableViewController.swift; sourceTree = "<group>"; };
 		BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatDetailsViewController.swift; sourceTree = "<group>"; };
@@ -131,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12186D191C0BB630005E04A4 /* HealthKit.framework in Frameworks */,
+				6FB19ADB1C13B85400AE451A /* HealthKit.framework in Frameworks */,
 				C46901061C059C8D00D26D56 /* TelerikUI.framework in Frameworks */,
 				12ED59681BEE88B8007EBAC6 /* CoreMotion.framework in Frameworks */,
 			);
@@ -262,8 +264,8 @@
 			children = (
 				54765AE11BEE9BD000EC49AF /* Session.swift */,
 				54765AE21BEE9BD000EC49AF /* SessionManager.swift */,
-				54765AEB1BEEA01200EC49AF /* SessionSnapshot.swift */,
 				54765AED1BEEA04E00EC49AF /* LocationSnapshot.swift */,
+				54765AEB1BEEA01200EC49AF /* SessionSnapshot.swift */,
 				54765AEF1BEEA05E00EC49AF /* MotionSnapshot.swift */,
 			);
 			name = Session;
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				BF43F7F01C12E1E3008BC6E2 /* HealthManager.swift */,
+				6F6B957E1C13906B006550D8 /* CaloriesBurned.swift */,
 			);
 			name = Health;
 			sourceTree = "<group>";
@@ -324,7 +327,7 @@
 		C45C3C1B1BE9F7BA00174AC1 = {
 			isa = PBXGroup;
 			children = (
-				12186D181C0BB630005E04A4 /* HealthKit.framework */,
+				6FB19ADA1C13B85400AE451A /* HealthKit.framework */,
 				C46901051C059C8D00D26D56 /* TelerikUI.framework */,
 				12ED59671BEE88B8007EBAC6 /* CoreMotion.framework */,
 				C45C3C261BE9F7BA00174AC1 /* OnBoard */,
@@ -527,6 +530,7 @@
 				546FD05A1C011D1700C8CF7B /* Group.swift in Sources */,
 				5451F2981C0BB01D00DE3E60 /* GroupTableViewCell.swift in Sources */,
 				BFAD5EF11BF09CF40022D079 /* StatisticsTableViewController.swift in Sources */,
+				6F6B957F1C13906B006550D8 /* CaloriesBurned.swift in Sources */,
 				BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */,
 				121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */,
 				12186D051C0B9D5B005E04A4 /* GeoTagManager.swift in Sources */,
