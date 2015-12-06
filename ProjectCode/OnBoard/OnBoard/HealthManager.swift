@@ -64,4 +64,21 @@ class HealthManager {
     }
     self.HKStore.executeQuery(sampleQuery)
 }
+    
+    func saveSkiSession(startDate:NSDate, endDate:NSDate, distance:Double, distanceUnit:HKUnit, kiloCalories:Double,
+        completion: ( (Bool, NSError!) -> Void)!) {
+            let distanceQuantity = HKQuantity(unit: distanceUnit, doubleValue: distance)
+            let calorieQuantity = HKQuantity(unit: HKUnit.calorieUnit(), doubleValue: kiloCalories)
+            
+            let workout = HKWorkout(activityType: HKWorkoutActivityType.SnowSports, startDate: startDate, endDate: endDate, duration: abs(endDate.timeIntervalSinceDate(startDate)), totalEnergyBurned: calorieQuantity, totalDistance: distanceQuantity, metadata: nil)
+            HKStore.saveObject(workout, withCompletion: { (success, error) -> Void in
+                if error != nil {
+                    completion(success, error)
+                }
+                else {
+                    completion(success, nil)
+                }
+            })
+        
+    }
 }

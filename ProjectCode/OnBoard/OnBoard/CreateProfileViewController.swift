@@ -25,6 +25,7 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var weightLabel: UILabel!
     
     @IBAction func authorizeHK(sender: AnyObject) {
+        self.view.endEditing(true)
         healthManager.authorizeHealthKit { (authorized,  error) -> Void in
             if authorized {
                 println("HealthKit authorization received.")
@@ -40,8 +41,20 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func retrieveHKData(sender: AnyObject) {
-        self.weightLabel.hidden = false
+        self.view.endEditing(true)
+        
+        let healthStatus = healthManager.HKStore.authorizationStatusForType(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass))
+        
+        if healthStatus != HKAuthorizationStatus.SharingAuthorized {
+            var notification = UIAlertView(title: "Unauthorized to access Weight", message: "Enable read permissions in order to load your most current Weight.", delegate: nil, cancelButtonTitle: "Dismiss")
+            notification.show()
+            return
+        }
+        
         let sampleQty = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+        
+        self.weightLabel.text = "Loading..."
+        self.weightLabel.hidden = false
         
         self.healthManager.readMostRecentSample(sampleQty, completion: { (mostRecentWeight, error) -> Void in
             if error != nil {
