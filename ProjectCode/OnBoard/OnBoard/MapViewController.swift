@@ -32,7 +32,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         // Do any additional setup after loading the view.
         CenterMapToResortLocation()
-        //CenterMapToUserLocation()
+        CenterMapToUserLocation()
         //CenterMapToUserZoomed()
         
         
@@ -121,17 +121,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             let annotation = MKPointAnnotation()
             
             annotation.coordinate = GPS
-            
-            annotation.title = input1.text
-            annotation.subtitle = input2.text
+            if input1.text == ""{
+                
+                annotation.title = "Temporary Unnamed Location"
+                
+                self.mapView.removeAnnotation(annotation)
+                
+                self.mapView.showsUserLocation = true
+            }
+            else{
+                annotation.title = input1.text
+                annotation.subtitle = input2.text
+                
+                self.mapView.addAnnotation(annotation)
+                
+                self.mapView.showsUserLocation = true
+                
+                GeoTagManager.sharedInstance.SaveGeoTag(GeoTag(title: input1.text, description: input2.text, coord: annotation.coordinate))
+                
+                self.LoadPinsFromStorage()
+            }
            
-            self.mapView.addAnnotation(annotation)
             
-            self.mapView.showsUserLocation = true
-            
-            GeoTagManager.sharedInstance.SaveGeoTag(GeoTag(title: input1.text, description: input2.text, coord: annotation.coordinate))
-            
-            self.LoadPinsFromStorage()
         }))
         
         alertcontroller.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
@@ -254,17 +265,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
+    //***UI Buttons
+    var segSelf = false
+    var segGeo = false
+    var segGroup = false
     
-    
-    @IBAction func tagCurrentLocationButton(sender: AnyObject) {
+        @IBAction func tagCurrentLocationButton(sender: AnyObject) {
         showPinAlert(CLLocationCoordinate2D(latitude: self.mapView.userLocation.coordinate.latitude, longitude: self.mapView.userLocation.coordinate.longitude))
     }
-
+    
+    var toggleState = 0
     @IBAction func lockOn(sender: AnyObject) {
-        
-        self.lockedOn = true
+        if toggleState == 0{
+            self.lockedOn = true
+            toggleState = 1
+        }
+        else{
+            self.lockedOn = false
+            toggleState = 0
+        }
     }
-
+    
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -301,7 +323,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+
     
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+        
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            //textLabel.text = "First selected";
+            segSelf = true
+        case 1:
+            //textLabel.text = "Second Segment selected";
+            
+            segGeo = true
+        default: 0
+            break; 
+        }     }
 
     /*
     // MARK: - Navigation

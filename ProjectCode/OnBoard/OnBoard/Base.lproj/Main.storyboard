@@ -1075,18 +1075,21 @@
                                 <items>
                                     <barButtonItem style="plain" id="d1D-6k-sdz">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="TtB-YU-UXt">
-                                            <rect key="frame" x="314" y="7" width="218" height="30"/>
+                                            <rect key="frame" x="16" y="7" width="190" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="Self"/>
                                                 <segment title="Geo-Tags"/>
                                                 <segment title="Group"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="indexChanged:" destination="o86-if-mQy" eventType="valueChanged" id="Egf-VA-ctB"/>
+                                            </connections>
                                         </segmentedControl>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="Xtl-Y5-Bqh">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p7B-d4-7vL">
-                                            <rect key="frame" x="50" y="8" width="27" height="28"/>
+                                            <rect key="frame" x="216" y="2" width="35" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <state key="normal" image="LocationArrow">
@@ -1098,11 +1101,11 @@
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="FRb-Wp-6vT">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KUF-Cw-1Yu">
-                                            <rect key="frame" x="408" y="511" width="176" height="30"/>
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KUF-Cw-1Yu" userLabel="Tag Current">
+                                            <rect key="frame" x="261" y="0.0" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
-                                            <state key="normal" title="Geo-tag Current Location">
+                                            <state key="normal" image="TagCurrent">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -1110,9 +1113,19 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
-                                    <barButtonItem title="Lock On" id="nPY-xM-26W">
+                                    <barButtonItem style="plain" id="ySb-FA-S7V">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="eNV-sQ-0EE">
+                                            <rect key="frame" x="314" y="2" width="39" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="LockOn">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="lockOn:" destination="o86-if-mQy" eventType="touchUpInside" id="Pec-cW-lza"/>
+                                            </connections>
+                                        </button>
                                         <connections>
-                                            <action selector="lockOn:" destination="o86-if-mQy" id="9h4-aL-6DV"/>
+                                            <action selector="lockOn:" destination="o86-if-mQy" id="n1R-Vo-gjW"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -1130,6 +1143,7 @@
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="KPo-4G-j15"/>
                     <connections>
                         <outlet property="mapView" destination="HOP-dr-Nnj" id="QnH-FF-vN0"/>
+                        <outlet property="segmentedControl" destination="TtB-YU-UXt" id="TJp-Eb-0AI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMY-Ve-kQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1526,11 +1540,13 @@
     </scenes>
     <resources>
         <image name="LocationArrow" width="42" height="42"/>
+        <image name="LockOn" width="128" height="128"/>
         <image name="Map" width="24" height="24"/>
         <image name="Mountain" width="300" height="333"/>
         <image name="SnowMountain" width="960" height="600"/>
         <image name="Snowboard" width="256" height="256"/>
         <image name="Stop" width="128" height="128"/>
+        <image name="TagCurrent" width="128" height="128"/>
         <image name="Trip" width="24" height="24"/>
         <image name="User_blue" width="64" height="64"/>
         <image name="Warning" width="48" height="48"/>
