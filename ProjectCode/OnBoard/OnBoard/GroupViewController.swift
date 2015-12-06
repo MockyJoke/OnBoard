@@ -7,10 +7,14 @@
 //
 
 import UIKit
-
-class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+import MapKit
+class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate{
     var group : Group?
     var updateTimer : NSTimer?
+    
+    @IBOutlet weak var helpSignalSwitch: UISwitch!
+    @IBOutlet weak var groupMapView: MKMapView!
+    @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var memberTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +31,22 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     func update(){
+        Report()
         UpdateGroup()
         memberTableView.reloadData()
-        Report()
     }
     
+
     func UpdateGroup(){
         if(OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.currentUser)){
             if let group = OnlineServiceManager.sharedInstance.FindGroupById(UserManager.sharedInstance.currentUser.GroupId!){
                 self.group = group
+                groupNameLabel.text = group.Name
             }
+            
         }
     }
     
@@ -47,8 +55,9 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if (user.IsAnonymous) {
             return
         }
+        
         if let location = CoreLocationManager.sharedInstance.latestLocation{
-            OnlineServiceManager.sharedInstance.SaveActiveData(user.Id, lat: location.coordinate.latitude, lon: location.coordinate.longitude, statusCode: "0")
+            OnlineServiceManager.sharedInstance.SaveActiveData(user.Id, lat: location.coordinate.latitude, lon: location.coordinate.longitude, isAbnormal: helpSignalSwitch.on)
         }
         
         
@@ -91,12 +100,54 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
             tableView.deselectRowAtIndexPath(indexPath, animated: false)
             if let g = group {
                 cell.UpdateCell(g.GroupUsers[indexPath.row])
+                showGroupUserOnMap(g.GroupUsers[indexPath.row])
             }
         }
     }
     
+    /********** MAPPING *****************/
+    func mapView(mapView: MKMapView!,
+        viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+            
+            if annotation is MKUserLocation {
+                //return nil so map view draws "blue dot" for standard user location
+                return nil
+            }
+            
+            let reuseId = "pin"
+            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+            if pinView == nil {
+                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                pinView!.canShowCallout = true
+                pinView!.animatesDrop = true
+            }
+            else {
+                pinView!.annotation = annotation
+            }
+            //pinView!.image = UIImage(named:"User_red")!
+            
+            return pinView
+    }
     
+    func showGroupUserOnMap(groupUser : GroupUser){
+        groupMapView.removeAnnotations(groupMapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.title = groupUser.Name
+        annotation.coordinate = groupUser.GetLocation()!.coordinate
+            
+        groupMapView.addAnnotation(annotation)
+        CenterMapOnCoordinate(annotation.coordinate);
+    }
     
+    func CenterMapOnCoordinate (coordinate : CLLocationCoordinate2D){
+        let spanX = 0.007
+        let spanY = 0.007
+        var newRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpanMake(spanX, spanY))
+        groupMapView.setRegion(newRegion, animated: true)
+    }
+    @IBAction func helpSignalSwitchAction(sender: AnyObject) {
+        update()
+    }
     
 
 }

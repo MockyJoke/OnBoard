@@ -28,7 +28,6 @@ class TripViewController: UIViewController {
         updateTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
         self.resetMaxValues()
         user = UserManager.sharedInstance.currentUser
-        tempUser = UserManager.sharedInstance.GetUserByName("Hy")
         for i in 0...9{
             recentAccelerationData.append(MotionManager.sharedInstance.GetCurrentAcceleration())
         }

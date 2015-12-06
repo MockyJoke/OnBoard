@@ -21,4 +21,12 @@ class ActiveData : NSObject{
         StatusCode = json["StatusCode"].stringValue
         //User = GroupUser(json: json["User"])
     }
+    
+    func IsAbnormal() -> Bool{
+        if (StatusCode == "1"){
+            return true
+        }else{
+            return false
+        }
+    }
 }
