@@ -21,4 +21,15 @@ class Group : NSObject {
             GroupUsers.append(GroupUser(json: json["Users"][i]))
         }
     }
+    func PutLocalUserAtFirst(){
+        for (var i = 0; i < GroupUsers.count; i++){
+            if(GroupUsers[i].IsYourself()){
+                var yourself = GroupUsers[i]
+                GroupUsers.removeAtIndex(i)
+                GroupUsers.insert(yourself, atIndex: 0)
+            }
+        }
+    }
+    
+    
 }

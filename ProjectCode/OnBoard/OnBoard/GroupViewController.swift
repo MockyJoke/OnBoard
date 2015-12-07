@@ -51,8 +51,10 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func UpdateGroup(){
         if(OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.currentUser)){
             if let group = OnlineServiceManager.sharedInstance.FindGroupById(UserManager.sharedInstance.currentUser.GroupId!){
+                group.PutLocalUserAtFirst()
                 self.group = group
                 groupNameLabel.text = group.Name
+                
             }
             
         }

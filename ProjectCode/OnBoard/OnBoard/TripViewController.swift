@@ -15,6 +15,13 @@ class TripViewController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var graphZoneView: UIView!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var endSessionButton: UIButton!
+    
+    // STATS
+    @IBOutlet weak var calorieLabel: UILabel!
+    @IBOutlet weak var speedLabel: UILabel!
+    @IBOutlet weak var altitudeLabel: UILabel!
+    
+    
     var impactDetected = false
    
     // class-wise members
@@ -70,12 +77,18 @@ class TripViewController: UIViewController, UIAlertViewDelegate {
         UpdateRecentAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         UpdateGraph()
         UpdateDurationLabel()
+        updateStats()
         SessionManager.sharedInstance.CurrentSession?.TakeSnapshot()
         UserManager.sharedInstance.currentUser
         //outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         
     }
-    
+    func updateStats(){
+        if let location = CoreLocationManager.sharedInstance.latestLocation{
+            speedLabel.text = "\(location.speed) km/h"
+            altitudeLabel.text = "\(location.altitude) m"
+        }
+    }
   
     // Dudation Label management
     func UpdateDurationLabel(){
@@ -130,6 +143,7 @@ class TripViewController: UIViewController, UIAlertViewDelegate {
         )*/
         //dataSeries!.style.fill = TKSolidFill (color: UIColor(red: 39.0/255.0, green: 2.0/255.0, blue: 178.0/255.0, alpha: 1))
         //dataSeries!.style.stroke = TKStroke(color: UIColor(red: 177.0/255.0, green: 156.0/255.0, blue: 255.0/255.0, alpha: 1), width: 2.0)
+        dataSeries!.style.stroke = TKStroke(fill: fill, width: 2.0)
         graph!.addSeries(dataSeries)
         graph!.xAxis.hidden = true
         graph!.yAxis.hidden = true

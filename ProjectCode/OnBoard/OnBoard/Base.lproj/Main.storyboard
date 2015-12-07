@@ -1426,12 +1426,6 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pJ-Bo-Dbq">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-UL-ZaM">
                                 <rect key="frame" x="0.0" y="36" width="600" height="232"/>
                                 <animations/>
@@ -1452,7 +1446,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0q1-AP-C1p">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="45"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1493,6 +1487,12 @@
                                     <action selector="stopSession:" destination="wZb-gh-TDW" eventType="touchUpInside" id="0OZ-4x-Hi1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pJ-Bo-Dbq">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -1522,7 +1522,7 @@
                             <constraint firstItem="2pJ-Bo-Dbq" firstAttribute="top" secondItem="bml-0x-bAr" secondAttribute="bottom" constant="27" id="cGF-Gc-glF"/>
                             <constraint firstItem="eQj-ub-JnI" firstAttribute="centerX" secondItem="jvD-gZ-fod" secondAttribute="centerX" id="feg-Fb-J7G"/>
                             <constraint firstItem="1UP-vm-OeS" firstAttribute="top" secondItem="DQl-Mr-1a0" secondAttribute="bottom" constant="16" id="ffc-AI-Wev"/>
-                            <constraint firstItem="0q1-AP-C1p" firstAttribute="top" secondItem="2SD-8Z-Xaz" secondAttribute="bottom" constant="5" id="kvw-v5-GOC"/>
+                            <constraint firstItem="0q1-AP-C1p" firstAttribute="top" secondItem="2SD-8Z-Xaz" secondAttribute="bottom" constant="20" id="kvw-v5-GOC"/>
                             <constraint firstItem="bml-0x-bAr" firstAttribute="leading" secondItem="qP6-4v-shX" secondAttribute="trailing" constant="8" id="l4E-K2-jEy"/>
                             <constraint firstItem="jvD-gZ-fod" firstAttribute="top" secondItem="qP6-4v-shX" secondAttribute="bottom" constant="15" id="mhc-ux-yCo"/>
                             <constraint firstAttribute="centerX" secondItem="YR5-KP-PR1" secondAttribute="centerX" constant="2" id="n3O-LX-P1L"/>
@@ -1549,9 +1549,9 @@
                                 <exclude reference="xuJ-gB-9DT"/>
                                 <exclude reference="cRk-JI-DYj"/>
                                 <exclude reference="DQl-Mr-1a0"/>
-                                <exclude reference="2pJ-Bo-Dbq"/>
                                 <exclude reference="0q1-AP-C1p"/>
                                 <exclude reference="YR5-KP-PR1"/>
+                                <exclude reference="2pJ-Bo-Dbq"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="3nj-Cc-f6b"/>
@@ -1607,9 +1607,9 @@
                                 <include reference="xuJ-gB-9DT"/>
                                 <include reference="cRk-JI-DYj"/>
                                 <include reference="DQl-Mr-1a0"/>
-                                <include reference="2pJ-Bo-Dbq"/>
                                 <include reference="0q1-AP-C1p"/>
                                 <include reference="YR5-KP-PR1"/>
+                                <include reference="2pJ-Bo-Dbq"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="3nj-Cc-f6b"/>
@@ -1652,9 +1652,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Trip" image="Trip" id="p2g-me-TLV"/>
                     <connections>
+                        <outlet property="altitudeLabel" destination="1UP-vm-OeS" id="GFz-lw-nSh"/>
+                        <outlet property="calorieLabel" destination="QPs-uf-ISX" id="Pb5-Fl-PfC"/>
                         <outlet property="durationLabel" destination="0q1-AP-C1p" id="fP3-zc-sew"/>
                         <outlet property="endSessionButton" destination="YR5-KP-PR1" id="yYj-3q-lcN"/>
                         <outlet property="graphZoneView" destination="U2e-UL-ZaM" id="U8A-A5-RA5"/>
+                        <outlet property="speedLabel" destination="mVu-js-6v9" id="XCV-sg-piH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmN-pq-UR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
