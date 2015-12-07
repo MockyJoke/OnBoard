@@ -284,6 +284,12 @@
                                     <segue destination="4G1-sc-trA" kind="show" id="Th0-f3-G5K"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using OnBoard as:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrO-YW-8bU">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Snowboard" translatesAutoresizingMaskIntoConstraints="NO" id="U0z-CB-LD8">
                                 <rect key="frame" x="172" y="114" width="256" height="258"/>
                                 <animations/>
@@ -301,12 +307,28 @@
                             <constraint firstAttribute="centerX" secondItem="UTz-j4-PDs" secondAttribute="centerX" constant="-0.5" id="DnB-Kh-6rh"/>
                             <constraint firstAttribute="centerX" secondItem="d9t-IU-ChB" secondAttribute="centerX" constant="-0.5" id="IVv-mF-4wn"/>
                             <constraint firstItem="d9t-IU-ChB" firstAttribute="top" secondItem="UTz-j4-PDs" secondAttribute="bottom" constant="25" id="MVE-As-bn2"/>
+                            <constraint firstItem="JrO-YW-8bU" firstAttribute="top" secondItem="d9t-IU-ChB" secondAttribute="bottom" constant="13" id="Ngg-pW-0R1"/>
                             <constraint firstItem="U0z-CB-LD8" firstAttribute="leading" secondItem="e7T-ug-par" secondAttribute="leading" constant="170" id="hCH-gp-WmN"/>
+                            <constraint firstAttribute="centerX" secondItem="JrO-YW-8bU" secondAttribute="centerX" id="r1Z-5l-sHZ"/>
                             <constraint firstAttribute="centerX" secondItem="U0z-CB-LD8" secondAttribute="centerX" id="uXf-e6-w7X"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="JrO-YW-8bU"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="hCH-gp-WmN"/>
+                                <exclude reference="Ngg-pW-0R1"/>
+                                <exclude reference="r1Z-5l-sHZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="JrO-YW-8bU"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Ngg-pW-0R1"/>
+                                <include reference="r1Z-5l-sHZ"/>
                             </mask>
                         </variation>
                     </view>
