@@ -22,6 +22,7 @@ class DelayExecuter : NSObject{
     }
     
     internal func Execute(){
+        println("New Delay item scheduled")
         action?()
         //print("Task executed")
         completed = true

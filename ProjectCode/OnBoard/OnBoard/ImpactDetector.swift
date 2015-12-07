@@ -46,13 +46,13 @@ class ImpactDetector : NSObject{
     }
     
     func update(){
-        detectImpact()
+        //detectImpact()
     }
     
     func detectImpact(){
         var acceleration = MotionManager.sharedInstance.GetCurrentAcceleration()
         var absAccel = sqrt((pow(acceleration.x,2))+(pow(acceleration.y,2))+(pow(acceleration.z,2)))
-        if (absAccel > 1 && impactDetected==false){
+        if (absAccel > 3 && impactDetected==false){
             self.impactDetected = true
             println("User might be in toruble")
             var alert = UIAlertView(title: "Potential Impact Detected", message: "Do you require assistance?", delegate: nil, cancelButtonTitle: "Yes") //yes has index 0

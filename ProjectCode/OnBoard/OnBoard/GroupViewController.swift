@@ -22,7 +22,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Setup group update timer
         updateTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "update", userInfo: nil, repeats: true)
-        impactHelpCheckTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "checkNeedHelp", userInfo: nil, repeats: true)
+        impactHelpCheckTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "checkNeedHelp", userInfo: nil, repeats: true)
         DelayExecuter.RequestNewDelayLoadItem(0.5, action: {()->() in
             self.update()
         })
