@@ -747,6 +747,38 @@
             </objects>
             <point key="canvasLocation" x="3950" y="404"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="yfs-Ng-S4c">
+            <objects>
+                <viewController id="Vke-vB-Dt0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tcg-Y4-AQx"/>
+                        <viewControllerLayoutGuide type="bottom" id="T8j-Ta-set"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EUD-Cj-nuR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5C-1k-Zx5">
+                                <rect key="frame" x="232" y="66" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance travelled" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIp-VO-1Jw">
+                                <rect key="frame" x="45" y="66" width="137" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wuR-QL-bjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3877" y="1146"/>
+        </scene>
         <!--Group-->
         <scene sceneID="Epk-1v-qVH">
             <objects>
@@ -1181,6 +1213,7 @@
                                 </state>
                                 <connections>
                                     <action selector="stopSession:" destination="wZb-gh-TDW" eventType="touchUpInside" id="DV5-cH-xgb"/>
+                                    <segue destination="Vke-vB-Dt0" kind="show" id="WXN-lu-8bh"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-UL-ZaM">

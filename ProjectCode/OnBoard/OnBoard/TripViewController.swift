@@ -10,13 +10,14 @@ import UIKit
 import CoreMotion
 
 
-class TripViewController: UIViewController {
+class TripViewController: UIViewController, UIAlertViewDelegate {
     // Outlet declarations
     @IBOutlet weak var graphZoneView: UIView!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var endSessionButton: UIButton!
     let maxGforce=10;
-    
+    var impactDetected = false
+   
     // class-wise members
     var recentAccelerationData = [CMAcceleration]()
     var updateTimer : NSTimer?
@@ -70,18 +71,32 @@ class TripViewController: UIViewController {
     
     func detectImpact(){
         
-        updateTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
+        //updateTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
         
         var acceleration = MotionManager.sharedInstance.GetCurrentAcceleration()
         var absAccel = sqrt((pow(acceleration.x,2))+(pow(acceleration.y,2))+(pow(acceleration.z,2)))
        
-        if (absAccel > 29.4){
+        if (absAccel > 1 && impactDetected==false){
+            self.impactDetected = true
             println("User might be in toruble")
-            var alert = UIAlertView(title: "High Acceleration detected", message: "Are you Ok", delegate: nil, cancelButtonTitle: "Yes")
+            var alert = UIAlertView(title: "Potential Impact Detected", message: "Do you require assistance?", delegate: nil, cancelButtonTitle: "Yes") //yes has index 0
+            alert.addButtonWithTitle("No")    // no has index 1
+            alert.delegate = self
             alert.show()
-
+    
         }
         
+    }
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        switch buttonIndex{
+        case 0:
+            println("PLease call emergency or notify my group")
+        case 1:
+            impactDetected=false;
+        default:
+            println("everythings good")
+        }
+
     }
     
     
@@ -95,8 +110,8 @@ class TripViewController: UIViewController {
         UserManager.sharedInstance.currentUser
         //outputAccelerationData(MotionManager.sharedInstance.GetCurrentAcceleration())
         
+       
         detectImpact()
-        
         
     }
     

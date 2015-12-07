@@ -42,6 +42,7 @@
 		54B247B41BF018E7000116D2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247B31BF018E7000116D2 /* Queue.swift */; };
 		6F4594441C0288B700EC85F5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4594431C0288B700EC85F5 /* Connectivity.swift */; };
 		6FB19ADB1C13B85400AE451A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FB19ADA1C13B85400AE451A /* HealthKit.framework */; };
+		6FCE13D71C15079D00B0E4DF /* SessionEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE13D61C15079D00B0E4DF /* SessionEndViewController.swift */; };
 		BF43F7F11C12E1E3008BC6E2 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF43F7F01C12E1E3008BC6E2 /* HealthManager.swift */; };
 		BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */; };
 		BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */; };
@@ -105,6 +106,7 @@
 		54B247B31BF018E7000116D2 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		6F4594431C0288B700EC85F5 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		6FB19ADA1C13B85400AE451A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		6FCE13D61C15079D00B0E4DF /* SessionEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionEndViewController.swift; sourceTree = "<group>"; };
 		BF43F7F01C12E1E3008BC6E2 /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		BF8E77B51BF0621000327C90 /* ChangeProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeProfileTableViewController.swift; sourceTree = "<group>"; };
 		BFAD5EEE1BF09CF40022D079 /* StatDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatDetailsViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				C45C3C471BE9FC7100174AC1 /* ViewControllers */,
 				C45C3C271BE9F7BA00174AC1 /* AppDelegate.swift */,
 				C45C3C2B1BE9F7BA00174AC1 /* Main.storyboard */,
+				6FCE13D61C15079D00B0E4DF /* SessionEndViewController.swift */,
 				3C9F4DA61BEFDB4800301029 /* LaunchScreen.storyboard */,
 				C45C3C2E1BE9F7BA00174AC1 /* Assets.xcassets */,
 				C45C3C331BE9F7BA00174AC1 /* Info.plist */,
@@ -530,6 +533,7 @@
 				BFAD5EF01BF09CF40022D079 /* StatDetailsViewController.swift in Sources */,
 				121078321BED7BDB00D96B40 /* Acceleration.swift in Sources */,
 				12186D051C0B9D5B005E04A4 /* GeoTagManager.swift in Sources */,
+				6FCE13D71C15079D00B0E4DF /* SessionEndViewController.swift in Sources */,
 				54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */,
 				54B247B41BF018E7000116D2 /* Queue.swift in Sources */,
 				BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */,
