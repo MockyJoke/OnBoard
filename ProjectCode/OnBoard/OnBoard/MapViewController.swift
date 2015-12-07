@@ -273,14 +273,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         @IBAction func tagCurrentLocationButton(sender: AnyObject) {
         showPinAlert(CLLocationCoordinate2D(latitude: self.mapView.userLocation.coordinate.latitude, longitude: self.mapView.userLocation.coordinate.longitude))
     }
+    @IBOutlet weak var lockBarButton: UIBarButtonItem!
     
+    @IBOutlet weak var lockButton: UIButton!
     var toggleState = 0
     @IBAction func lockOn(sender: AnyObject) {
         if toggleState == 0{
+            lockButton.setImage(UIImage(named: "maplocked"), forState: UIControlState.Normal)
             self.lockedOn = true
             toggleState = 1
         }
         else{
+            lockButton.setImage(UIImage(named: "mapunlocked"), forState: UIControlState.Normal)
             self.lockedOn = false
             toggleState = 0
         }
