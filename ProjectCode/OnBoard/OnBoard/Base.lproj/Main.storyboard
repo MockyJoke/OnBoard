@@ -1062,14 +1062,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HOP-dr-Nnj">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <animations/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Hhp-vK-idH" appends="YES" id="3PD-xo-mAJ"/>
                                 </connections>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sX2-qC-yYJ">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sX2-qC-yYJ">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <animations/>
                                 <items>
@@ -1136,8 +1136,11 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="HOP-dr-Nnj" secondAttribute="bottom" id="055-wo-vHV"/>
                             <constraint firstAttribute="trailing" secondItem="HOP-dr-Nnj" secondAttribute="trailing" id="124-8y-yg4"/>
-                            <constraint firstItem="HOP-dr-Nnj" firstAttribute="top" secondItem="ghh-x8-xwG" secondAttribute="top" id="2wU-Vx-HUP"/>
+                            <constraint firstItem="HOP-dr-Nnj" firstAttribute="top" secondItem="ghh-x8-xwG" secondAttribute="top" constant="20" id="2wU-Vx-HUP"/>
                             <constraint firstItem="HOP-dr-Nnj" firstAttribute="leading" secondItem="ghh-x8-xwG" secondAttribute="leading" id="6nf-Pr-CYF"/>
+                            <constraint firstItem="sX2-qC-yYJ" firstAttribute="top" secondItem="CGP-rN-s8g" secondAttribute="bottom" id="gdc-lo-dvm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sX2-qC-yYJ" secondAttribute="trailing" constant="-16" id="mRJ-JU-1Ni"/>
+                            <constraint firstItem="sX2-qC-yYJ" firstAttribute="leading" secondItem="ghh-x8-xwG" secondAttribute="leadingMargin" constant="-16" id="vid-B8-ZZe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="KPo-4G-j15"/>
