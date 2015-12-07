@@ -28,7 +28,7 @@ class GroupTableViewCell: UITableViewCell {
     
     func UpdateCell(groupUser : GroupUser){
         self.groupUser = groupUser
-        userIconImage.image = UIImage(named: "User_blue")
+        userIconImage.image = UIImage(named: "skier")
         cellLabel.text = groupUser.Name
         if let activeData = groupUser.Data {
             
@@ -36,8 +36,8 @@ class GroupTableViewCell: UITableViewCell {
                 distanceLabel.text = "( Yourself )"
             }else{
                 if let location = CoreLocationManager.sharedInstance.latestLocation{
-                    //distanceLabel.text = "\(groupUser.GetDistanceToCoordinate(location)) meters away"
-                    distanceLabel.text = String.localizedStringWithFormat("%.1f meters away", groupUser.GetDistanceToCoordinate(location))
+                    let decimal = ".1"
+                    distanceLabel.text = "\(groupUser.GetDistanceToCoordinate(location).format(decimal)) meters away"
                 }else{
                     distanceLabel.text  = ""
                 }

@@ -100,7 +100,7 @@ class TripViewController: UIViewController, UIAlertViewDelegate {
         graph!.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
         self.graphZoneView.addSubview(graph!)
         
-        dataSeries = TKChartLineSeries(items: GetPlotData())
+        dataSeries = TKChartSplineSeries(items: GetPlotData())
         
         let fill = TKLinearGradientFill(colors: [UIColor(red: 0.92, green: 0.53, blue: 0.18, alpha: 1),
             UIColor(red: 0.95, green: 0.33, blue: 1.0, alpha: 1),
@@ -117,13 +117,19 @@ class TripViewController: UIViewController, UIAlertViewDelegate {
     func UpdateGraph(){
         // Do any additional setup after loading the view.
         graph?.removeAllData()
-        dataSeries = TKChartLineSeries(items: GetPlotData())
-        
+        dataSeries = TKChartSplineSeries(items: GetPlotData())
+        //dataSeries = TKChartSplineAreaSeries ( items: GetPlotData())
         let fill = TKLinearGradientFill(colors: [UIColor(red: 0.92, green: 0.53, blue: 0.18, alpha: 1),
             UIColor(red: 0.95, green: 0.33, blue: 1.0, alpha: 1),
             UIColor(red: 0.18, green: 0.58, blue: 0.92, alpha: 1)])
-        
-        dataSeries!.style.stroke = TKStroke(fill: fill, width: 2.0)
+
+        /*dataSeries!.style.fill = TKGradientFill (colors: [UIColor(red: 39.0/255.0, green: 2.0/255.0, blue: 178.0/255.0, alpha: 1),
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0),
+            UIColor(red: 39.0/255.0, green: 2.0/255.0, blue: 178.0/255.0, alpha: 1)
+            ]
+        )*/
+        //dataSeries!.style.fill = TKSolidFill (color: UIColor(red: 39.0/255.0, green: 2.0/255.0, blue: 178.0/255.0, alpha: 1))
+        //dataSeries!.style.stroke = TKStroke(color: UIColor(red: 177.0/255.0, green: 156.0/255.0, blue: 255.0/255.0, alpha: 1), width: 2.0)
         graph!.addSeries(dataSeries)
         graph!.xAxis.hidden = true
         graph!.yAxis.hidden = true

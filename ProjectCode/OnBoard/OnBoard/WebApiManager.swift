@@ -15,13 +15,10 @@ class WebApiManager : NSObject{
     // Singleton object for the manager
     internal private(set) static var sharedInstance = WebApiManager()
     
-    let baseURL = "http://OnBoardWeb.cloudapp.net/api/users"
+    let baseURL = "http://OnBoardWeb.cloudapp.net/api/"
     private override init(){
         
     }
-    
-    
-    
     
     func MakeHTTPGetRequest(url: String, onCompletion: ServiceResponse) {
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
