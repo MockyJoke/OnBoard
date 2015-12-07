@@ -15,6 +15,7 @@
 		12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */; };
 		3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */; };
 		3C9F4DA71BEFDB4800301029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9F4DA61BEFDB4800301029 /* LaunchScreen.storyboard */; };
+		3CED5A651C16307300FBF973 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED5A641C16307300FBF973 /* AppInfoViewController.swift */; };
 		540B33851BF151DF007F6B7B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B33841BF151DF007F6B7B /* MapViewController.swift */; };
 		541CFF471BEAC32200DEB2D3 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */; };
 		541CFF4C1BEAC8DD00DEB2D3 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */; };
@@ -81,6 +82,7 @@
 		12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		3C6D07E51BEE9A1F0079B948 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		3C9F4DA61BEFDB4800301029 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3CED5A641C16307300FBF973 /* AppInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		540B33841BF151DF007F6B7B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		541CFF461BEAC32200DEB2D3 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				C45C3C4E1BEA038500174AC1 /* SessionConfirmationViewController.swift */,
 				C45C3C501BEA05D100174AC1 /* StartupViewController.swift */,
 				12ED596B1BEE8BB7007EBAC6 /* TripViewController.swift */,
+				3CED5A641C16307300FBF973 /* AppInfoViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				C45C3C4F1BEA038500174AC1 /* SessionConfirmationViewController.swift in Sources */,
 				5476CDD91BEC1B06002A3D45 /* SkiResortDataManager.swift in Sources */,
 				546FC70F1C0011EE00B9EB51 /* WebApiManager.swift in Sources */,
+				3CED5A651C16307300FBF973 /* AppInfoViewController.swift in Sources */,
 				5476CDDC1BEC1B86002A3D45 /* SkiResort.swift in Sources */,
 				3C6D07E61BEE9A1F0079B948 /* CreateProfileViewController.swift in Sources */,
 				C45C3C4D1BEA027E00174AC1 /* LocationSpecificationViewController.swift in Sources */,
