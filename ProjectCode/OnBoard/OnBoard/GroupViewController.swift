@@ -22,13 +22,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if UserManager.sharedInstance.currentUser.GroupId != nil {
-            //anonymousBlockingView.hidden = true
-        }
-        else {
-            //anonymousBlockingView.hidden = false
-        }
+    
         
         // Setup group update timer
         updateTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "update", userInfo: nil, repeats: true)
