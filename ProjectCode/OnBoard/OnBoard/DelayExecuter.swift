@@ -22,7 +22,7 @@ class DelayExecuter : NSObject{
     }
     
     internal func Execute(){
-        println("New Delay item scheduled")
+        //println("New Delay item scheduled")
         action?()
         //print("Task executed")
         completed = true
@@ -30,7 +30,8 @@ class DelayExecuter : NSObject{
     }
     
     func ScheduleAction(action : ()->()){
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.0001, target: self, selector: "Execute", userInfo: nil, repeats: false)
+        self.action = action
+        timer = NSTimer.scheduledTimerWithTimeInterval(delayInSeconds, target: self, selector: "Execute", userInfo: nil, repeats: false)
     }
     
     static func RequestNewDelayLoadItem(delayInsec : Double, action : ()->()) -> DelayExecuter{
