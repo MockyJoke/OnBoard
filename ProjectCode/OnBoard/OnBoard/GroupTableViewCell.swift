@@ -31,19 +31,21 @@ class GroupTableViewCell: UITableViewCell {
         userIconImage.image = UIImage(named: "User_blue")
         cellLabel.text = groupUser.Name
         if let activeData = groupUser.Data {
-            if (activeData.IsAbnormal()){
-                userStatusIconImage.image = UIImage(named: "Warning")
-            }else{
-                userStatusIconImage.image = nil
-            }
+            
             if (self.groupUser!.IsYourself()){
                 distanceLabel.text = "( Yourself )"
             }else{
                 if let location = CoreLocationManager.sharedInstance.latestLocation{
-                    distanceLabel.text = "\(groupUser.GetDistanceToCoordinate(location)) meters away"
+                    //distanceLabel.text = "\(groupUser.GetDistanceToCoordinate(location)) meters away"
+                    distanceLabel.text = String.localizedStringWithFormat("%.1f meters away", groupUser.GetDistanceToCoordinate(location))
                 }else{
                     distanceLabel.text  = ""
                 }
+            }
+            if (activeData.IsAbnormal()){
+                userStatusIconImage.image = UIImage(named: "Warning")
+            }else{
+                userStatusIconImage.image = nil
             }
         }
     }

@@ -158,7 +158,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if(!helpSignalSwitch.on && ImpactDetector.sharedInstance.needHelp){
             ImpactDetector.sharedInstance.resetHelpSignal()
         }
-        DelayExecuter.RequestNewDelayLoadItem(0.2, action: {()->() in
+        DelayExecuter.RequestNewDelayLoadItem(0.1, action: {()->() in
             self.update()
         })
         
