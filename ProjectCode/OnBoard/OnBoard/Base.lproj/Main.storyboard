@@ -1561,7 +1561,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="362" width="600" height="162"/>
+                                    <rect key="frame" x="0.0" y="369" width="600" height="155"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="Vke-vB-Dt0" id="eFU-Dk-Yuw"/>
