@@ -60,10 +60,11 @@ class TripViewController: UIViewController, UIAlertViewDelegate {
     @IBAction func stopSession(sender: AnyObject) {
         SessionManager.sharedInstance.EndCurrentSession()
         updateTimer?.invalidate()
+        ImpactDetector.sharedInstance.StopDetection()
         endSessionButton.hidden = true
         UserManager.sharedInstance.Save()
-        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())
-        print(UserManager.sharedInstance.currentUser.SessionArray![0].SnapshotArray.count)
+        //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())
+        //print(UserManager.sharedInstance.currentUser.SessionArray![0].SnapshotArray.count)
 
     }
     func UpdateRecentAccelerationData( acceleration : CMAcceleration){
@@ -169,13 +170,14 @@ class TripViewController: UIViewController, UIAlertViewDelegate {
 //        
 //    }
     
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
+
     }
-    */
+    
 }

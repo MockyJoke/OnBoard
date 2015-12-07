@@ -16,7 +16,7 @@ class Session : StorableObject, NSCoding {
     internal private(set) var IsStarted : Bool
     internal private(set) var IsEnded : Bool
     internal private(set) var SnapshotArray : [SessionSnapshot]
-
+    internal private(set) var MaxSpeed : Double = 0
     init(resort : SkiResort){
         IsStarted = false
         IsEnded = false
@@ -78,7 +78,8 @@ class Session : StorableObject, NSCoding {
     }
     
     func TakeSnapshot(){
-        SnapshotArray.append(SessionSnapshot.GetCurrentSnapshot())
+        let snapshot = SessionSnapshot.GetCurrentSnapshot()
+        SnapshotArray.append(snapshot)
     }
     
     // Returns distance travelled in meters

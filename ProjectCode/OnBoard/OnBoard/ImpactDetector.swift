@@ -46,7 +46,7 @@ class ImpactDetector : NSObject{
     }
     
     func update(){
-        //detectImpact()
+        detectImpact()
     }
     
     func detectImpact(){
