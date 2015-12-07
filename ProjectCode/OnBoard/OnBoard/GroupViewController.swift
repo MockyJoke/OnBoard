@@ -17,8 +17,18 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var groupMapView: MKMapView!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var memberTableView: UITableView!
+    
+    @IBOutlet weak var anonymousBlockingView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserManager.sharedInstance.currentUser.GroupId != nil {
+            anonymousBlockingView.hidden = true
+        }
+        else {
+            anonymousBlockingView.hidden = false
+        }
         
         // Setup group update timer
         updateTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "update", userInfo: nil, repeats: true)

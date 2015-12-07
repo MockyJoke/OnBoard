@@ -19,6 +19,8 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emergencyName: UITextField!
     @IBOutlet weak var emergencyTel: UITextField!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var HKauthButton: UIButton!
+    @IBOutlet weak var retWeightButton: UIButton!
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
@@ -123,6 +125,8 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
 
         self.title = "Create Profile"
         self.addButton.layer.cornerRadius = 10
+        self.HKauthButton.layer.cornerRadius = 10
+        self.retWeightButton.layer.cornerRadius = 10
         self.weightLabel.hidden = true
         
     }
