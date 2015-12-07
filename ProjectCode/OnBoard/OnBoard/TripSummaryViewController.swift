@@ -58,7 +58,7 @@ class TripSummaryViewController: UIViewController, UITableViewDelegate, UITableV
         if let session = SessionManager.sharedInstance.CurrentSession{
             array.append(SummaryTableViewItem(icon: "stopwatch", content: session.GetDurationHMSString(), catagory: "Duration"))
         
-        array.append(SummaryTableViewItem(icon: "ruler", content: "\(session.GetTotalDistance()) m", catagory: "Total distance"))
+        array.append(SummaryTableViewItem(icon: "ruler_2", content: "\(session.GetTotalDistance()) m", catagory: "Total distance"))
         
         array.append(SummaryTableViewItem(icon: "speed", content: "\(session.GetAvgSpeed()*3.6) km/h", catagory: "Average Speed"))
         }
