@@ -2374,8 +2374,7 @@
                                         <exclude reference="sfU-AL-cP9"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="208" y="542" width="180" height="50"/>
+                                <variation key="heightClass=regular">
                                     <mask key="constraints">
                                         <exclude reference="6cF-KN-fSs"/>
                                         <include reference="6gG-h8-s5k"/>
