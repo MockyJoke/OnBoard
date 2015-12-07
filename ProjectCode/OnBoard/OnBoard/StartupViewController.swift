@@ -16,6 +16,9 @@ class StartupViewController: UIViewController {
     
     @IBOutlet weak var changeProfileButton: UIButton!
     
+    var updatedName = ""
+    
+    @IBOutlet weak var currentUserNote: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +26,14 @@ class StartupViewController: UIViewController {
         self.sessionButton.layer.cornerRadius = 10
         self.prevSessionButton.layer.cornerRadius = 10
         self.changeProfileButton.layer.cornerRadius = 10
+        
+        self.updatedName = UserManager.sharedInstance.currentUser.Name
+        currentUserNote.text = "Using OnBoard as: \(updatedName)"
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.updatedName = UserManager.sharedInstance.currentUser.Name
+        currentUserNote.text = "Using OnBoard as: \(updatedName)"
     }
 
     override func didReceiveMemoryWarning() {

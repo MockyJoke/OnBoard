@@ -284,12 +284,6 @@
                                     <segue destination="4G1-sc-trA" kind="show" id="Th0-f3-G5K"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using OnBoard as:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrO-YW-8bU">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Snowboard" translatesAutoresizingMaskIntoConstraints="NO" id="U0z-CB-LD8">
                                 <rect key="frame" x="172" y="114" width="256" height="258"/>
                                 <animations/>
@@ -297,6 +291,15 @@
                                     <constraint firstAttribute="height" constant="258" id="Fe4-Hj-5oi"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using OnBoard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrO-YW-8bU">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="227" y="635" width="146" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <animations/>
                         <constraints>
@@ -317,9 +320,9 @@
                                 <exclude reference="JrO-YW-8bU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="hCH-gp-WmN"/>
                                 <exclude reference="Ngg-pW-0R1"/>
                                 <exclude reference="r1Z-5l-sHZ"/>
+                                <exclude reference="hCH-gp-WmN"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -335,6 +338,7 @@
                     <navigationItem key="navigationItem" title="OnBoard" id="1JH-RC-HhU"/>
                     <connections>
                         <outlet property="changeProfileButton" destination="d9t-IU-ChB" id="tEk-Xv-bRq"/>
+                        <outlet property="currentUserNote" destination="JrO-YW-8bU" id="QLN-AL-CVi"/>
                         <outlet property="prevSessionButton" destination="UTz-j4-PDs" id="DDj-or-FPZ"/>
                         <outlet property="sessionButton" destination="yZE-UP-zlu" id="gtN-uU-vQM"/>
                     </connections>
