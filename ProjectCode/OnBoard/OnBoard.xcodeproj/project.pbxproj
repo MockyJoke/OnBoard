@@ -40,6 +40,8 @@
 		5476CDDE1BEC2102002A3D45 /* SkiResortData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */; };
 		54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247AD1BF00530000116D2 /* StatusGraphView.swift */; };
 		54B247B41BF018E7000116D2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B247B31BF018E7000116D2 /* Queue.swift */; };
+		54C483DA1C15100B004486A8 /* ImpactDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C483D91C15100B004486A8 /* ImpactDetector.swift */; };
+		54C483DC1C151EB2004486A8 /* DelayExecuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C483DB1C151EB2004486A8 /* DelayExecuter.swift */; };
 		6F4594441C0288B700EC85F5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4594431C0288B700EC85F5 /* Connectivity.swift */; };
 		6FB19ADB1C13B85400AE451A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FB19ADA1C13B85400AE451A /* HealthKit.framework */; };
 		6FCE13D71C15079D00B0E4DF /* SessionEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE13D61C15079D00B0E4DF /* SessionEndViewController.swift */; };
@@ -104,6 +106,8 @@
 		5476CDDD1BEC2102002A3D45 /* SkiResortData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkiResortData.plist; sourceTree = "<group>"; };
 		54B247AD1BF00530000116D2 /* StatusGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusGraphView.swift; sourceTree = "<group>"; };
 		54B247B31BF018E7000116D2 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		54C483D91C15100B004486A8 /* ImpactDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpactDetector.swift; sourceTree = "<group>"; };
+		54C483DB1C151EB2004486A8 /* DelayExecuter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayExecuter.swift; sourceTree = "<group>"; };
 		6F4594431C0288B700EC85F5 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		6FB19ADA1C13B85400AE451A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		6FCE13D61C15079D00B0E4DF /* SessionEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionEndViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 			children = (
 				541CFF4B1BEAC8DD00DEB2D3 /* CoreLocationManager.swift */,
 				1210782F1BED788300D96B40 /* CoreMotionManager.swift */,
+				54C483DB1C151EB2004486A8 /* DelayExecuter.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				BF43F7F01C12E1E3008BC6E2 /* HealthManager.swift */,
+				54C483D91C15100B004486A8 /* ImpactDetector.swift */,
 			);
 			name = Health;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 				121078301BED788300D96B40 /* CoreMotionManager.swift in Sources */,
 				541CFF521BEAE38500DEB2D3 /* User.swift in Sources */,
 				12ED596C1BEE8BB7007EBAC6 /* TripViewController.swift in Sources */,
+				54C483DC1C151EB2004486A8 /* DelayExecuter.swift in Sources */,
 				C45C3C511BEA05D100174AC1 /* StartupViewController.swift in Sources */,
 				541CFF4C1BEAC8DD00DEB2D3 /* CoreLocationManager.swift in Sources */,
 				54765AF01BEEA05E00EC49AF /* MotionSnapshot.swift in Sources */,
@@ -536,6 +543,7 @@
 				6FCE13D71C15079D00B0E4DF /* SessionEndViewController.swift in Sources */,
 				54B247AE1BF00530000116D2 /* StatusGraphView.swift in Sources */,
 				54B247B41BF018E7000116D2 /* Queue.swift in Sources */,
+				54C483DA1C15100B004486A8 /* ImpactDetector.swift in Sources */,
 				BF8E77B61BF0621000327C90 /* ChangeProfileTableViewController.swift in Sources */,
 				545DDBE51C02775200D5E1B7 /* GroupManagementViewController.swift in Sources */,
 				545E92B11C092D40002BAB9A /* GroupViewController.swift in Sources */,

@@ -11,7 +11,8 @@ import MapKit
 class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate{
     var group : Group?
     var updateTimer : NSTimer?
-    
+    var impactHelpCheckTimer : NSTimer?
+    var delayLoadTimer : NSTimer?
     @IBOutlet weak var helpSignalSwitch: UISwitch!
     @IBOutlet weak var groupMapView: MKMapView!
     @IBOutlet weak var groupNameLabel: UILabel!
@@ -19,11 +20,12 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setup group update timer 
-        update()
+        // Setup group update timer
         updateTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "update", userInfo: nil, repeats: true)
-
-        
+        impactHelpCheckTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "checkNeedHelp", userInfo: nil, repeats: true)
+        DelayExecuter.RequestNewDelayLoadItem(0.5, action: {()->() in
+            self.update()
+        })
         // Do any additional setup after loading the view.
     }
 
@@ -39,6 +41,12 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         memberTableView.reloadData()
     }
     
+    func checkNeedHelp(){
+        if(ImpactDetector.sharedInstance.needHelp && helpSignalSwitch.on == false){
+            helpSignalSwitch.on = true;
+            update()
+        }
+    }
 
     func UpdateGroup(){
         if(OnlineServiceManager.sharedInstance.CreateUserOnServer(UserManager.sharedInstance.currentUser)){
@@ -146,7 +154,14 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         groupMapView.setRegion(newRegion, animated: true)
     }
     @IBAction func helpSignalSwitchAction(sender: AnyObject) {
-        update()
+        // User overriding!
+        if(!helpSignalSwitch.on && ImpactDetector.sharedInstance.needHelp){
+            ImpactDetector.sharedInstance.resetHelpSignal()
+        }
+        DelayExecuter.RequestNewDelayLoadItem(0.2, action: {()->() in
+            self.update()
+        })
+        
     }
     
 

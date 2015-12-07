@@ -49,6 +49,6 @@ class GroupTableViewCell: UITableViewCell {
     }
     
     func TapAction(){
-        print("The cell is clicked")
+        //print("The cell is clicked")
     }
 }
