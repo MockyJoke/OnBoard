@@ -41,7 +41,7 @@ namespace OnBoardService.Models
         {
             try
             {
-                ShowList = GMDTalkShow.LoadAll();
+                ShowList = GMDTalkShow.LoadAll2();
 
             }
             catch
@@ -102,6 +102,7 @@ namespace OnBoardService.Models
                     TalkShowLink link = new TalkShowLink() { Content = content.Substring(0, linkStartPos - 1), Url = content.Substring(linkStartPos) };
                     Links.Add(link);
                 }
+                Links.Reverse();
             }
         }
         public static async Task<string> GetPageHtmlAsync(string url)
@@ -116,7 +117,7 @@ namespace OnBoardService.Models
             return html;
         }
 
-        public static List<GMDTalkShow> LoadAll()
+        public static List<GMDTalkShow> LoadAll1()
         {
             string html = GMDTalkShow.GetPageHtmlAsync("http://gmdwith.us").Result;
             HtmlDocument htmlDoc = new HtmlDocument();
@@ -140,5 +141,48 @@ namespace OnBoardService.Models
             return talkShowList;
         }
 
+        public static List<GMDTalkShow> LoadAll2()
+        {
+            string html = GMDTalkShow.GetPageHtmlAsync("http://gmdwith.us").Result;
+            HtmlDocument htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(html);
+            HtmlNode node = htmlDoc.GetElementbyId("sidebar");
+            var nodes = node.SelectNodes("div/ul/li/ul/li/ul/li/a").Where(n => n.InnerText.Contains("月"));
+            return LoadCatagory(nodes.Last().GetAttributeValue("href", ""));
+        }
+        private static List<GMDTalkShow> LoadCatagory(string catagoryUrl)
+        {
+            string html = GMDTalkShow.GetPageHtmlAsync(catagoryUrl).Result;
+            HtmlDocument htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(html);
+
+            HtmlNode node = htmlDoc.GetElementbyId("main");
+            var nodes = node.SelectNodes("article/div/p").Where(n =>
+            {
+                var property = n.Attributes["class"];
+                return property != null && property.Value == "read-more";
+            });
+
+
+            List<GMDTalkShow> talkShowList = new List<GMDTalkShow>();
+            foreach (HtmlNode n in nodes)
+            {
+                var aNode = n.SelectNodes("a").First();
+                if (aNode != null)
+                {
+                    string url = aNode.GetAttributeValue("href", "");
+                    if (url != "")
+                    {
+                        GMDTalkShow talkShow = new GMDTalkShow(url);
+                        bool result = talkShow.LoadFromUrlAsync().Result;
+                        if (result)
+                        {
+                            talkShowList.Add(talkShow);
+                        }
+                    }
+                }
+            }
+            return talkShowList;
+        }
     }
 }
