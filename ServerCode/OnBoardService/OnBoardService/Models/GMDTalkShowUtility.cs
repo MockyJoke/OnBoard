@@ -99,8 +99,12 @@ namespace OnBoardService.Models
                     Regex pattern = new Regex(@"[。\s]|[\n]{2}");
                     string content = HttpUtility.HtmlDecode(pattern.Replace(links[i].InnerText, ""));
                     int linkStartPos = content.IndexOf("http");
-                    TalkShowLink link = new TalkShowLink() { Content = content.Substring(0, linkStartPos - 1), Url = content.Substring(linkStartPos) };
+                    Match url = Regex.Match(content, @"http.*?((?=\s)|(?=\z))");
+                    
+                    TalkShowLink link = new TalkShowLink() { Content = content.Substring(0, linkStartPos - 1), Url = url.Value };
                     Links.Add(link);
+                    //"SD音質1(節目後30分鍾更新)https://archive.org/details/sd20160229s <!--test1-->(adsbygoogle=window.adsbygoogle||[]).push({});"
+                    //"SD音質MP3下載 (節目後30分鍾更新)https://archive.org/download/sd20160229s/sd20160229s.mp3"
                 }
                 Links.Reverse();
             }
