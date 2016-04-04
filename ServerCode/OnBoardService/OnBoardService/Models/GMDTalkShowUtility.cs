@@ -106,7 +106,9 @@ namespace OnBoardService.Models
                     //"SD音質1(節目後30分鍾更新)https://archive.org/details/sd20160229s <!--test1-->(adsbygoogle=window.adsbygoogle||[]).push({});"
                     //"SD音質MP3下載 (節目後30分鍾更新)https://archive.org/download/sd20160229s/sd20160229s.mp3"
                 }
-                Links.Reverse();
+                TalkShowLink tmp = Links[0];
+                Links[0] = Links[1];
+                Links[1] = tmp;
             }
         }
         public static async Task<string> GetPageHtmlAsync(string url)
